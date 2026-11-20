@@ -15,56 +15,60 @@ button{font-family:inherit;cursor:pointer}
 /* ---- Puerta de entrada ---- */
 #gate{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:20px;background:radial-gradient(1200px 600px at 50% -10%,#2a0a0e 0%,var(--bg) 60%)}
 #gate::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.02) 0 2px,transparent 2px 26px);pointer-events:none}
-.gate-card{position:relative;width:100%;max-width:420px;background:rgba(18,18,22,.92);border:1px solid var(--border);border-radius:24px;padding:36px 28px 28px;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,.6)}
+.gate-card{position:relative;width:100%;max-width:420px;background:rgba(18,18,22,.92);border:1px solid var(--border);border-radius:24px;padding:36px 28px 28px;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,.6),0 0 40px rgba(232,38,58,.15)}
 .gate-logo{width:96px;height:96px;margin:0 auto 14px;border-radius:22px;background:linear-gradient(135deg,var(--red),var(--orange));display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:900;letter-spacing:-2px;color:#fff;box-shadow:0 10px 30px rgba(232,38,58,.45)}
 .gate-card h1{font-size:30px;letter-spacing:1px}
 .gate-card p{color:var(--muted);margin:10px 0 22px;font-size:15px}
-.gate-enter{width:100%;padding:16px;border:0;border-radius:14px;background:linear-gradient(135deg,var(--red),var(--orange));color:#fff;font-size:18px;font-weight:800;letter-spacing:1px}
+.gate-enter{width:100%;padding:16px;border:0;border-radius:14px;background:linear-gradient(135deg,var(--red),var(--orange));color:#fff;font-size:18px;font-weight:800;letter-spacing:1px;box-shadow:0 8px 24px rgba(255,122,26,.35)}
 .gate-note{margin-top:14px;font-size:12px;color:var(--muted)}
 .gate-foot{margin-top:22px;font-size:11px;letter-spacing:2px;color:#55555f}
 /* ---- App ---- */
-#app{max-width:760px;margin:0 auto;padding:0 12px 40px}
+#app{max-width:760px;margin:0 auto;padding:0 12px 96px}
 header.sticky{position:sticky;top:0;z-index:40;background:rgba(8,8,10,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);margin:0 -12px;padding:10px 12px;display:flex;align-items:center;gap:10px}
 .brand{display:flex;align-items:center;gap:9px;min-width:0}
-.brand-mark{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--red),var(--orange));display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px;color:#fff;flex:none}
+.brand-mark{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--red),var(--orange));display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px;color:#fff;flex:none;box-shadow:0 4px 14px rgba(232,38,58,.4)}
 .brand b{font-size:17px;letter-spacing:.5px;white-space:nowrap}
 .brand small{display:block;font-size:11px;color:var(--muted);font-weight:400}
-.hdr-btns{margin-left:auto;display:flex;gap:8px}
-.icon-btn{position:relative;background:var(--panel2);border:1px solid var(--border);color:var(--text);border-radius:11px;padding:9px 11px;font-size:14px}
-.icon-btn .badge{position:absolute;top:-6px;right:-6px;background:var(--red);color:#fff;font-size:10px;font-weight:800;min-width:18px;height:18px;border-radius:9px;display:flex;align-items:center;justify-content:center;padding:0 4px}
-.reset-hero{text-align:center;padding:20px 8px 6px}
+.hdr-right{margin-left:auto;display:flex;gap:8px;align-items:center;font-size:12px;color:var(--muted)}
+.status{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--border);border-radius:20px;padding:5px 11px;font-weight:700;color:var(--text);background:var(--panel)}
+.status .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
+.status.off .dot{background:var(--red);box-shadow:none}
+/* views */
+.view{display:none;animation:fadein .25s ease}
+.view.on{display:block}
+@keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+/* reset hero */
+.reset-hero{text-align:center;padding:22px 8px 6px}
 .reset-hero small{letter-spacing:2px;color:var(--muted);font-size:11px;font-weight:700}
-#resetBig{font-size:52px;font-weight:900;line-height:1.05;color:#fff}
+#resetBig{font-size:56px;font-weight:900;line-height:1.05;color:#fff;text-shadow:0 0 32px rgba(255,122,26,.35)}
 #resetBig.low{color:var(--orange)}
 .reset-sub{color:var(--muted);font-size:12px;margin-top:4px}
 .progress{height:6px;background:#1e1e24;border-radius:3px;overflow:hidden;margin:12px auto 4px;max-width:420px}
 .progress i{display:block;height:100%;background:linear-gradient(90deg,var(--red),var(--orange));width:0%}
 .status-row{display:flex;justify-content:center;gap:10px;align-items:center;margin-top:10px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
-.status{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--border);border-radius:20px;padding:5px 11px;font-weight:700;color:var(--text);background:var(--panel)}
-.status .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
-.status.off .dot{background:var(--red);box-shadow:none}
+/* stats */
+.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}
+@media(min-width:640px){.stats-grid{grid-template-columns:repeat(3,1fr)}}
+.stat{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:14px;text-align:center;transition:transform .2s,box-shadow .2s}
+.stat:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,38,58,.18)}
+.stat small{display:block;color:var(--muted);font-size:10px;letter-spacing:1px}
+.stat strong{font-size:24px;display:block;margin-top:2px}
+.stat .sub{font-size:11px;color:var(--muted)}
+.stat.wide{grid-column:1/-1}
+/* quick links */
+.quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.quick{background:linear-gradient(135deg,#1c0d10,#141419);border:1px solid var(--border);border-radius:14px;padding:14px 8px;text-align:center;color:var(--text);font-size:13px;font-weight:700}
+.quick span{display:block;font-size:24px;margin-bottom:6px}
+/* sections */
+section.panel{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:16px;margin-top:14px}
+section.panel.glow{box-shadow:0 0 32px rgba(232,38,58,.12)}
+section.panel h2{font-size:16px;letter-spacing:.5px;margin-bottom:6px}
+.hint{color:var(--muted);font-size:13px;margin-bottom:12px}
+.hint b{color:var(--text)}
 /* tabs */
 .tabs{display:flex;gap:8px;margin:16px 0 12px;overflow-x:auto;padding-bottom:2px}
 .tabs button{flex:1;white-space:nowrap;background:var(--panel2);border:1px solid var(--border);color:var(--muted);border-radius:11px;padding:10px 12px;font-size:14px;font-weight:700}
 .tabs button.on{background:linear-gradient(135deg,var(--red),var(--orange));color:#fff;border-color:transparent}
-/* live strip */
-#liveStrip{margin:0 0 14px;display:flex;flex-direction:column;gap:8px}
-.live-item{display:flex;align-items:center;gap:10px;background:#1c130a;border:1px solid #4a2c10;border-radius:13px;padding:10px 12px}
-.live-item img{width:40px;height:40px;object-fit:contain}
-.live-item .li-body{flex:1;min-width:0}
-.live-item b{font-size:14px}
-.live-item .li-meta{font-size:12px;color:var(--muted)}
-.live-item .join{flex:none}
-/* sections */
-section.panel{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:16px;margin-top:14px}
-section.panel h2{font-size:16px;letter-spacing:.5px;margin-bottom:6px}
-.hint{color:var(--muted);font-size:13px;margin-bottom:12px}
-.hint b{color:var(--text)}
-.stats-row{display:flex;gap:8px;margin-top:14px}
-.stat{flex:1;background:var(--panel);border:1px solid var(--border);border-radius:13px;padding:10px;text-align:center}
-.stat small{display:block;color:var(--muted);font-size:10px;letter-spacing:1px}
-.stat strong{font-size:20px}
-.stat .sub{font-size:11px;color:var(--muted)}
 /* egg groups + cards */
 .egg-search{width:100%;background:#0c0c0f;border:1px solid var(--border);color:var(--text);border-radius:11px;padding:11px 12px;font-size:15px;margin-bottom:12px}
 .biome-head{display:flex;align-items:center;gap:8px;margin:18px 0 8px;font-size:13px;font-weight:800;letter-spacing:1px}
@@ -72,53 +76,52 @@ section.panel h2{font-size:16px;letter-spacing:.5px;margin-bottom:6px}
 .biome-head .cnt{margin-left:auto;color:var(--muted);font-weight:400;letter-spacing:0}
 .egg-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
 @media(min-width:640px){.egg-grid{grid-template-columns:repeat(3,1fr)}}
-.egg-card{position:relative;background:#0c0f18;background:var(--panel2);border:1px solid var(--border);border-radius:14px;padding:12px;text-align:center}
+.egg-card{position:relative;background:var(--panel2);border:1px solid var(--border);border-radius:14px;padding:12px;text-align:center;transition:transform .2s,box-shadow .2s}
+.egg-card:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(255,122,26,.16);border-color:#3a2a22}
 .egg-card img{width:64px;height:64px;object-fit:contain;display:block;margin:0 auto 6px;filter:drop-shadow(0 4px 8px rgba(0,0,0,.5))}
 .egg-ph{width:64px;height:64px;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-size:30px;color:#3a3a44}
 .egg-card b{display:block;font-size:13px;line-height:1.3}
 .egg-card .biome{font-size:11px;color:var(--muted);margin-top:3px}
+.egg-card .price{font-size:17px;font-weight:900;color:var(--orange2);margin-top:6px}
+.egg-card .price small{font-size:11px;color:var(--muted);font-weight:400;display:block}
 .egg-card .wiki{font-size:11px;margin-top:6px;display:inline-block}
 .egg-card .hide-x{position:absolute;top:6px;right:8px;background:none;border:0;color:#55555f;font-size:14px;padding:4px}
 .egg-card .hide-x:hover{color:var(--red)}
-.egg-card .to-servers{display:block;margin-top:8px;font-size:12px;font-weight:700;color:var(--orange2)}
+.egg-card .to-mut{display:block;margin-top:8px;font-size:12px;font-weight:700;color:var(--orange2)}
 .rarity{display:inline-block;margin-top:6px;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:800}
 .r-common{background:#2a2f3a;color:#cbd5e1}.r-uncommon{background:#14532d;color:#86efac}.r-rare{background:#0c4a6e;color:#7dd3fc}.r-epic{background:#4c1d95;color:#d8b4fe}.r-legendary{background:#713f12;color:#fde047}.r-mythic{background:#7c2d12;color:#fdba74}.r-cosmic{background:#701a75;color:#f0abfc}.r-secret{background:#881337;color:#fda4af}.r-eternal{background:#78350f;color:#fcd34d}.r-divine{background:#422006;color:#fef08a}.r-brainrot{background:#14532d;color:#86efac}.r-monster{background:#881337;color:#fda4af}.r-event{background:#831843;color:#f9a8d4}
 /* server rows */
 .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
 .filters input,.filters select{flex:1;min-width:140px;background:#0c0c0f;border:1px solid var(--border);color:var(--text);border-radius:11px;padding:10px 12px;font-size:14px}
-.server{display:flex;align-items:center;gap:12px;background:var(--panel2);border:1px solid var(--border);border-radius:14px;padding:12px;margin-bottom:8px}
+.server{display:flex;align-items:center;gap:12px;background:var(--panel2);border:1px solid var(--border);border-radius:14px;padding:12px;margin-bottom:8px;transition:transform .2s,box-shadow .2s}
+.server:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(255,122,26,.12)}
 .server .srv-left{flex:1;min-width:0}
 .server .players{font-size:22px;font-weight:900;line-height:1}
 .server .players small{font-size:12px;color:var(--muted);font-weight:400}
-.server .srv-meta{font-size:12px;color:var(--muted);margin-top:3px}
+.server .srv-meta{font-size:12px;color:var(--muted);margin-top:3px;word-break:break-all}
 .server .srv-meta button{background:none;border:0;color:var(--orange2);font-size:12px;padding:0;text-decoration:underline}
-.join{flex:none;display:inline-block;background:linear-gradient(135deg,var(--orange),#ff5e1a);color:#fff;font-weight:800;border:0;border-radius:11px;padding:11px 18px;font-size:15px;letter-spacing:.5px}
+.server .srv-status{font-size:11px;font-weight:800;padding:2px 8px;border-radius:12px}
+.server .srv-status.ok{background:#052e16;color:#4ade80}
+.server .srv-status.full{background:#3f1d1d;color:#fca5a5}
+.join{flex:none;display:inline-block;background:linear-gradient(135deg,var(--orange),#ff5e1a);color:#fff;font-weight:800;border:0;border-radius:11px;padding:11px 18px;font-size:15px;letter-spacing:.5px;box-shadow:0 4px 16px rgba(255,122,26,.3)}
 .join:hover{filter:brightness(1.1)}
 .loadmore{width:100%;background:var(--panel2);border:1px solid var(--border);color:var(--text);border-radius:12px;padding:13px;font-weight:700;margin-top:4px}
 .empty{color:var(--muted);text-align:center;padding:22px 10px;font-size:14px}
-/* report + reports */
-.report-form{display:flex;flex-direction:column;gap:8px}
-.report-form select,.report-form input{background:#0c0c0f;border:1px solid var(--border);color:var(--text);border-radius:11px;padding:11px 12px;font-size:14px;width:100%}
-.report-form button{background:linear-gradient(135deg,var(--red),var(--orange));border:0;color:#fff;border-radius:12px;padding:13px;font-weight:800;font-size:15px}
-.report{background:var(--panel2);border:1px solid var(--border);border-radius:12px;padding:11px 12px;margin-bottom:8px}
-.report .meta{font-size:12px;color:var(--muted);margin-top:4px}
-.badge-unverified{display:inline-block;background:#3f1d1d;color:#fca5a5;border-radius:6px;font-size:10px;font-weight:800;padding:2px 7px;margin-left:6px}
-/* drawers */
-#overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:60;opacity:0;pointer-events:none;transition:opacity .2s}
-#overlay.on{opacity:1;pointer-events:auto}
-.drawer{position:fixed;top:0;right:0;bottom:0;width:min(430px,94vw);background:#101014;z-index:70;transform:translateX(105%);transition:transform .25s ease;border-left:1px solid var(--border);display:flex;flex-direction:column}
-.drawer.on{transform:none}
-.drawer-head{display:flex;align-items:center;padding:16px;border-bottom:1px solid var(--border)}
-.drawer-head h2{font-size:19px;flex:1}
-.drawer-head .x{background:var(--panel2);border:1px solid var(--border);color:var(--text);border-radius:10px;width:34px;height:34px;font-size:16px}
-.drawer-body{overflow-y:auto;padding:16px}
-.drawer-body h3{font-size:12px;letter-spacing:2px;color:var(--muted);margin:18px 0 10px}
-.drawer-body h3:first-child{margin-top:0}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{background:var(--panel2);border:1px solid var(--border);color:var(--text);border-radius:20px;padding:8px 13px;font-size:13px}
-.chip.on{background:linear-gradient(135deg,var(--red),var(--orange));border-color:transparent;color:#fff}
-.drawer-note{color:var(--muted);font-size:13px;margin-top:12px}
-.wide-btn{width:100%;background:var(--panel2);border:1px solid var(--border);color:var(--text);border-radius:12px;padding:13px;font-weight:700;margin-top:14px}
+/* mutation cards */
+.mut-card{display:flex;gap:12px;background:var(--panel2);border:1px solid var(--border);border-radius:14px;padding:13px;margin-bottom:10px;align-items:flex-start}
+.mut-card img{width:52px;height:52px;object-fit:contain;flex:none;filter:drop-shadow(0 4px 8px rgba(0,0,0,.5))}
+.mut-card .mut-ico{width:52px;height:52px;flex:none;display:flex;align-items:center;justify-content:center;font-size:30px}
+.mut-card .mut-body{flex:1;min-width:0}
+.mut-card b{font-size:15px}
+.mut-card .mut-mult{color:var(--orange2);font-weight:900;font-size:15px;margin-left:6px}
+.mut-card p{font-size:13px;color:var(--muted);margin-top:4px}
+.mut-card .mut-src{font-size:11px;color:#66666f;margin-top:4px}
+.fav-btn{background:var(--panel);border:1px solid var(--border);color:var(--muted);border-radius:10px;width:36px;height:36px;font-size:17px;flex:none}
+.fav-btn.on{color:#facc15;border-color:#713f12}
+/* formula */
+.formula{background:#0c0c0f;border:1px solid var(--border);border-radius:12px;padding:14px;font-size:14px;text-align:center;margin-top:6px}
+.formula b{color:var(--orange2)}
+/* toggles + fields */
 .toggle-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid #1e1e24}
 .toggle-row .t-label{flex:1;font-size:15px}
 .toggle-row .t-sub{font-size:12px;color:var(--muted)}
@@ -133,6 +136,11 @@ section.panel h2{font-size:16px;letter-spacing:.5px;margin-bottom:6px}
 .field-row select,.field-row input[type=range]{flex:1}
 .field-row select{background:#0c0c0f;border:1px solid var(--border);color:var(--text);border-radius:10px;padding:9px;font-size:14px}
 .mini-btn{background:var(--panel2);border:1px solid var(--border);color:var(--text);border-radius:10px;padding:9px 14px;font-weight:700}
+.wide-btn{width:100%;background:var(--panel2);border:1px solid var(--border);color:var(--text);border-radius:12px;padding:13px;font-weight:700;margin-top:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--panel2);border:1px solid var(--border);color:var(--text);border-radius:20px;padding:8px 13px;font-size:13px}
+.chip.on{background:linear-gradient(135deg,var(--red),var(--orange));border-color:transparent;color:#fff}
+/* events + announcements */
 .event-card{background:var(--panel2);border:1px solid var(--border);border-left:4px solid var(--orange);border-radius:13px;padding:13px;margin-bottom:10px}
 .event-card .ev-head{display:flex;align-items:center;gap:9px}
 .event-card .ev-ico{font-size:22px}
@@ -146,20 +154,59 @@ section.panel h2{font-size:16px;letter-spacing:.5px;margin-bottom:6px}
 .ann.green{border-left-color:var(--green)}
 .ann p{font-size:14px}
 .ann .ann-date{font-size:12px;color:var(--muted);margin-top:6px}
-/* honesty + footer */
+/* honesty */
 .honesty ul{list-style:none}
 .honesty li{padding:9px 0 9px 24px;position:relative;font-size:14px;color:#d4d4d8;border-bottom:1px solid #1e1e24}
 .honesty li:before{content:"◆";position:absolute;left:0;color:var(--orange);font-size:11px;top:12px}
 .honesty li b{color:#fff}
+/* drawers */
+#overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:60;opacity:0;pointer-events:none;transition:opacity .2s}
+#overlay.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(430px,94vw);background:#101014;z-index:70;transform:translateX(105%);transition:transform .25s ease;border-left:1px solid var(--border);display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.drawer-head{display:flex;align-items:center;padding:16px;border-bottom:1px solid var(--border)}
+.drawer-head h2{font-size:19px;flex:1}
+.drawer-head .x{background:var(--panel2);border:1px solid var(--border);color:var(--text);border-radius:10px;width:34px;height:34px;font-size:16px}
+.drawer-body{overflow-y:auto;padding:16px}
+.drawer-body h3{font-size:12px;letter-spacing:2px;color:var(--muted);margin:18px 0 10px}
+.drawer-body h3:first-child{margin-top:0}
+.drawer-note{color:var(--muted);font-size:13px;margin-top:12px}
+/* modals (bottom sheet) */
+.modal{position:fixed;inset:0;z-index:80;display:none;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.65)}
+.modal.on{display:flex}
+.modal-card{width:100%;max-width:560px;max-height:88vh;overflow-y:auto;background:#121216;border:1px solid var(--border);border-bottom:0;border-radius:20px 20px 0 0;padding:20px;animation:slideup .25s ease}
+@media(min-width:640px){.modal{align-items:center}.modal-card{border-radius:20px;border-bottom:1px solid var(--border)}}
+@keyframes slideup{from{transform:translateY(30px);opacity:0}to{transform:none;opacity:1}}
+.modal-card h2{font-size:19px;margin-bottom:4px}
+.modal-card .m-sub{color:var(--muted);font-size:13px;margin-bottom:12px}
+.modal-card .m-hero{text-align:center;padding:6px 0 12px}
+.modal-card .m-hero img{width:88px;height:88px;object-fit:contain;filter:drop-shadow(0 6px 12px rgba(0,0,0,.5))}
+.kv{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid #1e1e24;font-size:14px}
+.kv b{text-align:right}
+.kv .warn{color:#fca5a5}
+.mut-table{width:100%;border-collapse:collapse;margin-top:8px;font-size:14px}
+.mut-table th{text-align:left;color:var(--muted);font-size:11px;letter-spacing:1px;padding:7px 6px;border-bottom:1px solid var(--border)}
+.mut-table td{padding:8px 6px;border-bottom:1px solid #1e1e24}
+.mut-table td:last-child,.mut-table th:last-child{text-align:right}
+.mut-table tr.fav td{background:rgba(250,204,21,.06)}
+.modal-actions{display:flex;gap:10px;margin-top:16px}
+.modal-actions .join{flex:1;text-align:center;padding:14px}
+.modal-actions .ghost{flex:1;background:var(--panel2);border:1px solid var(--border);color:var(--text);border-radius:11px;padding:14px;font-weight:700}
+/* bottom nav */
+#bottomnav{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(10,10,13,.96);backdrop-filter:blur(10px);border-top:1px solid var(--border)}
+#bottomnav .nav-in{max-width:760px;margin:0 auto;display:flex}
+#bottomnav button{flex:1;background:none;border:0;color:var(--muted);padding:9px 2px 10px;font-size:11px;font-weight:700}
+#bottomnav button span{display:block;font-size:20px;margin-bottom:2px}
+#bottomnav button.on{color:var(--orange2)}
 footer{text-align:center;color:var(--muted);font-size:12px;padding:26px 10px 10px;line-height:1.8}
-#toasts{position:fixed;left:12px;right:12px;bottom:14px;z-index:90;display:flex;flex-direction:column;gap:8px;align-items:center;pointer-events:none}
+#toasts{position:fixed;left:12px;right:12px;bottom:76px;z-index:90;display:flex;flex-direction:column;gap:8px;align-items:center;pointer-events:none}
 .toast{background:#1c1c22;border:1px solid var(--orange);border-radius:12px;padding:12px 16px;max-width:480px;width:100%;font-size:14px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
-.refresh{margin-top:10px;background:var(--panel2);border:1px solid var(--border);color:var(--text);border-radius:11px;padding:10px 16px;font-weight:700}
+.refresh{background:var(--panel2);border:1px solid var(--border);color:var(--text);border-radius:11px;padding:10px 16px;font-weight:700}
 </style>
 </head>
 <body>
 
-<!-- Puerta de entrada estilo Kinzaro (acceso abierto, sin cuentas) -->
+<!-- Puerta de entrada (acceso abierto, sin cuentas) -->
 <div id="gate">
   <div class="gate-card">
     <div class="gate-logo">ΔX</div>
@@ -173,92 +220,179 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:26px 10px 10p
 
 <div id="app" class="hidden">
   <header class="sticky">
-    <div class="brand"><div class="brand-mark">ΔX</div><div><b>DELTA X RADAR</b><small>Huevos en vivo ·</small></div></div>
-    <div class="hdr-btns">
-      <button class="icon-btn" id="commBtn" title="Comunicados">📢<span class="badge" id="commBadge">3</span></button>
-      <button class="icon-btn" id="filterBtn" title="Filtros">⏷ Filtros</button>
-      <button class="icon-btn" id="alertBtn" title="Alertas">🔔 Alertas</button>
-    </div>
+    <div class="brand"><div class="brand-mark">ΔX</div><div><b>DELTA X RADAR</b><small>Steal An Egg · En vivo</small></div></div>
+    <div class="hdr-right"><span class="status" id="statusPill"><span class="dot"></span>CONECTANDO</span><span id="updated">Conectando…</span></div>
   </header>
 
-  <div class="reset-hero">
-    <small>PRÓXIMO RESET</small>
-    <div id="resetBig">--:--</div>
-    <div class="reset-sub">Los huevos se reinician cada 5 minutos · temporizador de ciclo, no una predicción</div>
-    <div class="progress"><i id="resetProgress" style="width:0%"></i></div>
-    <div class="status-row">
-      <span class="status" id="statusPill"><span class="dot"></span>CONECTANDO</span>
-      <span id="updated">Conectando…</span>
-      <button class="refresh" id="refresh" style="margin-top:0">↻ ACTUALIZAR</button>
+  <!-- ============ INICIO ============ -->
+  <div class="view on" id="view-home">
+    <div class="reset-hero">
+      <small>PRÓXIMO RESET DE HUEVOS</small>
+      <div id="resetBig">--:--</div>
+      <div class="reset-sub">Los huevos se reinician cada 5 minutos · temporizador de ciclo, no una predicción</div>
+      <div class="progress"><i id="resetProgress" style="width:0%"></i></div>
+      <div class="status-row"><button class="refresh" id="refresh">↻ ACTUALIZAR SERVIDORES</button></div>
     </div>
-  </div>
-
-  <div class="tabs" id="tabs">
-    <button data-tab="gen" class="on">Generación</button>
-    <button data-tab="size">Tamaño</button>
-    <button data-tab="recent">Reciente</button>
-    <button data-tab="rarity">Rareza</button>
-  </div>
-
-  <div id="liveStrip"></div>
-
-  <section class="panel">
-    <h2>◈ HUEVOS · CATÁLOGO</h2>
-    <p class="hint">Toca la ✕ de un huevo para ocultarlo (se guarda). Toca “Ver servidores” para ir a la lista en vivo. Este catálogo es referencia de la wiki, <b>no es una lista en vivo</b>: no dice qué huevos hay ahora mismo en ningún servidor.</p>
-    <input class="egg-search" id="eggSearch" placeholder="Buscar huevo…">
-    <div id="eggList"></div>
-    <p class="hint" style="margin-top:12px" id="eggTotal"></p>
-  </section>
-
-  <div class="stats-row">
-    <div class="stat"><small>SERVIDORES</small><strong id="serverCount">—</strong><div class="sub" id="serverSource">—</div></div>
-    <div class="stat"><small>JUGADORES</small><strong id="playerCount">—</strong><div class="sub">de 7 por servidor</div></div>
-    <div class="stat"><small>HUEVOS</small><strong id="eggCount">—</strong><div class="sub">referencia · wiki 20 nov 2026</div></div>
-  </div>
-
-  <section class="panel" id="serversSection">
-    <h2>◈ SERVIDORES PÚBLICOS · EN VIVO</h2>
-    <p class="hint">Datos reales de la API pública de Roblox: jugadores, capacidad, fps y ping. La API <b>no dice qué huevos hay dentro de cada servidor</b>, así que ningún servidor de esta lista promete un huevo.</p>
-    <div class="filters">
-      <input id="search" placeholder="Buscar por ID de servidor…">
-      <select id="sort"><option value="empty" selected>Menos jugadores</option><option value="players">Más jugadores</option><option value="ping">Menor ping</option><option value="fps">Mayor FPS</option></select>
-      <select id="occ"><option value="all">Todos</option><option value="space">Con espacio</option><option value="almost">Casi llenos (5–6)</option><option value="low">Casi vacíos (0–2)</option></select>
+    <div class="stats-grid">
+      <div class="stat"><small>SERVIDORES ENCONTRADOS</small><strong id="statServers">—</strong><div class="sub" id="serverSource">—</div></div>
+      <div class="stat"><small>SERVIDORES DISPONIBLES</small><strong id="statAvailable">—</strong><div class="sub">con espacio para entrar</div></div>
+      <div class="stat"><small>JUGADORES DETECTADOS</small><strong id="statPlayers">—</strong><div class="sub">de 7 por servidor</div></div>
+      <div class="stat"><small>HUEVOS REGISTRADOS</small><strong id="statEggs">—</strong><div class="sub">catálogo con precio base</div></div>
+      <div class="stat wide"><small>ÚLTIMA ACTUALIZACIÓN</small><strong id="statUpdated" style="font-size:18px">—</strong><div class="sub">el robot actualiza la lista cada 5 minutos</div></div>
     </div>
-    <div id="servers"><div class="empty">Cargando servidores públicos…</div></div>
-    <button class="loadmore" id="loadMore" style="display:none">VER MÁS SERVIDORES</button>
-  </section>
+    <div class="quick-grid">
+      <button class="quick" data-goto="radar"><span>📡</span>RADAR</button>
+      <button class="quick" data-goto="eggs"><span>🥚</span>HUEVOS</button>
+      <button class="quick" data-goto="alerts"><span>🔔</span>ALERTAS</button>
+    </div>
+    <section class="panel glow">
+      <h2>◈ HOY · SÁBADO 21 DE NOVIEMBRE</h2>
+      <p class="hint"><b>Admin Abuse #14</b> a las 8:00 AM · entra 7:40 AM y quédate dentro si no ha empezado. Justo después empieza el <b>Turkey Takeover</b>, 6 días hasta el viernes 27. El huevo Stormy y el Crystal Egg terminan hoy.</p>
+      <button class="wide-btn" data-goto="alerts" style="margin-top:0">🔔 Activar alertas para hoy</button>
+    </section>
+    <section class="panel">
+      <h2>◈ COMUNICADOS</h2>
+      <div id="commListHome"></div>
+    </section>
+  </div>
 
-  <section class="panel">
-    <h2>◈ REPORTAR UN HUEVO</h2>
-    <p class="hint">¿Viste un huevo raro en un servidor? Repórtalo. Queda marcado como <b>SIN VERIFICAR</b> y expira en 5 minutos, cuando pasa el reset.</p>
-    <form class="report-form" id="reportForm"><select id="repEgg" required></select><select id="repServer"><option value="">Servidor: no estoy seguro</option></select><input id="repNote" placeholder="Nota (opcional): ej. cerca del lago" maxlength="80"><button type="submit">REPORTAR HUEVO</button></form>
-  </section>
+  <!-- ============ RADAR ============ -->
+  <div class="view" id="view-radar">
+    <section class="panel">
+      <h2>◈ SERVIDORES PÚBLICOS · EN VIVO</h2>
+      <p class="hint">Datos reales de la API pública de Roblox: jugadores, capacidad, fps y ping. La API <b>no dice qué huevos hay dentro de cada servidor</b>, así que ningún servidor de esta lista promete un huevo. Toca JOIN para ver el servidor y entrar al exacto.</p>
+      <div class="filters">
+        <input id="search" placeholder="Buscar por JobId…">
+        <select id="sort"><option value="empty" selected>Menos jugadores</option><option value="players">Más jugadores</option><option value="ping">Menor ping</option><option value="fps">Mayor FPS</option></select>
+        <select id="occ"><option value="all">Todos</option><option value="space">Con espacio</option><option value="almost">Casi llenos (5–6)</option><option value="low">Casi vacíos (0–2)</option></select>
+      </div>
+      <div id="servers"><div class="empty">Cargando servidores públicos…</div></div>
+      <button class="loadmore" id="loadMore" style="display:none">VER MÁS SERVIDORES</button>
+      <p class="hint" style="margin-top:10px" id="radarNote">Sin duplicados: la lista se limpia por JobId en cada actualización.</p>
+    </section>
+  </div>
 
-  <section class="panel">
-    <h2>◈ REPORTES RECIENTES · SIN VERIFICAR</h2>
-    <p class="hint">Reportes de jugadores de este dispositivo. Un reporte no confirma que el huevo siga ahí: entra rápido y compruébalo.</p>
-    <div id="reports"><div class="empty">Aún no hay reportes.</div></div>
-  </section>
+  <!-- ============ HUEVOS ============ -->
+  <div class="view" id="view-eggs">
+    <section class="panel">
+      <h2>◈ CATÁLOGO DE HUEVOS</h2>
+      <p class="hint">Precios base verificados (ingreso $/s de la mascota, wiki 20 nov 2026 y guías). El valor real cambia con el tamaño y la mutación del huevo que aparezca. Toca un huevo para ver sus mutaciones. <b>Esto es referencia, no una lista en vivo.</b></p>
+      <input class="egg-search" id="eggSearch" placeholder="Buscar huevo…">
+      <div class="tabs" id="tabs" style="margin-top:0">
+        <button data-tab="gen" class="on">Generación</button>
+        <button data-tab="size">Tamaño</button>
+        <button data-tab="recent">Reciente</button>
+        <button data-tab="rarity">Rareza</button>
+        <button data-tab="price">Precio</button>
+      </div>
+      <div style="display:flex;gap:8px;margin-bottom:4px">
+        <button class="mini-btn" id="filterBtn" style="flex:1">⏷ Filtros por bioma y rareza</button>
+        <button class="mini-btn" id="favFilterBtn" style="flex:1">★ Solo mis favoritas</button>
+      </div>
+      <div id="eggList"></div>
+      <p class="hint" style="margin-top:12px" id="eggTotal"></p>
+    </section>
+  </div>
 
-  <section class="panel">
-    <h2>◈ SPAWNS RAROS GLOBALES</h2>
-    <p class="hint">Estos sitios reportan huevos raros en todo el juego, no por servidor. Ábrelos para ver los últimos reportes.</p>
-    <p style="font-size:14px;line-height:2"><a href="https://eggping.com" target="_blank" rel="noopener">eggPing ↗</a> · reportes globales de huevos Secret, Eternal y Divine<br><a href="https://stealegg.com/en/live" target="_blank" rel="noopener">STEAL EGG Live ↗</a> · reportes recientes, no garantizan que el huevo siga en tu servidor</p>
-  </section>
+  <!-- ============ MUTACIONES ============ -->
+  <div class="view" id="view-mutations">
+    <section class="panel">
+      <h2>◈ MUTACIONES</h2>
+      <p class="hint">La mutación es un rasgo del huevo que aparece en el juego: cambia su apariencia y multiplica su ingreso. <b>La mutación de un huevo en un servidor no se puede saber desde fuera del juego</b>, por eso aquí se muestra DESCONOCIDO para los huevos en vivo y los valores calculados por mutación.</p>
+      <div class="formula">Ingreso final = <b>Precio base</b> × <b>Multiplicador de mutación</b> × <b>Multiplicador de tamaño</b><br><span style="font-size:12px;color:var(--muted)">El tamaño es independiente (peso en kg) y puede multiplicar hasta 125×. Fuente: wiki de Steal An Egg.</span></div>
+      <div id="mutList" style="margin-top:14px"></div>
+    </section>
+    <section class="panel">
+      <h2>◈ ¿CÓMO SE SABE SI UN HUEVO TIENE MUTACIÓN?</h2>
+      <p class="hint">Solo dentro del juego, al ver el huevo o la mascota. Esta página <b>no detecta mutaciones en vivo</b> porque ningún servicio público publica ese dato. Lo que sí hace: mostrarte el precio base de cada huevo y cuánto valdría con cada mutación, para que sepas qué buscar.</p>
+      <div class="chips" style="margin-top:6px">
+        <span class="chip">CON MUTACIÓN · el huevo tiene una mutación visible en el juego</span>
+        <span class="chip">SIN MUTACIÓN · el huevo no tiene mutación de color</span>
+        <span class="chip">DESCONOCIDO · no se puede saber sin entrar al servidor</span>
+      </div>
+    </section>
+  </div>
 
-  <section class="panel honesty">
-    <h2>◈ QUÉ ES REAL Y QUÉ NO</h2>
-    <ul>
-      <li><b>Real, en vivo:</b> la lista de servidores (jugadores, ping, FPS) viene de la API pública de Roblox y se actualiza cada 5 minutos con un robot. El botón JOIN te mete al servidor exacto.</li>
-      <li><b>Real, referencia:</b> el catálogo de 146 huevos es de la wiki de Steal An Egg (20 nov 2026). Sirve para saber qué buscar en cada bioma.</li>
-      <li><b>No existe en ningún lado:</b> ningún servicio público dice qué huevo hay dentro de cada servidor. Si una página te promete eso sin explicar de dónde sale, está inventando o usa un sistema privado.</li>
-      <li><b>Reportes de la comunidad:</b> los reportes de esta página los hacen jugadores y dicen SIN VERIFICAR. Expiran en 5 minutos.</li>
-      <li><b>El temporizador:</b> marca el ciclo de reset de 5 minutos. No predice qué huevo va a salir, porque eso es aleatorio en cada reset.</li>
-    </ul>
-  </section>
+  <!-- ============ ALERTAS ============ -->
+  <div class="view" id="view-alerts">
+    <section class="panel">
+      <h2>◈ ALERTAS</h2>
+      <p class="hint">Avisos visuales y sonoros para el reset, los eventos y los servidores. Tus ajustes se guardan en este dispositivo. Cada alerta suena una sola vez por evento o ciclo, no se repite.</p>
+      <div class="toggle-row"><div class="t-label">Alertas activadas<div class="t-sub">Apaga todo sin perder tus ajustes</div></div><label class="switch"><input type="checkbox" id="alertsOn"><span class="sl"></span></label></div>
+      <div class="toggle-row"><div class="t-label">Sonido de alertas<div class="t-sub">Si está apagado, solo verás el aviso en pantalla</div></div><label class="switch"><input type="checkbox" id="soundToggle2"><span class="sl"></span></label></div>
+      <div class="field-row"><label>Sonido</label><select id="soundKind"><option value="classic">Clásico</option><option value="soft">Suave</option><option value="loud">Fuerte</option></select><button class="mini-btn" id="testSound">Probar</button></div>
+      <div class="field-row"><label>Volumen</label><input type="range" id="volumeRange" min="10" max="100" value="80"></div>
+      <div class="toggle-row"><div class="t-label">Notificación del navegador<div class="t-sub" id="notifyNote">Te avisa aunque la página esté en segundo plano</div></div><label class="switch"><input type="checkbox" id="notifyToggle2"><span class="sl"></span></label></div>
+    </section>
+    <section class="panel">
+      <h2>◈ MIS RAREZAS FAVORITAS</h2>
+      <p class="hint">Cuando suene la alerta del reset, te diré que busques estas rarezas. Toca para elegir.</p>
+      <div class="chips" id="favRarChips"></div>
+    </section>
+    <section class="panel">
+      <h2>◈ MIS MUTACIONES FAVORITAS</h2>
+      <p class="hint">Se resaltan en la tabla de mutaciones de cada huevo y se mencionan en la alerta del reset.</p>
+      <div class="chips" id="favMutChips"></div>
+    </section>
+    <section class="panel">
+      <h2>◈ RESET DE HUEVOS</h2>
+      <div class="toggle-row"><div class="t-label">Avisar 1 minuto antes del reset</div><label class="switch"><input type="checkbox" id="resetPre60"><span class="sl"></span></label></div>
+      <div class="toggle-row"><div class="t-label">Avisar 10 segundos antes del reset</div><label class="switch"><input type="checkbox" id="resetPre10"><span class="sl"></span></label></div>
+      <div class="toggle-row"><div class="t-label">Avisar cuando haya servidores con espacio<div class="t-sub">Se revisa en cada actualización de la lista (cada 5 min), una sola vez por ciclo</div></div><label class="switch"><input type="checkbox" id="spaceAlert"><span class="sl"></span></label></div>
+    </section>
+    <section class="panel">
+      <h2>◈ EVENTOS DEL JUEGO</h2>
+      <p class="hint">Alertas con horario real verificado. La hora del Admin Abuse es según guías: confírmala en el juego el sábado.</p>
+      <div id="eventList"></div>
+    </section>
+  </div>
 
-  <footer>DELTA X RADAR<br>Únete a Delta x Community<br>Imágenes del catálogo: Steal An Egg Wiki, 20 nov 2026</footer>
+  <!-- ============ INFORMACIÓN ============ -->
+  <div class="view" id="view-info">
+    <section class="panel">
+      <h2>◈ ¿QUÉ ES DELTA X RADAR?</h2>
+      <p class="hint">Una herramienta gratis de <b>Delta x Community</b> para jugadores de Steal An Egg: lista de servidores públicos reales con JOIN exacto, catálogo de huevos con precios base verificados, mutaciones con sus multiplicadores, alertas del reset y de eventos. Sin cuentas, sin marcas, sin datos inventados.</p>
+    </section>
+    <section class="panel honesty">
+      <h2>◈ QUÉ ES REAL Y QUÉ NO</h2>
+      <ul>
+        <li><b>Real, en vivo:</b> la lista de servidores (jugadores, ping, FPS) viene de la API pública de Roblox y se actualiza cada 5 minutos con un robot. El botón JOIN te mete al servidor exacto con su JobId.</li>
+        <li><b>Real, referencia:</b> el catálogo de 175 huevos con precio base es de la wiki de Steal An Egg (20 nov 2026) y de guías verificadas (Stormlands, Stormy Egg, Crystal Egg). Las mutaciones y sus multiplicadores son de la página Mutations de la wiki.</li>
+        <li><b>Calculado, no observado:</b> el precio con mutación es el precio base multiplicado por el multiplicador de la mutación. Es un cálculo, no un huevo que se haya visto.</li>
+        <li><b>No existe en ningún lado:</b> ningún servicio público dice qué huevo hay dentro de cada servidor ni su mutación. Si una página te promete eso sin explicar de dónde sale, está inventando o usa un sistema privado.</li>
+        <li><b>El temporizador:</b> marca el ciclo de reset de 5 minutos. No predice qué huevo va a salir, porque eso es aleatorio en cada reset.</li>
+        <li><b>Sin reportes:</b> esta página no tiene reportes de la comunidad. Todo lo que muestra viene de fuentes reales o es un cálculo marcado como tal.</li>
+      </ul>
+    </section>
+    <section class="panel">
+      <h2>◈ CÓMO FUNCIONA EL JOIN</h2>
+      <p class="hint">Cada servidor tiene un JobId único. Al tocar JOIN ves los datos del servidor y entras con el enlace exacto de Roblox a esa instancia. Si el servidor se llenó o cerró desde la última actualización (máximo 5 min), Roblox te lo dirá al entrar. La página nunca te manda a un servidor aleatorio.</p>
+    </section>
+    <section class="panel">
+      <h2>◈ TRACKERS EXTERNOS</h2>
+      <p class="hint">Estos sitios reportan huevos raros en todo el juego, no por servidor. Su información puede pertenecer a otros servidores y no seguir disponible.</p>
+      <p style="font-size:14px;line-height:2"><a href="https://eggping.com" target="_blank" rel="noopener">eggPing ↗</a> · reportes globales de huevos Secret, Eternal y Divine<br><a href="https://stealegg.com/en/live" target="_blank" rel="noopener">STEAL EGG Live ↗</a> · reportes recientes, no garantizan que el huevo siga en tu servidor</p>
+    </section>
+    <section class="panel">
+      <h2>◈ FUENTES Y VERSIÓN</h2>
+      <p class="hint">Servidores: API pública de Roblox (games.roblox.com), actualizada por GitHub Actions cada 5 min.<br>Huevos y precios base: Steal An Egg Wiki (Module:Pets/Data), 20 nov 2026.<br>Mutaciones: Steal An Egg Wiki (Mutations), 20 nov 2026.<br>Stormlands, Stormy Egg y Crystal Egg: guías verificadas, nov 2026.<br><br>DELTA X RADAR v4 · 20 nov 2026 · Delta x Community</p>
+    </section>
+  </div>
+
+  <footer>DELTA X RADAR · Únete a Delta x Community<br>Imágenes del catálogo: Steal An Egg Wiki, 20 nov 2026</footer>
 </div>
+
+<!-- Navegación inferior -->
+<nav id="bottomnav" class="hidden">
+  <div class="nav-in">
+    <button data-view="home" class="on"><span>🏠</span>INICIO</button>
+    <button data-view="radar"><span>📡</span>RADAR</button>
+    <button data-view="eggs"><span>🥚</span>HUEVOS</button>
+    <button data-view="mutations"><span>🧬</span>MUTACIONES</button>
+    <button data-view="alerts"><span>🔔</span>ALERTAS</button>
+    <button data-view="info"><span>ℹ️</span>INFO</button>
+  </div>
+</nav>
 
 <!-- Filtros -->
 <div id="overlay"></div>
@@ -276,27 +410,15 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:26px 10px 10p
   </div>
 </aside>
 
-<!-- Alertas -->
-<aside class="drawer" id="drawerAlerts">
-  <div class="drawer-head"><h2>Alertas</h2><button class="x" data-close>✕</button></div>
-  <div class="drawer-body">
-    <div class="toggle-row"><div class="t-label">Avisar cuando salga un huevo nuevo<div class="t-sub">Avisa por los reportes de la comunidad que coincidan con tus rarezas</div></div><label class="switch"><input type="checkbox" id="alertNew"><span class="sl"></span></label></div>
-    <div class="toggle-row"><div class="t-label">Sonido de alertas<div class="t-sub">Si está apagado, solo verás el aviso en pantalla</div></div><label class="switch"><input type="checkbox" id="soundToggle2"><span class="sl"></span></label></div>
-    <div class="field-row"><label>Sonido</label><select id="soundKind"><option value="classic">Clásico</option><option value="soft">Suave</option><option value="loud">Fuerte</option></select><button class="mini-btn" id="testSound">Probar</button></div>
-    <div class="field-row"><label>Volumen</label><input type="range" id="volumeRange" min="10" max="100" value="80"></div>
-    <div class="field-row"><label>Avisar solo desde</label><select id="minRarity"><option value="any">Cualquier rareza</option><option value="Secret">Secret o más</option><option value="Eternal">Eternal o más</option><option value="Divine">Solo Divine</option></select></div>
-    <div class="toggle-row"><div class="t-label">Notificación del navegador<div class="t-sub" id="notifyNote">Te avisa aunque la página esté en segundo plano</div></div><label class="switch"><input type="checkbox" id="notifyToggle2"><span class="sl"></span></label></div>
-    <h3>EVENTOS DEL JUEGO</h3>
-    <div id="eventList"></div>
-    <p class="drawer-note">Tus ajustes se guardan en este dispositivo.</p>
-  </div>
-</aside>
+<!-- Detalle de huevo -->
+<div class="modal" id="modalEgg">
+  <div class="modal-card" id="eggModalBody"></div>
+</div>
 
-<!-- Comunicados -->
-<aside class="drawer" id="drawerComm">
-  <div class="drawer-head"><h2>Comunicados</h2><button class="x" data-close>✕</button></div>
-  <div class="drawer-body" id="commList"></div>
-</aside>
+<!-- Confirmación de JOIN -->
+<div class="modal" id="modalJoin">
+  <div class="modal-card" id="joinModalBody"></div>
+</div>
 
 <div id="toasts"></div>
 <script>
@@ -304,33 +426,194 @@ const PLACE_ID="107778070777162";
 const DATA_URL="data/servers.json";
 const ROBLOX_API="https://games.roblox.com/v1/games/"+PLACE_ID+"/servers/Public?sortOrder=Desc&limit=100";
 const PROXY_API="https://api.allorigins.win/raw?url="+encodeURIComponent(ROBLOX_API);
-const REFRESH_MS=60000, RESET_MS=300000, REPORT_TTL=300000;
-const REPORT_WEBHOOK="";
+const REFRESH_MS=60000, RESET_MS=300000;
 const $=id=>document.getElementById(id);
-const BIOMES={"Forest":"—","Lake":"900","Desert":"10K","Jungle":"40K","Snow":"170K","Volcano":"700K","Abyss Ocean":"2.5M","Prehistoric":"18M","Cosmic":"700M","Cherry Blossom":"2.5B","Titan Temple":"7B","Angels & Demons":"20B","Brainrot":"Especial","Monster":"Especial","Rift":"Especial","Event":"Especial"};
+const BIOMES={"Forest":"—","Lake":"900","Desert":"10K","Jungle":"40K","Snow":"170K","Volcano":"700K","Abyss Ocean":"2.5M","Prehistoric":"18M","Cosmic":"700M","Cherry Blossom":"2.5B","Titan Temple":"7B","Angels & Demons":"20B","Enchanted Forest":"—","Stormlands":"150M","Brainrot":"Especial","Monster":"Especial","Rift":"Especial","Event":"Especial"};
 const RARITIES=["Common","Uncommon","Rare","Epic","Legendary","Mythic","Cosmic","Secret","Eternal","Divine","Brainrot","Monster","Event"];
 const EGGS=[
-["Chicken","Common","Forest"],["Dog","Common","Forest"],["Bird","Uncommon","Forest"],["Burrowing Owl","Rare","Forest"],["Raccoon","Rare","Forest"],["Fox","Epic","Forest"],["Bear","Epic","Forest"],["Brr Brr Patapim","Legendary","Forest"],
-["Frog","Common","Lake"],["Duckling","Common","Lake"],["Catfish","Uncommon","Lake"],["Turtle","Rare","Lake"],["Trulimero Trulicina","Epic","Lake"],["Swan","Epic","Lake"],["Axolotl","Legendary","Lake"],["Leviathan","Cosmic","Lake"],
-["Jerboa","Common","Desert"],["Fennec","Uncommon","Desert"],["Camel","Rare","Desert"],["Tob Tobi Tob Tob","Epic","Desert"],["Snake","Legendary","Desert"],["Sand Spider","Mythic","Desert"],["Scorpion","Mythic","Desert"],["Royal Sphinx","Cosmic","Desert"],
-["Chimpanzee","Rare","Jungle"],["Toucan","Rare","Jungle"],["Crocodile","Epic","Jungle"],["Gorilla","Legendary","Jungle"],["Orangutini Ananassini","Legendary","Jungle"],["Spider","Mythic","Jungle"],["Tiger","Mythic","Jungle"],["King Snake","Secret","Jungle"],
-["Penguin","Rare","Snow"],["Walrus","Epic","Snow"],["Polar Bear","Legendary","Snow"],["Sabertooth Tiger","Mythic","Snow"],["Mammoth","Mythic","Snow"],["King Mammoth","Cosmic","Snow"],["Yeti","Secret","Snow"],["Ice Dragon","Eternal","Snow"],
-["Lava Gecko","Rare","Volcano"],["Lava Frog","Epic","Volcano"],["Flaming Bull","Legendary","Volcano"],["Lava Iguana","Legendary","Volcano"],["Chillin Chilli","Mythic","Volcano"],["Cerberus","Secret","Volcano"],["Phoenix","Eternal","Volcano"],["Lava Dragon","Eternal","Volcano"],
-["Parrotfish","Rare","Abyss Ocean"],["Swordfish","Epic","Abyss Ocean"],["Shark","Legendary","Abyss Ocean"],["Orca","Mythic","Abyss Ocean"],["Whale Shark","Cosmic","Abyss Ocean"],["Beluga Whale","Cosmic","Abyss Ocean"],["Kraken","Secret","Abyss Ocean"],["El Maja","Eternal","Abyss Ocean"],
-["Dodo","Rare","Prehistoric"],["Pterodactyl","Legendary","Prehistoric"],["Ankylosaurus","Mythic","Prehistoric"],["Triceratops","Cosmic","Prehistoric"],["Bronto","Cosmic","Prehistoric"],["T-Rex","Secret","Prehistoric"],["Tralaledon","Secret","Prehistoric"],["Mosasaurus","Eternal","Prehistoric"],
-["Centapede","Epic","Cosmic"],["Cosmic Gecko","Legendary","Cosmic"],["Cosmic Gorilla","Mythic","Cosmic"],["La Vacca Saturno Saturnita","Cosmic","Cosmic"],["Cosmic Skeleton Boss","Secret","Cosmic"],["Cosmic Dragon","Secret","Cosmic"],["Eternal Lunar Dragon","Eternal","Cosmic"],["Unicorn","Divine","Cosmic"],
-["Crane","Epic","Cherry Blossom"],["Salamander","Legendary","Cherry Blossom"],["Red Panda","Mythic","Cherry Blossom"],["Snowy Owl","Cosmic","Cherry Blossom"],["Koi","Cosmic","Cherry Blossom"],["Stag","Secret","Cherry Blossom"],["Oni Tiger","Eternal","Cherry Blossom"],["Kitsune","Divine","Cherry Blossom"],
-["Spideron","Legendary","Titan Temple"],["Crustacia","Legendary","Titan Temple"],["Bladehide","Mythic","Titan Temple"],["Mantaris","Cosmic","Titan Temple"],["Rhinotaur","Cosmic","Titan Temple"],["Mutant Shark","Secret","Titan Temple"],["Gorilla King","Eternal","Titan Temple"],["Nightflame","Divine","Titan Temple"],
-["Flame Sprite","Legendary","Angels & Demons"],["Light Dove","Legendary","Angels & Demons"],["Toro","Mythic","Angels & Demons"],["Winged Lamb","Mythic","Angels & Demons"],["Imp","Cosmic","Angels & Demons"],["Sacred Moth","Cosmic","Angels & Demons"],["Demon Hound","Cosmic","Angels & Demons"],["Holy Peacock","Cosmic","Angels & Demons"],["Pure Jellyfish","Secret","Angels & Demons"],["Gargoyle","Secret","Angels & Demons"],["Centaur","Secret","Angels & Demons"],["RazorFang","Secret","Angels & Demons"],["Pegasus","Eternal","Angels & Demons"],["Skeleton Horse","Eternal","Angels & Demons"],["Equinox","Eternal","Angels & Demons"],["World Burner","Divine","Angels & Demons"],["ArchAngel","Divine","Angels & Demons"],["Aetheron","Divine","Angels & Demons"],
-["Tung Tung Sahur","Brainrot","Brainrot","Brainrot Egg"],["Bananita Dolphinita","Brainrot","Brainrot","Brainrot Egg"],["Belula Beluga","Brainrot","Brainrot","Brainrot Egg"],["Mangolini Parrochini","Brainrot","Brainrot","Brainrot Egg"],["Bomboclat Crocolat","Brainrot","Brainrot","Brainrot Egg"],["Strawberry Elephant","Brainrot","Brainrot","Brainrot Egg"],
-["Scorpio","Monster","Monster","Monster Egg"],["Froggo","Monster","Monster","Monster Egg"],["Crawler","Monster","Monster","Monster Egg"],["Crocodon","Monster","Monster","Monster Egg"],["Mecha Scorpio","Monster","Monster","Mecha Egg"],["Mecha Froggo","Monster","Monster","Mecha Egg"],["Mecha Crawler","Monster","Monster","Mecha Egg"],["Krakenoid","Monster","Monster","Monster Egg"],["Mecha Crocodon","Monster","Monster","Mecha Egg"],["Mecha Krakenoid","Monster","Monster","Mecha Egg"],["Dreadscale","Monster","Monster","Monster Egg"],["Mecha Dreadscale","Monster","Monster","Mecha Egg"],
-["Rift Eye","Legendary","Rift","Riftborn Egg"],["Void Angler","Legendary","Rift","Riftbeasts Egg"],["Voidmaw","Mythic","Rift","Riftborn Egg"],["Riftwing","Mythic","Rift","Riftbeasts Egg"],["Shardling","Mythic","Rift","Shattered Rift Egg"],["Ventinal","Cosmic","Rift","Riftborn Egg"],["Abyss Overlord","Secret","Rift","Riftborn Egg"],["Dreadclaw","Cosmic","Rift","Riftbeasts Egg"],["Shattered Ram","Cosmic","Rift","Shattered Rift Egg"],["Wendigo","Secret","Rift","Riftborn Egg"],["Mawbreaker","Secret","Rift","Riftbeasts Egg"],["Shardwing","Secret","Rift","Shattered Rift Egg"],["World Eater","Eternal","Rift","Riftborn Egg"],["Shattered Drake","Eternal","Rift","Shattered Rift Egg"],["Void Serpent","Eternal","Rift","Riftbeasts Egg"],["Shattered Colossus","Divine","Rift","Shattered Rift Egg"],
-["Baby Aurora Dragon","Event","Event","Dragon Egg"],["Shadow Dragon","Event","Event","Dragon Egg"],["Scorched Dragon","Event","Event","Scorched Dragon Egg"],["Drilla","Event","Event","Drilla Egg"],["Void Dragon","Event","Event","Dragon Egg"],["Ember Dragon","Event","Event","Dragon Egg"]
+["Chicken","Common","Forest"],
+["Dog","Common","Forest"],
+["Bird","Uncommon","Forest"],
+["Burrowing Owl","Rare","Forest"],
+["Raccoon","Rare","Forest"],
+["Fox","Epic","Forest"],
+["Bear","Epic","Forest"],
+["Brr Brr Patapim","Legendary","Forest"],
+["Frog","Common","Lake"],
+["Duckling","Common","Lake"],
+["Catfish","Uncommon","Lake"],
+["Turtle","Rare","Lake"],
+["Trulimero Trulicina","Epic","Lake"],
+["Swan","Epic","Lake"],
+["Axolotl","Legendary","Lake"],
+["Leviathan","Cosmic","Lake"],
+["Jerboa","Common","Desert"],
+["Fennec","Uncommon","Desert"],
+["Camel","Rare","Desert"],
+["Tob Tobi Tob Tob","Epic","Desert"],
+["Snake","Legendary","Desert"],
+["Sand Spider","Mythic","Desert"],
+["Scorpion","Mythic","Desert"],
+["Royal Sphinx","Cosmic","Desert"],
+["Chimpanzee","Rare","Jungle"],
+["Toucan","Rare","Jungle"],
+["Crocodile","Epic","Jungle"],
+["Gorilla","Legendary","Jungle"],
+["Orangutini Ananassini","Legendary","Jungle"],
+["Spider","Mythic","Jungle"],
+["Tiger","Mythic","Jungle"],
+["King Snake","Secret","Jungle"],
+["Penguin","Rare","Snow"],
+["Walrus","Epic","Snow"],
+["Polar Bear","Legendary","Snow"],
+["Sabertooth Tiger","Mythic","Snow"],
+["Mammoth","Mythic","Snow"],
+["King Mammoth","Cosmic","Snow"],
+["Yeti","Secret","Snow"],
+["Ice Dragon","Eternal","Snow"],
+["Lava Gecko","Rare","Volcano"],
+["Lava Frog","Epic","Volcano"],
+["Flaming Bull","Legendary","Volcano"],
+["Lava Iguana","Legendary","Volcano"],
+["Chillin Chilli","Mythic","Volcano"],
+["Cerberus","Secret","Volcano"],
+["Phoenix","Eternal","Volcano"],
+["Lava Dragon","Eternal","Volcano"],
+["Parrotfish","Rare","Abyss Ocean"],
+["Swordfish","Epic","Abyss Ocean"],
+["Shark","Legendary","Abyss Ocean"],
+["Orca","Mythic","Abyss Ocean"],
+["Whale Shark","Cosmic","Abyss Ocean"],
+["Beluga Whale","Cosmic","Abyss Ocean"],
+["Kraken","Secret","Abyss Ocean"],
+["El Maja","Eternal","Abyss Ocean"],
+["Dodo","Rare","Prehistoric"],
+["Pterodactyl","Legendary","Prehistoric"],
+["Ankylosaurus","Mythic","Prehistoric"],
+["Triceratops","Cosmic","Prehistoric"],
+["Bronto","Cosmic","Prehistoric"],
+["T-Rex","Secret","Prehistoric"],
+["Tralaledon","Secret","Prehistoric"],
+["Mosasaurus","Eternal","Prehistoric"],
+["Centapede","Epic","Cosmic"],
+["Cosmic Gecko","Legendary","Cosmic"],
+["Cosmic Gorilla","Mythic","Cosmic"],
+["La Vacca Saturno Saturnita","Cosmic","Cosmic"],
+["Cosmic Skeleton Boss","Secret","Cosmic"],
+["Cosmic Dragon","Secret","Cosmic"],
+["Eternal Lunar Dragon","Eternal","Cosmic"],
+["Unicorn","Divine","Cosmic"],
+["Crane","Epic","Cherry Blossom"],
+["Salamander","Legendary","Cherry Blossom"],
+["Red Panda","Mythic","Cherry Blossom"],
+["Snowy Owl","Cosmic","Cherry Blossom"],
+["Koi","Cosmic","Cherry Blossom"],
+["Stag","Secret","Cherry Blossom"],
+["Oni Tiger","Eternal","Cherry Blossom"],
+["Kitsune","Divine","Cherry Blossom"],
+["Spideron","Legendary","Titan Temple"],
+["Crustacia","Legendary","Titan Temple"],
+["Bladehide","Mythic","Titan Temple"],
+["Mantaris","Cosmic","Titan Temple"],
+["Rhinotaur","Cosmic","Titan Temple"],
+["Mutant Shark","Secret","Titan Temple"],
+["Gorilla King","Eternal","Titan Temple"],
+["Nightflame","Divine","Titan Temple"],
+["Flame Sprite","Legendary","Angels & Demons"],
+["Light Dove","Legendary","Angels & Demons"],
+["Toro","Mythic","Angels & Demons"],
+["Winged Lamb","Mythic","Angels & Demons"],
+["Imp","Cosmic","Angels & Demons"],
+["Sacred Moth","Cosmic","Angels & Demons"],
+["Demon Hound","Cosmic","Angels & Demons"],
+["Holy Peacock","Cosmic","Angels & Demons"],
+["Pure Jellyfish","Secret","Angels & Demons"],
+["Gargoyle","Secret","Angels & Demons"],
+["Centaur","Secret","Angels & Demons"],
+["RazorFang","Secret","Angels & Demons"],
+["Pegasus","Eternal","Angels & Demons"],
+["Skeleton Horse","Eternal","Angels & Demons"],
+["Equinox","Eternal","Angels & Demons"],
+["World Burner","Divine","Angels & Demons"],
+["ArchAngel","Divine","Angels & Demons"],
+["Aetheron","Divine","Angels & Demons"],
+["Tung Tung Sahur","Brainrot","Brainrot","Brainrot Egg"],
+["Bananita Dolphinita","Brainrot","Brainrot","Brainrot Egg"],
+["Belula Beluga","Brainrot","Brainrot","Brainrot Egg"],
+["Mangolini Parrochini","Brainrot","Brainrot","Brainrot Egg"],
+["Bomboclat Crocolat","Brainrot","Brainrot","Brainrot Egg"],
+["Strawberry Elephant","Brainrot","Brainrot","Brainrot Egg"],
+["Scorpio","Monster","Monster","Monster Egg"],
+["Froggo","Monster","Monster","Monster Egg"],
+["Crawler","Monster","Monster","Monster Egg"],
+["Crocodon","Monster","Monster","Monster Egg"],
+["Mecha Scorpio","Monster","Monster","Mecha Egg"],
+["Mecha Froggo","Monster","Monster","Mecha Egg"],
+["Mecha Crawler","Monster","Monster","Mecha Egg"],
+["Krakenoid","Monster","Monster","Monster Egg"],
+["Mecha Crocodon","Monster","Monster","Mecha Egg"],
+["Mecha Krakenoid","Monster","Monster","Mecha Egg"],
+["Dreadscale","Monster","Monster","Monster Egg"],
+["Mecha Dreadscale","Monster","Monster","Mecha Egg"],
+["Rift Eye","Legendary","Rift","Riftborn Egg"],
+["Void Angler","Legendary","Rift","Riftbeasts Egg"],
+["Voidmaw","Mythic","Rift","Riftborn Egg"],
+["Riftwing","Mythic","Rift","Riftbeasts Egg"],
+["Shardling","Mythic","Rift","Shattered Rift Egg"],
+["Ventinal","Cosmic","Rift","Riftborn Egg"],
+["Abyss Overlord","Secret","Rift","Riftborn Egg"],
+["Dreadclaw","Cosmic","Rift","Riftbeasts Egg"],
+["Shattered Ram","Cosmic","Rift","Shattered Rift Egg"],
+["Wendigo","Secret","Rift","Riftborn Egg"],
+["Mawbreaker","Secret","Rift","Riftbeasts Egg"],
+["Shardwing","Secret","Rift","Shattered Rift Egg"],
+["World Eater","Eternal","Rift","Riftborn Egg"],
+["Shattered Drake","Eternal","Rift","Shattered Rift Egg"],
+["Void Serpent","Eternal","Rift","Riftbeasts Egg"],
+["Shattered Colossus","Divine","Rift","Shattered Rift Egg"],
+["Baby Aurora Dragon","Event","Event","Dragon Egg"],
+["Shadow Dragon","Event","Event","Dragon Egg"],
+["Scorched Dragon","Event","Event","Scorched Dragon Egg"],
+["Drilla","Event","Event","Drilla Egg"],
+["Void Dragon","Event","Event","Dragon Egg"],
+["Ember Dragon","Event","Event","Dragon Egg"],
+["Astral Jackalope","Cosmic","Enchanted Forest"],
+["Celestial Sunlion","Eternal","Enchanted Forest"],
+["Enchanted Bluejay","Mythic","Enchanted Forest"],
+["Petal Beetle","Mythic","Enchanted Forest"],
+["Prism Gecko","Legendary","Enchanted Forest"],
+["Royal Skywhale","Divine","Enchanted Forest"],
+["Spirit Panda","Cosmic","Enchanted Forest"],
+["Spirit World Guardian","Divine","Enchanted Forest"],
+["Starry Fox","Secret","Enchanted Forest"],
+["Thunderwool","Epic","Stormlands"],
+["Spark Pug","Legendary","Stormlands"],
+["Volt Giraffe","Mythic","Stormlands"],
+["Stormbreaker Rhino","Cosmic","Stormlands"],
+["Thundercrab","Cosmic","Stormlands"],
+["Stormclaw Wolf","Secret","Stormlands"],
+["Thundercoil","Secret","Stormlands"],
+["Tempest Bull","Eternal","Stormlands"],
+["Stormlord Titan","Eternal","Event","Stormy Egg"],
+["Stormflutter","Secret","Event","Stormy Egg"],
+["Cloudcurler","Cosmic","Event","Stormy Egg"],
+["Sparkfield","Mythic","Event","Stormy Egg"],
+["Nimbus","Legendary","Event","Stormy Egg"],
+["Stormstring","Legendary","Event","Stormy Egg"],
+["Rubyhorn Beetle","Legendary","Event","Crystal Egg"],
+["Jadefin Swordfish","Mythic","Event","Crystal Egg"],
+["Opal Emperor","Cosmic","Event","Crystal Egg"],
+["Moonveil Lynx","Secret","Event","Crystal Egg"],
+["Amber Minotaur","Eternal","Event","Crystal Egg"],
+["Sapphire Leviathan","Divine","Event","Crystal Egg"]
 ];
-const IMG={"Aetheron Egg":"img/Aetheron_Egg.png","Ankylosaurus Egg":"img/Ankylosaurus_Egg.png","ArchAngel Egg":"img/ArchAngel_Egg.png","Axolotl Egg":"img/Axolotl_Egg.png","Bear Egg":"img/Bear_Egg.png","Beluga Whale Egg":"img/Beluga_Whale_Egg.png","Bird Egg":"img/Bird_Egg.png","Bladehide Egg":"img/Bladehide_Egg.png","Brainrot Egg":"img/Brainrot_Egg.png","Bronto Egg":"img/Bronto_Egg.png","Brr Brr Patapim Egg":"img/Brr_Brr_Patapim_Egg.png","Burrowing Owl Egg":"img/Burrowing_Owl_Egg.png","Camel Egg":"img/Camel_Egg.png","Catfish Egg":"img/Catfish_Egg.png","Centapede Egg":"img/Centapede_Egg.png","Centaur Egg":"img/Centaur_Egg.png","Cerberus Egg":"img/Cerberus_Egg.png","Chicken Egg":"img/Chicken_Egg.png","Chillin Chilli Egg":"img/Chillin_Chilli_Egg.png","Chimpanzee Egg":"img/Chimpanzee_Egg.png","Cosmic Dragon Egg":"img/Cosmic_Dragon_Egg.png","Cosmic Gecko Egg":"img/Cosmic_Gecko_Egg.png","Cosmic Gorilla Egg":"img/Cosmic_Gorilla_Egg.png","Cosmic Skeleton Boss Egg":"img/Cosmic_Skeleton_Boss_Egg.png","Crane Egg":"img/Crane_Egg.png","Crocodile Egg":"img/Crocodile_Egg.png","Crustacia Egg":"img/Crustacia_Egg.png","Demon Hound Egg":"img/Demon_Hound_Egg.png","Dodo Egg":"img/Dodo_Egg.png","Dog Egg":"img/Dog_Egg.png","Dragon Egg":"img/Dragon_Egg.png","Drilla Egg":"img/Drilla_Egg.png","Duckling Egg":"img/Duckling_Egg.png","El Maja Egg":"img/El_Maja_Egg.png","Equinox Egg":"img/Equinox_Egg.png","Eternal Lunar Dragon Egg":"img/Eternal_Lunar_Dragon_Egg.png","Fennec Egg":"img/Fennec_Egg.png","Flame Sprite Egg":"img/Flame_Sprite_Egg.png","Flaming Bull Egg":"img/Flaming_Bull_Egg.png","Fox Egg":"img/Fox_Egg.png","Frog Egg":"img/Frog_Egg.png","Gargoyle Egg":"img/Gargoyle_Egg.png","Gorilla Egg":"img/Gorilla_Egg.png","Gorilla King Egg":"img/Gorilla_King_Egg.png","Holy Peacock Egg":"img/Holy_Peacock_Egg.png","Ice Dragon Egg":"img/Ice_Dragon_Egg.png","Imp Egg":"img/Imp_Egg.png","Jerboa Egg":"img/Jerboa_Egg.png","King Mammoth Egg":"img/King_Mammoth_Egg.png","King Snake Egg":"img/King_Snake_Egg.png","Kitsune Egg":"img/Kitsune_Egg.png","Koi Egg":"img/Koi_Egg.png","Kraken Egg":"img/Kraken_Egg.png","La Vacca Saturno Saturnita Egg":"img/La_Vacca_Saturno_Saturnita_Egg.png","Lava Dragon Egg":"img/Lava_Dragon_Egg.png","Lava Frog Egg":"img/Lava_Frog_Egg.png","Lava Gecko Egg":"img/Lava_Gecko_Egg.png","Lava Iguana Egg":"img/Lava_Iguana_Egg.png","Leviathan Egg":"img/Leviathan_Egg.png","Light Dove Egg":"img/Light_Dove_Egg.png","Mammoth Egg":"img/Mammoth_Egg.png","Mantaris Egg":"img/Mantaris_Egg.png","Mecha Egg":"img/Mecha_Egg.png","Monster Egg":"img/Monster_Egg.png","Mosasaurus Egg":"img/Mosasaurus_Egg.png","Mutant Shark Egg":"img/Mutant_Shark_Egg.png","Nightflame Egg":"img/Nightflame_Egg.png","Oni Tiger Egg":"img/Oni_Tiger_Egg.png","Orangutini Ananassini Egg":"img/Orangutini_Ananassini_Egg.png","Orca Egg":"img/Orca_Egg.png","Parrotfish Egg":"img/Parrotfish_Egg.png","Pegasus Egg":"img/Pegasus_Egg.png","Penguin Egg":"img/Penguin_Egg.png","Phoenix Egg":"img/Phoenix_Egg.png","Polar Bear Egg":"img/Polar_Bear_Egg.png","Pterodactyl Egg":"img/Pterodactyl_Egg.png","Pure Jellyfish Egg":"img/Pure_Jellyfish_Egg.png","Raccoon Egg":"img/Raccoon_Egg.png","RazorFang Egg":"img/RazorFang_Egg.png","Red Panda Egg":"img/Red_Panda_Egg.png","Rhinotaur Egg":"img/Rhinotaur_Egg.png","Riftbeasts Egg":"img/Riftbeasts_Egg.png","Riftborn Egg":"img/Riftborn_Egg.png","Royal Sphinx Egg":"img/Royal_Sphinx_Egg.png","Sabertooth Tiger Egg":"img/Sabertooth_Tiger_Egg.png","Sacred Moth Egg":"img/Sacred_Moth_Egg.png","Salamander Egg":"img/Salamander_Egg.png","Sand Spider Egg":"img/Sand_Spider_Egg.png","Scorched Dragon Egg":"img/Scorched_Dragon_Egg.png","Scorpion Egg":"img/Scorpion_Egg.png","Shark Egg":"img/Shark_Egg.png","Shattered Rift Egg":"img/Shattered_Rift_Egg.png","Skeleton Horse Egg":"img/Skeleton_Horse_Egg.png","Snake Egg":"img/Snake_Egg.png","Snowy Owl Egg":"img/Snowy_Owl_Egg.png","Spider Egg":"img/Spider_Egg.png","Spideron Egg":"img/Spideron_Egg.png","Stag Egg":"img/Stag_Egg.png","Swan Egg":"img/Swan_Egg.png","Swordfish Egg":"img/Swordfish_Egg.png","T-Rex Egg":"img/T-Rex_Egg.png","Tiger Egg":"img/Tiger_Egg.png","Tob Tobi Tob Tob Egg":"img/Tob_Tobi_Tob_Tob_Egg.png","Toro Egg":"img/Toro_Egg.png","Toucan Egg":"img/Toucan_Egg.png","Tralaledon Egg":"img/Tralaledon_Egg.png","Triceratops Egg":"img/Triceratops_Egg.png","Trulimero Trulicina Egg":"img/Trulimero_Trulicina_Egg.png","Turtle Egg":"img/Turtle_Egg.png","Unicorn Egg":"img/Unicorn_Egg.png","Walrus Egg":"img/Walrus_Egg.png","Whale Shark Egg":"img/Whale_Shark_Egg.png","Winged Lamb Egg":"img/Winged_Lamb_Egg.png","World Burner Egg":"img/World_Burner_Egg.png","Yeti Egg":"img/Yeti_Egg.png"};
-const BIOME_DOT={"Forest":"#4ade80","Lake":"#38bdf8","Desert":"#facc15","Jungle":"#22c55e","Snow":"#e0f2fe","Volcano":"#f97316","Abyss Ocean":"#0ea5e9","Prehistoric":"#a78bfa","Cosmic":"#e879f9","Cherry Blossom":"#f472b6","Titan Temple":"#fbbf24","Angels & Demons":"#f43f5e","Brainrot":"#4ade80","Monster":"#fb7185","Rift":"#c084fc","Event":"#f472b6"};
+const IMG={"Chicken Egg":"img/Chicken_Egg.png","Dog Egg":"img/Dog_Egg.png","Bird Egg":"img/Bird_Egg.png","Burrowing Owl Egg":"img/Burrowing_Owl_Egg.png","Raccoon Egg":"img/Raccoon_Egg.png","Fox Egg":"img/Fox_Egg.png","Bear Egg":"img/Bear_Egg.png","Brr Brr Patapim Egg":"img/Brr_Brr_Patapim_Egg.png","Frog Egg":"img/Frog_Egg.png","Duckling Egg":"img/Duckling_Egg.png","Catfish Egg":"img/Catfish_Egg.png","Turtle Egg":"img/Turtle_Egg.png","Trulimero Trulicina Egg":"img/Trulimero_Trulicina_Egg.png","Swan Egg":"img/Swan_Egg.png","Axolotl Egg":"img/Axolotl_Egg.png","Leviathan Egg":"img/Leviathan_Egg.png","Jerboa Egg":"img/Jerboa_Egg.png","Fennec Egg":"img/Fennec_Egg.png","Camel Egg":"img/Camel_Egg.png","Tob Tobi Tob Tob Egg":"img/Tob_Tobi_Tob_Tob_Egg.png","Snake Egg":"img/Snake_Egg.png","Sand Spider Egg":"img/Sand_Spider_Egg.png","Scorpion Egg":"img/Scorpion_Egg.png","Royal Sphinx Egg":"img/Royal_Sphinx_Egg.png","Chimpanzee Egg":"img/Chimpanzee_Egg.png","Toucan Egg":"img/Toucan_Egg.png","Crocodile Egg":"img/Crocodile_Egg.png","Gorilla Egg":"img/Gorilla_Egg.png","Orangutini Ananassini Egg":"img/Orangutini_Ananassini_Egg.png","Spider Egg":"img/Spider_Egg.png","Tiger Egg":"img/Tiger_Egg.png","King Snake Egg":"img/King_Snake_Egg.png","Penguin Egg":"img/Penguin_Egg.png","Walrus Egg":"img/Walrus_Egg.png","Polar Bear Egg":"img/Polar_Bear_Egg.png","Sabertooth Tiger Egg":"img/Sabertooth_Tiger_Egg.png","Mammoth Egg":"img/Mammoth_Egg.png","King Mammoth Egg":"img/King_Mammoth_Egg.png","Yeti Egg":"img/Yeti_Egg.png","Ice Dragon Egg":"img/Ice_Dragon_Egg.png","Lava Gecko Egg":"img/Lava_Gecko_Egg.png","Lava Frog Egg":"img/Lava_Frog_Egg.png","Flaming Bull Egg":"img/Flaming_Bull_Egg.png","Lava Iguana Egg":"img/Lava_Iguana_Egg.png","Chillin Chilli Egg":"img/Chillin_Chilli_Egg.png","Cerberus Egg":"img/Cerberus_Egg.png","Phoenix Egg":"img/Phoenix_Egg.png","Lava Dragon Egg":"img/Lava_Dragon_Egg.png","Parrotfish Egg":"img/Parrotfish_Egg.png","Swordfish Egg":"img/Swordfish_Egg.png","Shark Egg":"img/Shark_Egg.png","Orca Egg":"img/Orca_Egg.png","Whale Shark Egg":"img/Whale_Shark_Egg.png","Beluga Whale Egg":"img/Beluga_Whale_Egg.png","Kraken Egg":"img/Kraken_Egg.png","El Maja Egg":"img/El_Maja_Egg.png","Dodo Egg":"img/Dodo_Egg.png","Pterodactyl Egg":"img/Pterodactyl_Egg.png","Ankylosaurus Egg":"img/Ankylosaurus_Egg.png","Triceratops Egg":"img/Triceratops_Egg.png","Bronto Egg":"img/Bronto_Egg.png","T-Rex Egg":"img/T-Rex_Egg.png","Tralaledon Egg":"img/Tralaledon_Egg.png","Mosasaurus Egg":"img/Mosasaurus_Egg.png","Centapede Egg":"img/Centapede_Egg.png","Cosmic Gecko Egg":"img/Cosmic_Gecko_Egg.png","Cosmic Gorilla Egg":"img/Cosmic_Gorilla_Egg.png","La Vacca Saturno Saturnita Egg":"img/La_Vacca_Saturno_Saturnita_Egg.png","Cosmic Skeleton Boss Egg":"img/Cosmic_Skeleton_Boss_Egg.png","Cosmic Dragon Egg":"img/Cosmic_Dragon_Egg.png","Eternal Lunar Dragon Egg":"img/Eternal_Lunar_Dragon_Egg.png","Unicorn Egg":"img/Unicorn_Egg.png","Crane Egg":"img/Crane_Egg.png","Salamander Egg":"img/Salamander_Egg.png","Red Panda Egg":"img/Red_Panda_Egg.png","Snowy Owl Egg":"img/Snowy_Owl_Egg.png","Koi Egg":"img/Koi_Egg.png","Stag Egg":"img/Stag_Egg.png","Oni Tiger Egg":"img/Oni_Tiger_Egg.png","Kitsune Egg":"img/Kitsune_Egg.png","Spideron Egg":"img/Spideron_Egg.png","Crustacia Egg":"img/Crustacia_Egg.png","Bladehide Egg":"img/Bladehide_Egg.png","Mantaris Egg":"img/Mantaris_Egg.png","Rhinotaur Egg":"img/Rhinotaur_Egg.png","Mutant Shark Egg":"img/Mutant_Shark_Egg.png","Gorilla King Egg":"img/Gorilla_King_Egg.png","Nightflame Egg":"img/Nightflame_Egg.png","Flame Sprite Egg":"img/Flame_Sprite_Egg.png","Light Dove Egg":"img/Light_Dove_Egg.png","Toro Egg":"img/Toro_Egg.png","Winged Lamb Egg":"img/Winged_Lamb_Egg.png","Imp Egg":"img/Imp_Egg.png","Sacred Moth Egg":"img/Sacred_Moth_Egg.png","Demon Hound Egg":"img/Demon_Hound_Egg.png","Holy Peacock Egg":"img/Holy_Peacock_Egg.png","Pure Jellyfish Egg":"img/Pure_Jellyfish_Egg.png","Gargoyle Egg":"img/Gargoyle_Egg.png","Centaur Egg":"img/Centaur_Egg.png","RazorFang Egg":"img/RazorFang_Egg.png","Pegasus Egg":"img/Pegasus_Egg.png","Skeleton Horse Egg":"img/Skeleton_Horse_Egg.png","Equinox Egg":"img/Equinox_Egg.png","World Burner Egg":"img/World_Burner_Egg.png","ArchAngel Egg":"img/ArchAngel_Egg.png","Aetheron Egg":"img/Aetheron_Egg.png","Brainrot Egg":"img/Brainrot_Egg.png","Monster Egg":"img/Monster_Egg.png","Mecha Egg":"img/Mecha_Egg.png","Riftborn Egg":"img/Riftborn_Egg.png","Riftbeasts Egg":"img/Riftbeasts_Egg.png","Shattered Rift Egg":"img/Shattered_Rift_Egg.png","Dragon Egg":"img/Dragon_Egg.png","Scorched Dragon Egg":"img/Scorched_Dragon_Egg.png","Drilla Egg":"img/Drilla_Egg.png","Astral Jackalope Egg":"img/Astral_Jackalope_Egg.webp","Enchanted Bluejay Egg":"img/Enchanted_Bluejay_Egg.webp","Petal Beetle Egg":"img/Petal_Beetle_Egg.webp","Prism Gecko Egg":"img/Prism_Gecko_Egg.webp","Spirit Panda Egg":"img/Spirit_Panda_Egg.webp","Spirit World Guardian Egg":"img/Spirit_World_Guardian_Egg.webp","Crystal Egg":"img/Crystal_Egg.webp"};
+const PRICES={"Chicken":{"label": "$1/s", "num": 1.0, "src": "wiki"},"Dog":{"label": "$2/s", "num": 2.0, "src": "wiki"},"Frog":{"label": "$3/s", "num": 3.0, "src": "wiki"},"Duckling":{"label": "$4/s", "num": 4.0, "src": "wiki"},"Jerboa":{"label": "$6/s", "num": 6.0, "src": "wiki"},"Bird":{"label": "$8/s", "num": 8.0, "src": "wiki"},"Catfish":{"label": "$12/s", "num": 12.0, "src": "wiki"},"Fennec":{"label": "$18/s", "num": 18.0, "src": "wiki"},"Burrowing Owl":{"label": "$35/s", "num": 35.0, "src": "wiki"},"Raccoon":{"label": "$45/s", "num": 45.0, "src": "wiki"},"Turtle":{"label": "$60/s", "num": 60.0, "src": "wiki"},"Camel":{"label": "$75/s", "num": 75.0, "src": "wiki"},"Chimpanzee":{"label": "$90/s", "num": 90.0, "src": "wiki"},"Toucan":{"label": "$110/s", "num": 110.0, "src": "wiki"},"Penguin":{"label": "$140/s", "num": 140.0, "src": "wiki"},"Lava Gecko":{"label": "$180/s", "num": 180.0, "src": "wiki"},"Parrotfish":{"label": "$220/s", "num": 220.0, "src": "wiki"},"Dodo":{"label": "$280/s", "num": 280.0, "src": "wiki"},"Fox":{"label": "$180/s", "num": 180.0, "src": "wiki"},"Bear":{"label": "$240/s", "num": 240.0, "src": "wiki"},"Trulimero Trulicina":{"label": "$260/s", "num": 260.0, "src": "wiki"},"Swan":{"label": "$320/s", "num": 320.0, "src": "wiki"},"Tob Tobi Tob Tob":{"label": "$325/s", "num": 325.0, "src": "wiki"},"Crocodile":{"label": "$420/s", "num": 420.0, "src": "wiki"},"Walrus":{"label": "$600/s", "num": 600.0, "src": "wiki"},"Lava Frog":{"label": "$850/s", "num": 850.0, "src": "wiki"},"Swordfish":{"label": "$1.1K/s", "num": 1100.0, "src": "wiki"},"Centapede":{"label": "$1.5K/s", "num": 1500.0, "src": "wiki"},"Crane":{"label": "$4K/s", "num": 4000.0, "src": "wiki"},"Light Dove":{"label": "$225K/s", "num": 225000.0, "src": "wiki"},"Flame Sprite":{"label": "$225K/s", "num": 225000.0, "src": "wiki"},"Brr Brr Patapim":{"label": "$1.8K/s", "num": 1800.0, "src": "wiki"},"Axolotl":{"label": "$2.8K/s", "num": 2800.0, "src": "wiki"},"Snake":{"label": "$3.6K/s", "num": 3600.0, "src": "wiki"},"Gorilla":{"label": "$4.8K/s", "num": 4800.0, "src": "wiki"},"Orangutini Ananassini":{"label": "$5.5K/s", "num": 5500.0, "src": "wiki"},"Polar Bear":{"label": "$7K/s", "num": 7000.0, "src": "wiki"},"Flaming Bull":{"label": "$9.5K/s", "num": 9500.0, "src": "wiki"},"Lava Iguana":{"label": "$11K/s", "num": 11000.0, "src": "wiki"},"Rift Eye":{"label": "$11K/s", "num": 11000.0, "src": "wiki"},"Shark":{"label": "$15K/s", "num": 15000.0, "src": "wiki"},"Pterodactyl":{"label": "$22K/s", "num": 22000.0, "src": "wiki"},"Cosmic Gecko":{"label": "$30K/s", "num": 30000.0, "src": "wiki"},"Void Angler":{"label": "$30K/s", "num": 30000.0, "src": "wiki"},"Salamander":{"label": "$74K/s", "num": 74000.0, "src": "wiki"},"Spideron":{"label": "$95K/s", "num": 95000.0, "src": "wiki"},"Crustacia":{"label": "$130K/s", "num": 130000.0, "src": "wiki"},"Prism Gecko":{"label": "$350K/s", "num": 350000.0, "src": "wiki"},"Sand Spider":{"label": "$16K/s", "num": 16000.0, "src": "wiki"},"Scorpion":{"label": "$18.5K/s", "num": 18500.0, "src": "wiki"},"Spider":{"label": "$22K/s", "num": 22000.0, "src": "wiki"},"Tiger":{"label": "$28K/s", "num": 28000.0, "src": "wiki"},"Sabertooth Tiger":{"label": "$35K/s", "num": 35000.0, "src": "wiki"},"Mammoth":{"label": "$42K/s", "num": 42000.0, "src": "wiki"},"Voidmaw":{"label": "$50K/s", "num": 50000.0, "src": "wiki"},"Chillin Chilli":{"label": "$55K/s", "num": 55000.0, "src": "wiki"},"Orca":{"label": "$80K/s", "num": 80000.0, "src": "wiki"},"Ankylosaurus":{"label": "$120K/s", "num": 120000.0, "src": "wiki"},"Cosmic Gorilla":{"label": "$180K/s", "num": 180000.0, "src": "wiki"},"Riftwing":{"label": "$220K/s", "num": 220000.0, "src": "wiki"},"Red Panda":{"label": "$450K/s", "num": 450000.0, "src": "wiki"},"Shardling":{"label": "$450K/s", "num": 450000.0, "src": "wiki"},"Bladehide":{"label": "$750K/s", "num": 750000.0, "src": "wiki"},"Winged Lamb":{"label": "$1.25M/s", "num": 1250000.0, "src": "wiki"},"Toro":{"label": "$1.25M/s", "num": 1250000.0, "src": "wiki"},"Petal Beetle":{"label": "$1.2M/s", "num": 1200000.0, "src": "wiki"},"Enchanted Bluejay":{"label": "$2.5M/s", "num": 2500000.0, "src": "wiki"},"Leviathan":{"label": "$220K/s", "num": 220000.0, "src": "wiki"},"Royal Sphinx":{"label": "$280K/s", "num": 280000.0, "src": "wiki"},"King Mammoth":{"label": "$400K/s", "num": 400000.0, "src": "wiki"},"Ventinal":{"label": "$585K/s", "num": 585000.0, "src": "wiki"},"Whale Shark":{"label": "$700K/s", "num": 700000.0, "src": "wiki"},"Beluga Whale":{"label": "$850K/s", "num": 850000.0, "src": "wiki"},"Triceratops":{"label": "$1.2M/s", "num": 1200000.0, "src": "wiki"},"Bronto":{"label": "$1.5M/s", "num": 1500000.0, "src": "wiki"},"Dreadclaw":{"label": "$2.2M/s", "num": 2200000.0, "src": "wiki"},"La Vacca Saturno Saturnita":{"label": "$2.2M/s", "num": 2200000.0, "src": "wiki"},"Snowy Owl":{"label": "$7.5M/s", "num": 7500000.0, "src": "wiki"},"Shattered Ram":{"label": "$8M/s", "num": 8000000.0, "src": "wiki"},"Mantaris":{"label": "$11M/s", "num": 11000000.0, "src": "wiki"},"Koi":{"label": "$12M/s", "num": 12000000.0, "src": "wiki"},"Sacred Moth":{"label": "$16M/s", "num": 16000000.0, "src": "wiki"},"Imp":{"label": "$16M/s", "num": 16000000.0, "src": "wiki"},"Rhinotaur":{"label": "$17.5M/s", "num": 17500000.0, "src": "wiki"},"Holy Peacock":{"label": "$25M/s", "num": 25000000.0, "src": "wiki"},"Demon Hound":{"label": "$25M/s", "num": 25000000.0, "src": "wiki"},"Astral Jackalope":{"label": "$30M/s", "num": 30000000.0, "src": "wiki"},"Spirit Panda":{"label": "$90M/s", "num": 90000000.0, "src": "wiki"},"King Snake":{"label": "$3.5M/s", "num": 3500000.0, "src": "wiki"},"Yeti":{"label": "$5M/s", "num": 5000000.0, "src": "wiki"},"Cerberus":{"label": "$8M/s", "num": 8000000.0, "src": "wiki"},"Wendigo":{"label": "$15M/s", "num": 15000000.0, "src": "wiki"},"Kraken":{"label": "$15M/s", "num": 15000000.0, "src": "wiki"},"T-Rex":{"label": "$25M/s", "num": 25000000.0, "src": "wiki"},"Tralaledon":{"label": "$32M/s", "num": 32000000.0, "src": "wiki"},"Cosmic Skeleton Boss":{"label": "$45M/s", "num": 45000000.0, "src": "wiki"},"Mawbreaker":{"label": "$60M/s", "num": 60000000.0, "src": "wiki"},"Cosmic Dragon":{"label": "$60M/s", "num": 60000000.0, "src": "wiki"},"Stag":{"label": "$145M/s", "num": 145000000.0, "src": "wiki"},"Shardwing":{"label": "$145M/s", "num": 145000000.0, "src": "wiki"},"Mutant Shark":{"label": "$215M/s", "num": 215000000.0, "src": "wiki"},"Pure Jellyfish":{"label": "$225M/s", "num": 225000000.0, "src": "wiki"},"Gargoyle":{"label": "$225M/s", "num": 225000000.0, "src": "wiki"},"Centaur":{"label": "$350M/s", "num": 350000000.0, "src": "wiki"},"RazorFang":{"label": "$350M/s", "num": 350000000.0, "src": "wiki"},"Abyss Overlord":{"label": "$1.25M/s", "num": 1250000.0, "src": "wiki"},"Starry Fox":{"label": "$750M/s", "num": 750000000.0, "src": "wiki"},"Ice Dragon":{"label": "$65M/s", "num": 65000000.0, "src": "wiki"},"Phoenix":{"label": "$85M/s", "num": 85000000.0, "src": "wiki"},"Lava Dragon":{"label": "$100M/s", "num": 100000000.0, "src": "wiki"},"El Maja":{"label": "$130M/s", "num": 130000000.0, "src": "wiki"},"Mosasaurus":{"label": "$180M/s", "num": 180000000.0, "src": "wiki"},"Eternal Lunar Dragon":{"label": "$250M/s", "num": 250000000.0, "src": "wiki"},"World Eater":{"label": "$500M/s", "num": 500000000.0, "src": "wiki"},"Oni Tiger":{"label": "$600M/s", "num": 600000000.0, "src": "wiki"},"Shattered Drake":{"label": "$800M/s", "num": 800000000.0, "src": "wiki"},"Gorilla King":{"label": "$880M/s", "num": 880000000.0, "src": "wiki"},"Void Serpent":{"label": "$900M/s", "num": 900000000.0, "src": "wiki"},"Pegasus":{"label": "$1.3B/s", "num": 1300000000.0, "src": "wiki"},"Skeleton Horse":{"label": "$1.3B/s", "num": 1300000000.0, "src": "wiki"},"Equinox":{"label": "$1.8B/s", "num": 1800000000.0, "src": "wiki"},"Celestial Sunlion":{"label": "$2B/s", "num": 2000000000.0, "src": "wiki"},"Unicorn":{"label": "$1B/s", "num": 1000000000.0, "src": "wiki"},"Kitsune":{"label": "$1.8B/s", "num": 1800000000.0, "src": "wiki"},"Nightflame":{"label": "$3B/s", "num": 3000000000.0, "src": "wiki"},"Shattered Colossus":{"label": "$3.5B/s", "num": 3500000000.0, "src": "wiki"},"ArchAngel":{"label": "$5B/s", "num": 5000000000.0, "src": "wiki"},"World Burner":{"label": "$5B/s", "num": 5000000000.0, "src": "wiki"},"Aetheron":{"label": "$6.9B/s", "num": 6900000000.0, "src": "wiki"},"Royal Skywhale":{"label": "$8B/s", "num": 8000000000.0, "src": "wiki"},"Spirit World Guardian":{"label": "$15B/s", "num": 15000000000.0, "src": "wiki"},"Tung Tung Sahur":{"label": "$100/s", "num": 100.0, "src": "wiki"},"Bananita Dolphinita":{"label": "$400/s", "num": 400.0, "src": "wiki"},"Belula Beluga":{"label": "$40K/s", "num": 40000.0, "src": "wiki"},"Mangolini Parrochini":{"label": "$800K/s", "num": 800000.0, "src": "wiki"},"Bomboclat Crocolat":{"label": "$20M/s", "num": 20000000.0, "src": "wiki"},"Strawberry Elephant":{"label": "$110M/s", "num": 110000000.0, "src": "wiki"},"Scorpio":{"label": "$10K/s", "num": 10000.0, "src": "wiki"},"Froggo":{"label": "$50K/s", "num": 50000.0, "src": "wiki"},"Crawler":{"label": "$1.5M/s", "num": 1500000.0, "src": "wiki"},"Crocodon":{"label": "$30M/s", "num": 30000000.0, "src": "wiki"},"Mecha Scorpio":{"label": "$45M/s", "num": 45000000.0, "src": "wiki"},"Mecha Froggo":{"label": "$155M/s", "num": 155000000.0, "src": "wiki"},"Mecha Crawler":{"label": "$320M/s", "num": 320000000.0, "src": "wiki"},"Krakenoid":{"label": "$500M/s", "num": 500000000.0, "src": "wiki"},"Mecha Crocodon":{"label": "$680M/s", "num": 680000000.0, "src": "wiki"},"Mecha Krakenoid":{"label": "$1B/s", "num": 1000000000.0, "src": "wiki"},"Dreadscale":{"label": "$2B/s", "num": 2000000000.0, "src": "wiki"},"Mecha Dreadscale":{"label": "$4B/s", "num": 4000000000.0, "src": "wiki"},"Baby Aurora Dragon":{"label": "$5M/s", "num": 5000000.0, "src": "wiki"},"Shadow Dragon":{"label": "$25M/s", "num": 25000000.0, "src": "wiki"},"Scorched Dragon":{"label": "$35M/s", "num": 35000000.0, "src": "wiki"},"Drilla":{"label": "$100M/s", "num": 100000000.0, "src": "wiki"},"Void Dragon":{"label": "$120M/s", "num": 120000000.0, "src": "wiki"},"Ember Dragon":{"label": "$600M/s", "num": 600000000.0, "src": "wiki"},"Thunderwool":{"label": "$1.3K/s", "num": 1300.0, "src": "guias"},"Spark Pug":{"label": "$26K/s", "num": 26000.0, "src": "guias"},"Volt Giraffe":{"label": "$150K/s", "num": 150000.0, "src": "guias"},"Stormbreaker Rhino":{"label": "$1.7M/s", "num": 1700000.0, "src": "guias"},"Thundercrab":{"label": "$1.9M/s", "num": 1900000.0, "src": "guias"},"Stormclaw Wolf":{"label": "$36M/s", "num": 36000000.0, "src": "guias"},"Thundercoil":{"label": "$42M/s", "num": 42000000.0, "src": "guias"},"Tempest Bull":{"label": "$215M/s", "num": 215000000.0, "src": "guias"},"Stormlord Titan":{"label": "$5B/s", "num": 5000000000.0, "src": "guias"},"Stormflutter":{"label": "$700M/s", "num": 700000000.0, "src": "guias"},"Cloudcurler":{"label": "$6M/s", "num": 6000000.0, "src": "guias"},"Sparkfield":{"label": "$160K/s", "num": 160000.0, "src": "guias"},"Nimbus":{"label": "$35K/s", "num": 35000.0, "src": "guias"},"Stormstring":{"label": "$22.5K/s", "num": 22500.0, "src": "guias"},"Rubyhorn Beetle":{"label": "$55K/s", "num": 55000.0, "src": "guias"},"Jadefin Swordfish":{"label": "$250K/s", "num": 250000.0, "src": "guias"},"Opal Emperor":{"label": "$9M/s", "num": 9000000.0, "src": "guias"},"Moonveil Lynx":{"label": "$650M/s", "num": 650000000.0, "src": "guias"},"Amber Minotaur":{"label": "$4B/s", "num": 4000000000.0, "src": "guias"},"Sapphire Leviathan":{"label": "$15B/s", "num": 15000000000.0, "src": "guias"}};
+const MUTATIONS=[{"name": "Rainbow", "mult": 3.5, "icon": "Rainbow.png", "desc": "Efecto arcoíris animado que cambia de color. Rollo de eclosión extremadamente raro (1 de 100).", "src": "Wiki Mutations"}, {"name": "Parasite", "mult": 3.0, "icon": "Parasite.png", "desc": "No sale en eclosiones normales. Viene de su propio Parasite Egg, obtenido en el evento de alimentación.", "src": "Wiki Mutations"}, {"name": "Fractured", "mult": 2.75, "icon": "Fractured.png", "desc": "Se aplica a un huevo con un Consumible de Mutación, 10% de probabilidad.", "src": "Wiki Mutations"}, {"name": "Scrambled", "mult": 2.75, "icon": "Scrambled.png", "desc": "Efecto venenoso. Se obtiene en la tienda de Dr. Scramble, 10% de probabilidad.", "src": "Wiki Mutations"}, {"name": "Golden", "mult": 2.5, "icon": "Golden.png", "desc": "Textura dorada metálica con partículas de monedas. Rollo de eclosión (4 de 100).", "src": "Wiki Mutations"}, {"name": "Spirit Bloom", "mult": 2.5, "icon": "Great Bloom.png", "desc": "Efecto espiritual verde. Se obtiene en la Sakura Incubator, no en eclosiones normales.", "src": "Wiki Mutations"}, {"name": "Bloom", "mult": 1.25, "icon": "Sakura.png", "desc": "Partículas de pétalos de cerezo. Ligado al evento Sakura.", "src": "Wiki Mutations"}, {"name": "Silver", "mult": 1.2, "icon": "Silver.png", "desc": "Apariencia plateada metálica. Rollo de eclosión (6 de 100).", "src": "Wiki Mutations"}, {"name": "Thunderous", "mult": 2.75, "icon": null, "desc": "Se obtiene en la Stormheart Cave de Stormlands con 150 Sparks.", "src": "Guías de Stormlands (nov 2026)"}];
+const MUT_IMG={"Rainbow":"img/Rainbow.png","Parasite":"img/Parasite.png","Fractured":"img/Fractured.png","Scrambled":"img/Scrambled.png","Golden":"img/Golden.png","Spirit Bloom":"img/Great_Bloom.png","Bloom":"img/Sakura.png","Silver":"img/Silver.png"};
+const BIOME_DOT={"Forest":"#4ade80","Lake":"#38bdf8","Desert":"#facc15","Jungle":"#22c55e","Snow":"#e0f2fe","Volcano":"#f97316","Abyss Ocean":"#0ea5e9","Prehistoric":"#a78bfa","Cosmic":"#e879f9","Cherry Blossom":"#f472b6","Titan Temple":"#fbbf24","Angels & Demons":"#f43f5e","Enchanted Forest":"#34d399","Stormlands":"#38bdf8","Brainrot":"#4ade80","Monster":"#fb7185","Rift":"#c084fc","Event":"#f472b6"};
 const RARITY_RANK={"Common":1,"Uncommon":2,"Rare":3,"Epic":4,"Legendary":5,"Mythic":6,"Cosmic":7,"Secret":8,"Brainrot":8,"Monster":8,"Event":8,"Eternal":9,"Divine":10};
-const RECENT_ORDER=["Angels & Demons","Titan Temple","Cherry Blossom","Cosmic","Prehistoric","Abyss Ocean","Volcano","Snow","Jungle","Desert","Lake","Forest","Brainrot","Monster","Rift","Event"];
+const RECENT_ORDER=["Stormlands","Enchanted Forest","Angels & Demons","Titan Temple","Cherry Blossom","Cosmic","Prehistoric","Abyss Ocean","Volcano","Snow","Jungle","Desert","Lake","Forest","Brainrot","Monster","Rift","Event"];
 const EVENTS=[
  {id:"skyfall",icon:"🌩️",name:"SkyFall",desc:"Cada :00 y :30 · dura 5 min · Stormlands",kind:"recurring",before:1},
  {id:"admin14",icon:"👑",name:"Admin Abuse #14",desc:"Sábado 21 nov · 8:00 AM · hora según guías, confirmar en el juego",kind:"once",at:Date.UTC(2026,10,21,15,0,0),before:15},
@@ -339,40 +622,273 @@ const EVENTS=[
 const ANNOUNCEMENTS=[
  {cls:"red",text:"Turkey Takeover llega el sábado 21 de noviembre a las 8:00 AM. Dura 6 días, hasta el viernes 27.",date:"20 nov, 04:15"},
  {cls:"orange",text:"Admin Abuse #14 el sábado 21 de noviembre a las 8:00 AM. Entra 7:40 AM y quédate dentro si no ha empezado.",date:"20 nov, 04:15"},
- {cls:"green",text:"El radar muestra servidores reales actualizados cada 5 minutos. Los huevos por servidor solo se saben por reportes de la comunidad, marcados SIN VERIFICAR.",date:"20 nov, 04:15"}
+ {cls:"green",text:"El radar muestra servidores reales actualizados cada 5 minutos. Esta página no tiene reportes de la comunidad: todo viene de fuentes reales o es un cálculo marcado como tal.",date:"20 nov, 04:15"}
 ];
 /* ---- Estado ---- */
-const DEF_SET={sound:true,soundKind:"classic",volume:0.8,notify:false,alertNew:true,minRarity:"any",events:{skyfall:{screen:true,alarm:true,before:1},admin14:{screen:true,alarm:true,before:15},turkey:{screen:true,alarm:true,before:15}}};
+const DEF_SET={alertsOn:true,sound:true,soundKind:"classic",volume:0.8,notify:false,favRarities:["Secret","Eternal","Divine"],favMutations:[],resetPre60:true,resetPre10:true,spaceAlert:true,events:{skyfall:{screen:true,alarm:true,before:1},admin14:{screen:true,alarm:true,before:15},turkey:{screen:true,alarm:true,before:15}}};
 let settings=JSON.parse(JSON.stringify(DEF_SET));
-try{const s=JSON.parse(localStorage.getItem("dxr_settings_v1")||"null");if(s){settings={...DEF_SET,...s,events:{...DEF_SET.events,...(s.events||{})}};}}catch(e){}
+try{const s=JSON.parse(localStorage.getItem("dxr_settings_v1")||"null");if(s){settings={...DEF_SET,...s,events:{...DEF_SET.events,...(s.events||{})}};if(!Array.isArray(settings.favRarities))settings.favRarities=DEF_SET.favRarities;if(!Array.isArray(settings.favMutations))settings.favMutations=[];}}catch(e){}
 function saveSettings(){try{localStorage.setItem("dxr_settings_v1",JSON.stringify(settings));}catch(e){}}
-let reports=[];try{reports=JSON.parse(localStorage.getItem("dxr_reports_v1")||"[]");}catch(e){reports=[];}
-function saveReports(){try{localStorage.setItem("dxr_reports_v1",JSON.stringify(reports));}catch(e){}}
 let filters={zones:[],rars:[],hidden:[]};
 try{const f=JSON.parse(localStorage.getItem("dxr_filters_v1")||"null");if(f)filters={zones:f.zones||[],rars:f.rars||[],hidden:f.hidden||[]};}catch(e){}
 function saveFilters(){try{localStorage.setItem("dxr_filters_v1",JSON.stringify(filters));}catch(e){}}
 let fired={};try{fired=JSON.parse(localStorage.getItem("dxr_fired_v1")||"{}");}catch(e){fired={};}
 function saveFired(){try{localStorage.setItem("dxr_fired_v1",JSON.stringify(fired));}catch(e){}}
-let allServers=[],lastSource="",lastGeneratedAt=null,lastResetCycle=-1,shownCount=50,activeTab="gen",audioCtx=null;
+let allServers=[],currentRows=[],lastSource="",lastGeneratedAt=null,lastResetCycle=-1,lastPre60Cycle=-1,lastSpaceAvail=-1,shownCount=50,activeTab="gen",activeView="home",favOnly=false,audioCtx=null;
 /* ---- Utilidades ---- */
 const esc=s=>String(s==null?"":s).replace(/[&<>\"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const timeAgo=ts=>{const s=Math.max(0,Math.floor((Date.now()-ts)/1000));if(s<60)return"Hace "+s+" s";const m=Math.floor(s/60);return"Hace "+m+" min";};
+const timeAgo=ts=>{const s=Math.max(0,Math.floor((Date.now()-ts)/1000));if(s<60)return"Hace "+s+" s";const m=Math.floor(s/60);if(m<60)return"Hace "+m+" min";const h=Math.floor(m/60);return"Hace "+h+" h";};
 const eggImg=e=>IMG[e[3]||e[0]+" Egg"]||"";
 const eggWiki=e=>"https://stealanegg.fandom.com/wiki/"+encodeURIComponent(e[0].replace(/ /g,"_"));
 const rarClass=r=>"r-"+r.toLowerCase();
 const speedNum=v=>{if(!v||v==="—"||v==="Especial")return 0;const m=String(v).match(/^([\d.]+)(K|M|B)?$/);if(!m)return 0;const mult={K:1e3,M:1e6,B:1e9}[m[2]]||1;return parseFloat(m[1])*mult;};
+const priceOf=n=>PRICES[n]||null;
+function fmtMoney(n){if(n==null||isNaN(n))return null;if(n>=1e12)return"$"+(n/1e12).toFixed(n%1e12?2:0).replace(/\.00$/,"")+"T/s";if(n>=1e9)return"$"+(n/1e9).toFixed(n%1e9?2:0).replace(/\.00$/,"")+"B/s";if(n>=1e6)return"$"+(n/1e6).toFixed(n%1e6?2:0).replace(/\.00$/,"")+"M/s";if(n>=1e3)return"$"+(n/1e3).toFixed(n%1e3?2:0).replace(/\.00$/,"")+"K/s";return"$"+n+"/s";}
 function eggCardImg(e){const u=eggImg(e);if(!u)return '<div class="egg-ph">◆</div>';return '<div class="egg-ph" style="display:none">◆</div><img src="'+u+'" alt="'+esc(e[0])+' Egg" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display=\'none\';this.previousElementSibling.style.display=\'flex\'">';}
 /* ---- Puerta de entrada ---- */
-function closeGate(){$("gate").classList.add("hidden");$("app").classList.remove("hidden");try{sessionStorage.setItem("dxr_entered","1");}catch(e){}}
-/* ---- Cajones (drawers) ---- */
-function openDrawer(id){closeDrawers();$(id).classList.add("on");$("overlay").classList.add("on");}
+function closeGate(){$("gate").classList.add("hidden");$("app").classList.remove("hidden");$("bottomnav").classList.remove("hidden");try{sessionStorage.setItem("dxr_entered","1");}catch(e){}}
+/* ---- Vistas / navegación ---- */
+function showView(name){
+  activeView=name;
+  document.querySelectorAll(".view").forEach(v=>v.classList.remove("on"));
+  $("view-"+name).classList.add("on");
+  document.querySelectorAll("#bottomnav button").forEach(b=>b.classList.toggle("on",b.getAttribute("data-view")===name));
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+/* ---- Cajones y modales ---- */
+function openDrawer(id){$(id).classList.add("on");$("overlay").classList.add("on");}
 function closeDrawers(){document.querySelectorAll(".drawer").forEach(d=>d.classList.remove("on"));$("overlay").classList.remove("on");}
-/* ---- Huevos (catálogo estilo Kinzaro) ---- */
+function openModal(id){$(id).classList.add("on");}
+function closeModal(id){$(id).classList.remove("on");}
+/* ---- Estadísticas (INICIO) ---- */
+function updateStats(){
+  const total=allServers.length;
+  const avail=allServers.filter(s=>(s.playing||0)<(s.maxPlayers||7)).length;
+  const players=allServers.reduce((n,s)=>n+(s.playing||0),0);
+  $("statServers").textContent=total||"—";
+  $("statAvailable").textContent=total?avail:"—";
+  $("statPlayers").textContent=total?players:"—";
+  $("statEggs").textContent=EGGS.length;
+  $("statUpdated").textContent=lastGeneratedAt?timeAgo(new Date(lastGeneratedAt).getTime()):(lastSource?"Ahora mismo":"—");
+}
+/* ---- Servidores ---- */
+function setStatus(ok,txt){const p=$("statusPill");p.classList.toggle("off",!ok);p.innerHTML='<span class="dot"></span>'+esc(txt);}
+function setUpdated(txt){$("updated").textContent=txt;}
+async function fetchJSON(url){const r=await fetch(url,{cache:"no-store"});if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}
+async function loadServers(manual){
+  if(manual){$("refresh").disabled=true;$("refresh").textContent="CARGANDO…";}
+  let data=null,source="";
+  try{data=await fetchJSON(DATA_URL);if(data&&data.servers&&data.servers.length){source="github";}else throw new Error("sin datos");}
+  catch(e1){try{data=await fetchJSON(ROBLOX_API);source="live";}catch(e2){try{data=await fetchJSON(PROXY_API);source="proxy";}catch(e3){data=null;}}}
+  $("refresh").disabled=false;$("refresh").textContent="↻ ACTUALIZAR SERVIDORES";
+  if(!data||!data.servers){allServers=[];renderServers();setStatus(false,"SIN CONEXIÓN");setUpdated("No se pudo cargar la lista");$("serverSource").textContent="Reintenta en unos segundos";updateStats();return;}
+  allServers=data.servers;lastSource=source;lastGeneratedAt=data.generated_at||null;
+  renderServers();
+  if(source==="github"){setStatus(true,"EN VIVO · ROBOT");$("serverSource").textContent="Robot GitHub · cada 5 min";}
+  else if(source==="live"){setStatus(true,"EN VIVO");$("serverSource").textContent="Directo desde Roblox";}
+  else{setStatus(true,"EN VIVO · PROXY");$("serverSource").textContent="Vía proxy público";}
+  updateUpdatedLabel();updateStats();checkSpaceAlert();
+}
+function updateUpdatedLabel(){
+  if(lastSource==="github"&&lastGeneratedAt){const age=Math.max(0,Math.round((Date.now()-new Date(lastGeneratedAt).getTime())/60000));setUpdated(age<1?"Actualizado hace menos de 1 min":"Actualizado hace "+age+" min");}
+  else if(lastSource){setUpdated("Actualizado ahora mismo");}
+}
+function renderServers(){
+  const term=$("search").value.toLowerCase(),sort=$("sort").value,occ=$("occ").value;
+  let rows=allServers.filter(s=>{
+    const haystack=(s.id||"").toLowerCase();
+    if(term&&!haystack.includes(term))return false;
+    if(occ==="space"&&!((s.playing||0)<(s.maxPlayers||7)))return false;
+    if(occ==="almost"&&!((s.playing||0)>=5&&(s.playing||0)<(s.maxPlayers||7)))return false;
+    if(occ==="low"&&!((s.playing||0)<=2))return false;
+    return true;
+  });
+  rows.sort((a,b)=>sort==="players"?(b.playing||0)-(a.playing||0):sort==="empty"?(a.playing||0)-(b.playing||0):sort==="ping"?(a.ping==null?1e9:a.ping)-(b.ping==null?1e9:b.ping):(b.fps||-1)-(a.fps||-1));
+  currentRows=rows;
+  const box=$("servers");
+  if(!rows.length){box.innerHTML='<div class="empty">No hay servidores que coincidan con ese filtro.</div>';$("loadMore").style.display="none";return;}
+  const view=rows.slice(0,shownCount);
+  box.innerHTML=view.map((s,i)=>{
+    const ping=s.ping==null?"":("Ping "+Math.round(s.ping)+" ms"),fps=s.fps==null?"":(Math.round(s.fps)+" FPS");
+    const meta=[ping,fps].filter(Boolean).join(" · ");
+    const spaces=(s.maxPlayers||7)-(s.playing||0);
+    const full=(s.playing||0)>=(s.maxPlayers||7);
+    return '<article class="server"><div class="srv-left"><div class="players">'+(s.playing||0)+'/'+(s.maxPlayers||7)+' <small>jugadores · '+spaces+' espacios</small> <span class="srv-status '+(full?"full":"ok")+'">'+(full?"LLENO":"CON ESPACIO")+'</span></div><div class="srv-meta">JobId: '+esc(s.id||"")+(meta?" · "+esc(meta):"")+' · <button data-copy="'+esc(s.id)+'">COPIAR ID</button></div></div><button class="join" data-join="'+i+'">▶ JOIN</button></article>';
+  }).join("");
+  $("loadMore").style.display=rows.length>shownCount?"block":"none";
+  box.querySelectorAll("[data-copy]").forEach(b=>b.addEventListener("click",()=>{
+    const id=b.getAttribute("data-copy");
+    const done=()=>{b.textContent="COPIADO ✓";setTimeout(()=>b.textContent="COPIAR ID",1500);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(id).then(done).catch(()=>{prompt("JobId del servidor:",id);});}
+    else prompt("JobId del servidor:",id);
+  }));
+  box.querySelectorAll("[data-join]").forEach(b=>b.addEventListener("click",()=>{
+    openJoinSheet(currentRows[parseInt(b.getAttribute("data-join"),10)]);
+  }));
+}
+/* ---- Confirmación de JOIN ---- */
+function dataAgeMin(){
+  if(lastSource==="github"&&lastGeneratedAt)return Math.max(0,Math.round((Date.now()-new Date(lastGeneratedAt).getTime())/60000));
+  return 0;
+}
+function openJoinSheet(s){
+  if(!s){return;}
+  const stillThere=allServers.some(x=>x.id===s.id);
+  const age=dataAgeMin();
+  const spaces=(s.maxPlayers||7)-(s.playing||0);
+  const full=(s.playing||0)>=(s.maxPlayers||7);
+  const ping=s.ping==null?"No disponible":Math.round(s.ping)+" ms";
+  const fps=s.fps==null?"No disponible":Math.round(s.fps)+" FPS";
+  const joinUrl="https://www.roblox.com/games/start?placeId="+PLACE_ID+"&gameInstanceId="+encodeURIComponent(s.id);
+  $("joinModalBody").innerHTML=
+    '<h2>▶ Entrar a este servidor</h2><div class="m-sub">Revisa los datos antes de entrar. El enlace usa el JobId exacto de esta instancia.</div>'+
+    '<div class="kv"><span>Jugadores</span><b>'+(s.playing||0)+'/'+(s.maxPlayers||7)+'</b></div>'+
+    '<div class="kv"><span>Espacios disponibles</span><b>'+spaces+'</b></div>'+
+    '<div class="kv"><span>Estado</span><b>'+(full?"LLENO":"CON ESPACIO")+'</b></div>'+
+    '<div class="kv"><span>Ping</span><b>'+esc(ping)+'</b></div>'+
+    '<div class="kv"><span>FPS</span><b>'+esc(fps)+'</b></div>'+
+    '<div class="kv"><span>JobId</span><b style="word-break:break-all;font-size:12px">'+esc(s.id)+'</b></div>'+
+    '<div class="kv"><span>Datos de</span><b>'+(age<1?"menos de 1 min":("hace "+age+" min"))+'</b></div>'+
+    (full?'<p class="hint" style="margin-top:12px;color:#fca5a5"><b>⚠️ Servidor lleno.</b> Es posible que Roblox no te deje entrar. Busca otro con espacio.</p>':"")+
+    (!stillThere?'<p class="hint" style="margin-top:12px;color:#fca5a5"><b>⚠️ Servidor no disponible.</b> Este servidor ya no aparece en la lista actualizada. No entres: busca otro.</p>':"")+
+    (age>10?'<p class="hint" style="margin-top:12px;color:#fca5a5"><b>⚠️ Datos con más de 10 minutos.</b> El servidor puede haberse llenado o cerrado. Roblox te avisará si ya no está disponible.</p>':"")+
+    '<p class="hint" style="margin-top:12px">Si el servidor ya no está disponible, Roblox te lo dirá al entrar. Esta página nunca te manda a un servidor aleatorio.</p>'+
+    '<div class="modal-actions"><a class="join" href="'+joinUrl+'" target="_blank" rel="noopener">▶ JOIN A ESTE SERVIDOR</a><button class="ghost" id="joinClose">Cancelar</button></div>';
+  openModal("modalJoin");
+  $("joinClose").addEventListener("click",()=>closeModal("modalJoin"));
+}
+/* ---- Reset de 5 minutos ---- */
+function tick(){
+  const now=Date.now(),elapsed=now%RESET_MS,left=RESET_MS-elapsed;
+  const m=Math.floor(left/60000),s=Math.floor((left%60000)/1000);
+  const txt=String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+  const big=$("resetBig");big.textContent=txt;big.classList.toggle("low",left<=60000);
+  $("resetProgress").style.width=(elapsed/RESET_MS*100).toFixed(1)+"%";
+  const cycle=Math.floor(now/RESET_MS);
+  if(settings.alertsOn){
+    if(settings.resetPre60&&left<=60000&&left>10000&&cycle!==lastPre60Cycle){lastPre60Cycle=cycle;resetToast("El reset de huevos es en 1 minuto.");}
+    if(settings.resetPre10&&left<=10000&&cycle!==lastResetCycle){lastResetCycle=cycle;resetToast("El reset de huevos es en 10 segundos.");}
+  }
+  checkEvents();
+}
+function resetToast(msg){
+  const favs=settings.favRarities.length?"Busca: "+settings.favRarities.join(", ")+".":"";
+  const muts=settings.favMutations.length?" Con mutación: "+settings.favMutations.join(", ")+".":"";
+  fireAlert("Reset de huevos",msg+" "+favs+muts+" El reset no predice qué huevo va a salir.");
+}
+function checkSpaceAlert(){
+  if(!settings.alertsOn||!settings.spaceAlert)return;
+  const avail=allServers.filter(s=>(s.playing||0)<(s.maxPlayers||7)).length;
+  if(avail>0&&lastSpaceAvail===0){
+    fireAlert("Servidores con espacio","Hay "+avail+" servidores con espacio ahora mismo. Entra al RADAR para verlos.");
+  }
+  lastSpaceAvail=avail;
+}
+/* ---- Alertas ---- */
+function beep(){
+  try{
+    if(!audioCtx)audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+    if(audioCtx.state==="suspended")audioCtx.resume();
+    const vol=Math.max(0.05,Math.min(1,settings.volume||0.8));
+    const seq=settings.soundKind==="soft"?[660]:settings.soundKind==="loud"?[880,1174,1568]:[880,1318];
+    seq.forEach((f,i)=>{
+      const o=audioCtx.createOscillator(),g=audioCtx.createGain();
+      o.type="sine";o.frequency.value=f;
+      const t0=audioCtx.currentTime+i*0.18;
+      g.gain.setValueAtTime(0.0001,t0);
+      g.gain.exponentialRampToValueAtTime(0.3*vol,t0+0.03);
+      g.gain.exponentialRampToValueAtTime(0.0001,t0+0.22);
+      o.connect(g);g.connect(audioCtx.destination);o.start(t0);o.stop(t0+0.25);
+    });
+  }catch(e){}
+}
+function toast(html){
+  const d=document.createElement("div");d.className="toast";d.innerHTML=html;
+  $("toasts").appendChild(d);setTimeout(()=>d.remove(),7000);
+}
+function fireAlert(title,body){
+  if(!settings.alertsOn)return;
+  toast("<b>"+esc(title)+"</b><br>"+esc(body));
+  if(settings.sound)beep();
+  if(settings.notify&&"Notification"in window&&Notification.permission==="granted"){try{new Notification("DELTA X RADAR — "+title,{body});}catch(e){}}
+}
+function nextSkyfall(now){
+  const d=new Date(now);const m=d.getMinutes();
+  const next=new Date(d);next.setSeconds(0,0);
+  if(m<30)next.setMinutes(30);else{next.setMinutes(0);next.setHours(d.getHours()+1);}
+  return next.getTime();
+}
+function checkEvents(){
+  if(!settings.alertsOn)return;
+  const now=Date.now();
+  EVENTS.forEach(ev=>{
+    const cfg=settings.events[ev.id]||{screen:true,alarm:true,before:ev.before};
+    if(!cfg.screen&&!cfg.alarm)return;
+    let occ=null;
+    if(ev.kind==="recurring")occ=nextSkyfall(now);
+    else occ=ev.at;
+    if(ev.kind==="once"&&now>occ+30*60000)return;
+    const target=occ-(cfg.before||1)*60000;
+    const key=ev.id+"-"+occ;
+    if(now>=target&&now<occ+5*60000&&!fired[key]){
+      fired[key]=1;saveFired();
+      if(cfg.screen)toast("<b>⏰ "+esc(ev.name)+"</b><br>"+esc(ev.desc)+" · avisa en "+(cfg.before||1)+" min.");
+      if(cfg.alarm&&settings.sound)beep();
+      if(cfg.alarm&&settings.notify&&"Notification"in window&&Notification.permission==="granted"){try{new Notification("DELTA X RADAR — "+ev.name,{body:ev.desc});}catch(e){}}
+    }
+  });
+}
+function renderEvents(){
+  $("eventList").innerHTML=EVENTS.map(ev=>{
+    const cfg=settings.events[ev.id]||{screen:true,alarm:true,before:ev.before};
+    const done=ev.kind==="once"&&Date.now()>ev.at+30*60000;
+    return '<div class="event-card'+(done?" done":"")+'"><div class="ev-head"><span class="ev-ico">'+ev.icon+'</span><b>'+esc(ev.name)+'</b><button class="mini-btn" data-test-ev="'+ev.id+'">Probar</button></div><div class="ev-desc">'+esc(ev.desc)+(done?" · Finalizado":"")+'</div><div class="ev-row"><span>En pantalla</span><label class="switch"><input type="checkbox" data-ev-screen="'+ev.id+'"'+(cfg.screen?" checked":"")+'"><span class="sl"></span></label></div><div class="ev-row"><span>Alarma</span><label class="switch"><input type="checkbox" data-ev-alarm="'+ev.id+'"'+(cfg.alarm?" checked":"")+'"><span class="sl"></span></label></div><div class="ev-row"><span>Avisar</span><select data-ev-before="'+ev.id+'"><option value="1"'+(cfg.before===1?" selected":"")+'>1 min antes</option><option value="5"'+(cfg.before===5?" selected":"")+'>5 min antes</option><option value="15"'+(cfg.before===15?" selected":"")+'>15 min antes</option></select></div></div>';
+  }).join("");
+  $("eventList").querySelectorAll("[data-test-ev]").forEach(b=>b.addEventListener("click",()=>{
+    const ev=EVENTS.find(x=>x.id===b.getAttribute("data-test-ev"));
+    toast("<b>⏰ "+esc(ev.name)+"</b><br>"+esc(ev.desc));
+    if(settings.sound)beep();
+  }));
+  $("eventList").querySelectorAll("[data-ev-screen]").forEach(c=>c.addEventListener("change",()=>{
+    const id=c.getAttribute("data-ev-screen");settings.events[id].screen=c.checked;saveSettings();
+  }));
+  $("eventList").querySelectorAll("[data-ev-alarm]").forEach(c=>c.addEventListener("change",()=>{
+    const id=c.getAttribute("data-ev-alarm");settings.events[id].alarm=c.checked;saveSettings();
+  }));
+  $("eventList").querySelectorAll("[data-ev-before]").forEach(s=>s.addEventListener("change",()=>{
+    const id=s.getAttribute("data-ev-before");settings.events[id].before=parseInt(s.value,10);saveSettings();
+  }));
+}
+function syncAlertsView(){
+  $("alertsOn").checked=!!settings.alertsOn;
+  $("soundToggle2").checked=!!settings.sound;
+  $("soundKind").value=settings.soundKind||"classic";
+  $("volumeRange").value=Math.round((settings.volume||0.8)*100);
+  $("notifyToggle2").checked=!!settings.notify;
+  $("resetPre60").checked=!!settings.resetPre60;
+  $("resetPre10").checked=!!settings.resetPre10;
+  $("spaceAlert").checked=!!settings.spaceAlert;
+  if(!("Notification" in window))$("notifyNote").textContent="Este navegador no admite notificaciones.";
+  $("favRarChips").innerHTML=RARITIES.filter(r=>["Secret","Eternal","Divine","Cosmic","Mythic","Legendary"].includes(r)).map(r=>'<button class="chip'+(settings.favRarities.includes(r)?" on":"")+'" data-favrar="'+r+'">'+r+'</button>').join("");
+  $("favRarChips").querySelectorAll("[data-favrar]").forEach(c=>c.addEventListener("click",()=>{
+    const r=c.getAttribute("data-favrar");const i=settings.favRarities.indexOf(r);
+    if(i>=0)settings.favRarities.splice(i,1);else settings.favRarities.push(r);
+    saveSettings();syncAlertsView();
+  }));
+  $("favMutChips").innerHTML=MUTATIONS.map(m=>'<button class="chip'+(settings.favMutations.includes(m.name)?" on":"")+'" data-favmut="'+esc(m.name)+'">'+esc(m.name)+' ×'+m.mult+'</button>').join("");
+  $("favMutChips").querySelectorAll("[data-favmut]").forEach(c=>c.addEventListener("click",()=>{
+    const r=c.getAttribute("data-favmut");const i=settings.favMutations.indexOf(r);
+    if(i>=0)settings.favMutations.splice(i,1);else settings.favMutations.push(r);
+    saveSettings();syncAlertsView();renderMutations();
+  }));
+}
+/* ---- Huevos (catálogo) ---- */
 function eggPasses(e){
   const q=$("eggSearch").value.toLowerCase();
   if(q&&!e[0].toLowerCase().includes(q))return false;
   if(filters.zones.length&&!filters.zones.includes(e[2]))return false;
   if(filters.rars.length&&!filters.rars.includes(e[1]))return false;
+  if(favOnly&&!settings.favRarities.includes(e[1]))return false;
   if(filters.hidden.includes(e[0]))return false;
   return true;
 }
@@ -381,19 +897,24 @@ function sortEggs(rows){
   if(activeTab==="size")r.sort((a,b)=>speedNum(BIOMES[b[2]])-speedNum(BIOMES[a[2]])||RARITY_RANK[b[1]]-RARITY_RANK[a[1]]);
   else if(activeTab==="recent")r.sort((a,b)=>RECENT_ORDER.indexOf(a[2])-RECENT_ORDER.indexOf(b[2])||RARITY_RANK[b[1]]-RARITY_RANK[a[1]]);
   else if(activeTab==="rarity")r.sort((a,b)=>RARITY_RANK[b[1]]-RARITY_RANK[a[1]]||a[0].localeCompare(b[0]));
+  else if(activeTab==="price")r.sort((a,b)=>((priceOf(b[0])||{}).num||0)-((priceOf(a[0])||{}).num||0));
   return r;
+}
+function priceHTML(e){
+  const p=priceOf(e[0]);
+  if(!p)return '<div class="price">Precio desconocido<small>sin datos verificables</small></div>';
+  return '<div class="price">'+esc(p.label)+'<small>precio base · $/s</small></div>';
 }
 function renderEggs(){
   const rows=sortEggs(EGGS.filter(eggPasses));
-  $("eggCount").textContent=EGGS.length;
-  $("eggTotal").textContent=rows.length+" huevos · Catálogo de referencia · Steal An Egg Wiki, 20 nov 2026 · Las imágenes son de la wiki.";
+  $("eggTotal").textContent=rows.length+" huevos · Precios base verificados · Steal An Egg Wiki, 20 nov 2026 · Las imágenes son de la wiki.";
   const box=$("eggList");
   if(!rows.length){box.innerHTML='<div class="empty">Ningún huevo coincide con ese filtro.</div>';return;}
   const groups={};const order=[];
   rows.forEach(e=>{if(!groups[e[2]]){groups[e[2]]=[];order.push(e[2]);}groups[e[2]].push(e);});
   box.innerHTML=order.map(bi=>{
     const cards=groups[bi].map(e=>
-      '<div class="egg-card" data-egg="'+esc(e[0])+'"><button class="hide-x" data-hide="'+esc(e[0])+'" title="Ocultar huevo">✕</button>'+eggCardImg(e)+'<b>'+esc(e[0])+' Egg</b><div class="biome">'+esc(bi)+(BIOMES[bi]&&BIOMES[bi]!=="—"&&BIOMES[bi]!=="Especial"?" · "+BIOMES[bi]+" Speed":"")+'</div><span class="rarity '+rarClass(e[1])+'">'+esc(e[1])+'</span><br><a class="wiki" href="'+eggWiki(e)+'" target="_blank" rel="noopener">Ver en wiki ↗</a><a class="to-servers" href="#serversSection">Ver servidores ↓</a></div>').join("");
+      '<div class="egg-card" data-egg="'+esc(e[0])+'"><button class="hide-x" data-hide="'+esc(e[0])+'" title="Ocultar huevo">✕</button>'+eggCardImg(e)+'<b>'+esc(e[0])+' Egg</b><div class="biome">'+esc(bi)+(BIOMES[bi]&&BIOMES[bi]!=="—"&&BIOMES[bi]!=="Especial"?" · "+BIOMES[bi]+" Speed":"")+'</div><span class="rarity '+rarClass(e[1])+'">'+esc(e[1])+'</span>'+priceHTML(e)+'<a class="to-mut" href="#">Ver mutaciones ↓</a></div>').join("");
     return '<div class="biome-head"><span class="bdot" style="background:'+(BIOME_DOT[bi]||"#888")+'"></span>'+esc(bi.toUpperCase())+'<span class="cnt">'+groups[bi].length+' huevos</span></div><div class="egg-grid">'+cards+'</div>';
   }).join("");
   box.querySelectorAll("[data-hide]").forEach(b=>b.addEventListener("click",ev=>{
@@ -402,6 +923,49 @@ function renderEggs(){
     if(!filters.hidden.includes(name))filters.hidden.push(name);
     saveFilters();renderEggs();renderHiddenList();
     toast("<b>Huevo oculto</b><br>"+esc(name)+" Egg · restáuralo en Filtros.");
+  }));
+  box.querySelectorAll(".egg-card").forEach(c=>c.addEventListener("click",ev=>{
+    if(ev.target.closest("a")&&!ev.target.classList.contains("to-mut"))return;
+    ev.preventDefault();
+    openEggModal(c.getAttribute("data-egg"));
+  }));
+}
+/* ---- Detalle de huevo (mutaciones y precios) ---- */
+function openEggModal(name){
+  const e=EGGS.find(x=>x[0]===name);if(!e)return;
+  const p=priceOf(e[0]);
+  const base=p?p.num:null;
+  const rows=MUTATIONS.map(m=>{
+    const val=base!=null?fmtMoney(base*m.mult):"—";
+    const fav=settings.favMutations.includes(m.name);
+    return '<tr'+(fav?' class="fav"':"")+'><td>'+esc(m.name)+(fav?" ★":"")+'</td><td>×'+m.mult+'</td><td>'+esc(val)+'</td></tr>';
+  }).join("");
+  $("eggModalBody").innerHTML=
+    '<div class="m-hero">'+eggCardImg(e)+'</div>'+
+    '<h2>'+esc(e[0])+' Egg</h2><div class="m-sub"><span class="rarity '+rarClass(e[1])+'">'+esc(e[1])+'</span> · '+esc(e[2])+(BIOMES[e[2]]&&BIOMES[e[2]]!=="—"&&BIOMES[e[2]]!=="Especial"?" · "+BIOMES[e[2]]+" Speed":"")+'</div>'+
+    '<div class="kv"><span>Precio base</span><b>'+(p?esc(p.label):"Desconocido")+'</b></div>'+
+    '<div class="kv"><span>Mutación del huevo</span><b>DESCONOCIDO</b></div>'+
+    '<p class="hint" style="margin-top:10px">La mutación de un huevo en un servidor no se puede saber desde fuera del juego. Esta tabla muestra cuánto valdría este huevo con cada mutación (precio base × multiplicador). Es un cálculo, no un huevo observado.</p>'+
+    (e[0]==="Thundercoil"?'<p class="hint">Nota: algunas guías dicen $32M/s para Thundercoil; aquí se usa $42M/s según eggPing.</p>':"")+
+    '<table class="mut-table"><tr><th>Mutación</th><th>Multiplicador</th><th>Valor calculado</th></tr>'+rows+'</table>'+
+    '<p class="hint" style="margin-top:10px">Fuente de mutaciones: wiki de Steal An Egg (Mutations), 20 nov 2026. ★ = tus mutaciones favoritas.</p>'+
+    '<div class="modal-actions"><button class="join" id="eggGoRadar">📡 VER SERVIDORES</button><a class="ghost" style="text-align:center" href="'+eggWiki(e)+'" target="_blank" rel="noopener">Ver en wiki ↗</a></div>'+
+    '<button class="wide-btn" id="eggClose">Cerrar</button>';
+  openModal("modalEgg");
+  $("eggClose").addEventListener("click",()=>closeModal("modalEgg"));
+  $("eggGoRadar").addEventListener("click",()=>{closeModal("modalEgg");showView("radar");});
+}
+/* ---- Mutaciones (vista) ---- */
+function renderMutations(){
+  $("mutList").innerHTML=MUTATIONS.map(m=>{
+    const icon=MUT_IMG[m.name]?'<img src="'+MUT_IMG[m.name]+'" alt="'+esc(m.name)+'" loading="lazy" referrerpolicy="no-referrer">':'<div class="mut-ico">⚡</div>';
+    const fav=settings.favMutations.includes(m.name);
+    return '<div class="mut-card">'+icon+'<div class="mut-body"><b>'+esc(m.name)+'</b><span class="mut-mult">×'+m.mult+'</span><p>'+esc(m.desc)+'</p><div class="mut-src">Fuente: '+esc(m.src)+'</div></div><button class="fav-btn'+(fav?" on":"")+'" data-favmut2="'+esc(m.name)+'" title="Marcar como favorita">'+(fav?"★":"☆")+'</button></div>';
+  }).join("");
+  $("mutList").querySelectorAll("[data-favmut2]").forEach(b=>b.addEventListener("click",()=>{
+    const r=b.getAttribute("data-favmut2");const i=settings.favMutations.indexOf(r);
+    if(i>=0)settings.favMutations.splice(i,1);else settings.favMutations.push(r);
+    saveSettings();renderMutations();syncAlertsView();
   }));
 }
 /* ---- Filtros ---- */
@@ -430,198 +994,10 @@ function renderHiddenList(){
     saveFilters();renderHiddenList();renderEggs();
   }));
 }
-/* ---- Alertas ---- */
-function beep(){
-  try{
-    if(!audioCtx)audioCtx=new (window.AudioContext||window.webkitAudioContext)();
-    if(audioCtx.state==="suspended")audioCtx.resume();
-    const vol=Math.max(0.05,Math.min(1,settings.volume||0.8));
-    const seq=settings.soundKind==="soft"?[660]:settings.soundKind==="loud"?[880,1174,1568]:[880,1318];
-    seq.forEach((f,i)=>{
-      const o=audioCtx.createOscillator(),g=audioCtx.createGain();
-      o.type="sine";o.frequency.value=f;
-      const t0=audioCtx.currentTime+i*0.18;
-      g.gain.setValueAtTime(0.0001,t0);
-      g.gain.exponentialRampToValueAtTime(0.3*vol,t0+0.03);
-      g.gain.exponentialRampToValueAtTime(0.0001,t0+0.22);
-      o.connect(g);g.connect(audioCtx.destination);o.start(t0);o.stop(t0+0.25);
-    });
-  }catch(e){}
-}
-function toast(html){
-  const d=document.createElement("div");d.className="toast";d.innerHTML=html;
-  $("toasts").appendChild(d);setTimeout(()=>d.remove(),7000);
-}
-function fireAlert(title,body){
-  toast("<b>"+esc(title)+"</b><br>"+esc(body));
-  if(settings.sound)beep();
-  if(settings.notify&&"Notification"in window&&Notification.permission==="granted"){try{new Notification("DELTA X RADAR — "+title,{body});}catch(e){}}
-}
-function nextSkyfall(now){
-  const d=new Date(now);const m=d.getMinutes();
-  const next=new Date(d);next.setSeconds(0,0);
-  if(m<30)next.setMinutes(30);else{next.setMinutes(0);next.setHours(d.getHours()+1);}
-  return next.getTime();
-}
-function checkEvents(){
-  const now=Date.now();
-  EVENTS.forEach(ev=>{
-    const cfg=settings.events[ev.id]||{screen:true,alarm:true,before:ev.before};
-    if(!cfg.screen&&!cfg.alarm)return;
-    let occ=null;
-    if(ev.kind==="recurring")occ=nextSkyfall(now);
-    else occ=ev.at;
-    if(ev.kind==="once"&&now>occ+30*60000)return;
-    const target=occ-(cfg.before||1)*60000;
-    const key=ev.id+"-"+occ;
-    if(now>=target&&now<occ+5*60000&&!fired[key]){
-      fired[key]=1;saveFired();
-      const when=ev.kind==="recurring"?"en "+(cfg.before||1)+" min":"en "+(cfg.before||1)+" min";
-      if(cfg.screen)toast("<b>⏰ "+esc(ev.name)+"</b><br>"+esc(ev.desc)+" · avisa "+esc(when)+".");
-      if(cfg.alarm&&settings.sound)beep();
-      if(cfg.alarm&&settings.notify&&"Notification"in window&&Notification.permission==="granted"){try{new Notification("DELTA X RADAR — "+ev.name,{body:ev.desc});}catch(e){}}
-    }
-  });
-}
-function renderEvents(){
-  $("eventList").innerHTML=EVENTS.map(ev=>{
-    const cfg=settings.events[ev.id]||{screen:true,alarm:true,before:ev.before};
-    const done=ev.kind==="once"&&Date.now()>ev.at+30*60000;
-    return '<div class="event-card'+(done?" done":"")+'"><div class="ev-head"><span class="ev-ico">'+ev.icon+'</span><b>'+esc(ev.name)+'</b><button class="mini-btn" data-test-ev="'+ev.id+'">Probar</button></div><div class="ev-desc">'+esc(ev.desc)+(done?" · Finalizado":"")+'</div><div class="ev-row"><span>En pantalla</span><label class="switch"><input type="checkbox" data-ev-screen="'+ev.id+'"'+(cfg.screen?" checked":"")+'"><span class="sl"></span></label></div><div class="ev-row"><span>Alarma</span><label class="switch"><input type="checkbox" data-ev-alarm="'+ev.id+'"'+(cfg.alarm?" checked":"")+'"><span class="sl"></span></label></div><div class="ev-row"><span>Avisar</span><select data-ev-before="'+ev.id+'"><option value="1"'+(cfg.before===1?" selected":"")+'>1 min antes</option><option value="5"'+(cfg.before===5?" selected":"")+'>5 min antes</option><option value="15"'+(cfg.before===15?" selected":"")+'>15 min antes</option></select></div></div>';
-  }).join("");
-  $("eventList").querySelectorAll("[data-test-ev]").forEach(b=>b.addEventListener("click",()=>{
-    const ev=EVENTS.find(x=>x.id===b.getAttribute("data-test-ev"));
-    toast("<b>⏰ "+esc(ev.name)+"</b><br>"+esc(ev.desc));
-    if(settings.sound)beep();
-  }));
-  $("eventList").querySelectorAll("[data-ev-screen]").forEach(c=>c.addEventListener("change",()=>{
-    const id=c.getAttribute("data-ev-screen");settings.events[id].screen=c.checked;saveSettings();
-  }));
-  $("eventList").querySelectorAll("[data-ev-alarm]").forEach(c=>c.addEventListener("change",()=>{
-    const id=c.getAttribute("data-ev-alarm");settings.events[id].alarm=c.checked;saveSettings();
-  }));
-  $("eventList").querySelectorAll("[data-ev-before]").forEach(s=>s.addEventListener("change",()=>{
-    const id=s.getAttribute("data-ev-before");settings.events[id].before=parseInt(s.value,10);saveSettings();
-  }));
-}
-function syncAlertDrawer(){
-  $("soundToggle2").checked=!!settings.sound;
-  $("soundKind").value=settings.soundKind||"classic";
-  $("volumeRange").value=Math.round((settings.volume||0.8)*100);
-  $("alertNew").checked=!!settings.alertNew;
-  $("minRarity").value=settings.minRarity||"any";
-  $("notifyToggle2").checked=!!settings.notify;
-  if(!("Notification" in window))$("notifyNote").textContent="Este navegador no admite notificaciones.";
-}
 /* ---- Comunicados ---- */
 function renderComms(){
-  $("commList").innerHTML=ANNOUNCEMENTS.map(a=>'<div class="ann '+a.cls+'"><p>📢 '+esc(a.text)+'</p><div class="ann-date">'+esc(a.date)+'</div></div>').join("");
-  $("commBadge").textContent=ANNOUNCEMENTS.length;
-}
-/* ---- Servidores ---- */
-function setStatus(ok,txt){const p=$("statusPill");p.classList.toggle("off",!ok);p.innerHTML='<span class="dot"></span>'+esc(txt);}
-function setUpdated(txt){$("updated").textContent=txt;}
-async function fetchJSON(url){const r=await fetch(url,{cache:"no-store"});if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}
-async function loadServers(manual){
-  if(manual){$("refresh").disabled=true;$("refresh").textContent="CARGANDO…";}
-  let data=null,source="";
-  try{data=await fetchJSON(DATA_URL);if(data&&data.servers&&data.servers.length){source="github";}else throw new Error("sin datos");}
-  catch(e1){try{data=await fetchJSON(ROBLOX_API);source="live";}catch(e2){try{data=await fetchJSON(PROXY_API);source="proxy";}catch(e3){data=null;}}}
-  $("refresh").disabled=false;$("refresh").textContent="↻ ACTUALIZAR";
-  if(!data||!data.servers){allServers=[];renderServers();setStatus(false,"SIN CONEXIÓN");setUpdated("No se pudo cargar la lista");$("serverSource").textContent="Reintenta en unos segundos";return;}
-  allServers=data.servers;lastSource=source;lastGeneratedAt=data.generated_at||null;
-  renderServers();fillServerSelect();
-  const total=allServers.reduce((n,s)=>n+(s.playing||0),0);
-  $("serverCount").textContent=allServers.length;$("playerCount").textContent=total;
-  if(source==="github"){setStatus(true,"EN VIVO · ROBOT");$("serverSource").textContent="Robot GitHub · cada 5 min";}
-  else if(source==="live"){setStatus(true,"EN VIVO");$("serverSource").textContent="Directo desde Roblox";}
-  else{setStatus(true,"EN VIVO · PROXY");$("serverSource").textContent="Vía proxy público";}
-  updateUpdatedLabel();
-}
-function updateUpdatedLabel(){
-  if(lastSource==="github"&&lastGeneratedAt){const age=Math.max(0,Math.round((Date.now()-new Date(lastGeneratedAt).getTime())/60000));setUpdated(age<1?"Actualizado hace menos de 1 min":"Actualizado hace "+age+" min");}
-  else if(lastSource){setUpdated("Actualizado ahora mismo");}
-}
-function renderServers(){
-  const term=$("search").value.toLowerCase(),sort=$("sort").value,occ=$("occ").value;
-  let rows=allServers.filter(s=>{
-    const haystack=(s.id||"").toLowerCase();
-    if(term&&!haystack.includes(term))return false;
-    if(occ==="space"&&!((s.playing||0)<(s.maxPlayers||7)))return false;
-    if(occ==="almost"&&!((s.playing||0)>=5&&(s.playing||0)<(s.maxPlayers||7)))return false;
-    if(occ==="low"&&!((s.playing||0)<=2))return false;
-    return true;
-  });
-  rows.sort((a,b)=>sort==="players"?(b.playing||0)-(a.playing||0):sort==="empty"?(a.playing||0)-(b.playing||0):sort==="ping"?(a.ping==null?1e9:a.ping)-(b.ping==null?1e9:b.ping):(b.fps||-1)-(a.fps||-1));
-  $("serverCount").textContent=allServers.length;
-  $("playerCount").textContent=allServers.reduce((n,s)=>n+(s.playing||0),0);
-  const box=$("servers");
-  if(!rows.length){box.innerHTML='<div class="empty">No hay servidores que coincidan con ese filtro.</div>';$("loadMore").style.display="none";return;}
-  const view=rows.slice(0,shownCount);
-  box.innerHTML=view.map((s,i)=>{
-    const ping=s.ping==null?"":("Ping "+Math.round(s.ping)+" ms"),fps=s.fps==null?"":(Math.round(s.fps)+" FPS");
-    const meta=[ping,fps].filter(Boolean).join(" · ");
-    const spaces=(s.maxPlayers||7)-(s.playing||0);
-    return '<article class="server"><div class="srv-left"><div class="players">'+(s.playing||0)+'/'+(s.maxPlayers||7)+' <small>jugadores · '+spaces+' espacios</small></div><div class="srv-meta">Servidor #'+(i+1)+' · ID '+esc((s.id||"").slice(0,8))+'…'+(meta?" · "+esc(meta):"")+' · <button data-copy="'+esc(s.id)+'">COPIAR ID</button></div></div><a class="join" href="https://www.roblox.com/games/start?placeId='+PLACE_ID+'&gameInstanceId='+encodeURIComponent(s.id)+'" target="_blank" rel="noopener">▶ JOIN</a></article>';
-  }).join("");
-  $("loadMore").style.display=rows.length>shownCount?"block":"none";
-  box.querySelectorAll("[data-copy]").forEach(b=>b.addEventListener("click",()=>{
-    const id=b.getAttribute("data-copy");
-    const done=()=>{b.textContent="COPIADO ✓";setTimeout(()=>b.textContent="COPIAR ID",1500);};
-    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(id).then(done).catch(()=>{prompt("ID del servidor:",id);});}
-    else prompt("ID del servidor:",id);
-  }));
-}
-function fillServerSelect(){
-  const sel=$("repServer");const cur=sel.value;
-  sel.innerHTML='<option value="">Servidor: no estoy seguro</option>'+allServers.slice(0,100).map((s,i)=>'<option value="'+esc(s.id)+'">Servidor #'+(i+1)+' · '+(s.playing||0)+'/'+(s.maxPlayers||7)+'</option>').join("");
-  sel.value=cur;
-}
-/* ---- Reset de 5 minutos ---- */
-function tick(){
-  const now=Date.now(),elapsed=now%RESET_MS,left=RESET_MS-elapsed;
-  const m=Math.floor(left/60000),s=Math.floor((left%60000)/1000);
-  const txt=String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
-  const big=$("resetBig");big.textContent=txt;big.classList.toggle("low",left<=60000);
-  $("resetProgress").style.width=(elapsed/RESET_MS*100).toFixed(1)+"%";
-  const cycle=Math.floor(now/RESET_MS);
-  if(left<=10000&&cycle!==lastResetCycle){lastResetCycle=cycle;fireAlert("Reset de huevos en 10 segundos","Los huevos se reinician en todas partes. Prepárate para entrar.");}
-  checkEvents();
-}
-/* ---- Reportes ---- */
-function pruneReports(){const before=reports.length;reports=reports.filter(r=>Date.now()-r.ts<REPORT_TTL);if(reports.length!==before)saveReports();}
-function renderReports(){
-  pruneReports();
-  const box=$("reports");
-  if(!reports.length){box.innerHTML='<div class="empty">Aún no hay reportes.</div>';}
-  else box.innerHTML=reports.slice().sort((a,b)=>b.ts-a.ts).map(r=>
-    '<div class="report"><b>'+esc(r.egg)+'</b><span class="rarity '+rarClass(r.rarity)+'">'+esc(r.rarity)+'</span><span class="badge-unverified">SIN VERIFICAR</span><div class="meta">'+esc(r.biome)+' · '+esc(r.serverLabel||"Servidor no especificado")+' · '+timeAgo(r.ts)+(r.note?" · "+esc(r.note):"")+'</div></div>').join("");
-  renderLiveStrip();
-}
-function renderLiveStrip(){
-  const strip=$("liveStrip");
-  const fresh=reports.slice().sort((a,b)=>b.ts-a.ts).slice(0,3);
-  if(!fresh.length){strip.innerHTML="";return;}
-  strip.innerHTML=fresh.map(r=>{
-    const egg=EGGS.find(e=>e[0]===r.egg);
-    const img=egg?eggCardImg(egg):'<div class="egg-ph">◆</div>';
-    const join=r.serverId?'<a class="join" href="https://www.roblox.com/games/start?placeId='+PLACE_ID+'&gameInstanceId='+encodeURIComponent(r.serverId)+'" target="_blank" rel="noopener">▶ JOIN</a>':"";
-    return '<div class="live-item">'+img.replace('loading="lazy"','')+'<div class="li-body"><b>'+esc(r.egg)+' Egg</b> · <span class="rarity '+rarClass(r.rarity)+'">'+esc(r.rarity)+'</span><div class="li-meta">Reporte SIN VERIFICAR · '+esc(r.serverLabel||"servidor no especificado")+' · '+timeAgo(r.ts)+'</div></div>'+join+'</div>';
-  }).join("");
-}
-function submitReport(ev){
-  ev.preventDefault();
-  const eggName=$("repEgg").value;if(!eggName)return;
-  const egg=EGGS.find(e=>e[0]===eggName);if(!egg)return;
-  const sid=$("repServer").value;
-  const sidx=allServers.findIndex(s=>s.id===sid);
-  const rep={egg:egg[0],rarity:egg[1],biome:egg[2],serverId:sid||"",serverLabel:sid?("Servidor #"+(sidx+1)+" · "+(allServers[sidx].playing||0)+"/"+(allServers[sidx].maxPlayers||7)):"",note:$("repNote").value.trim(),ts:Date.now()};
-  reports.push(rep);saveReports();renderReports();
-  $("repNote").value="";
-  const minRank=settings.minRarity==="any"?0:RARITY_RANK[settings.minRarity]||0;
-  if(settings.alertNew&&(RARITY_RANK[egg[1]]||0)>=minRank)fireAlert("Reporte: "+egg[0]+" ("+egg[1]+")","Alguien reportó este huevo en "+(rep.serverLabel||"un servidor")+". Sin verificar — expira en 5 min.");
-  else toast("<b>Reporte guardado</b><br>"+esc(egg[0])+" · sin verificar · expira en 5 min.");
-  if(REPORT_WEBHOOK){fetch(REPORT_WEBHOOK,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({username:"DELTA X RADAR",content:"🥚 Reporte: **"+egg[0]+"** ("+egg[1]+", "+egg[2]+") — "+(rep.serverLabel||"servidor no especificado")+(rep.note?" — "+rep.note:"")})}).catch(()=>{});}
+  const html=ANNOUNCEMENTS.map(a=>'<div class="ann '+a.cls+'"><p>📢 '+esc(a.text)+'</p><div class="ann-date">'+esc(a.date)+'</div></div>').join("");
+  $("commListHome").innerHTML=html;
 }
 /* ---- Inicio ---- */
 (function init(){
@@ -629,49 +1005,51 @@ function submitReport(ev){
   $("gateEnter").addEventListener("click",closeGate);
   $("overlay").addEventListener("click",closeDrawers);
   document.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click",closeDrawers));
-  $("commBtn").addEventListener("click",()=>openDrawer("drawerComm"));
-  $("filterBtn").addEventListener("click",()=>openDrawer("drawerFilters"));
-  $("alertBtn").addEventListener("click",()=>openDrawer("drawerAlerts"));
+  document.querySelectorAll("#bottomnav button").forEach(b=>b.addEventListener("click",()=>showView(b.getAttribute("data-view"))));
+  document.querySelectorAll("[data-goto]").forEach(b=>b.addEventListener("click",()=>showView(b.getAttribute("data-goto"))));
   document.querySelectorAll("#tabs button").forEach(b=>b.addEventListener("click",()=>{
     document.querySelectorAll("#tabs button").forEach(x=>x.classList.remove("on"));
     b.classList.add("on");activeTab=b.getAttribute("data-tab");renderEggs();
   }));
   $("eggSearch").addEventListener("input",renderEggs);
+  $("filterBtn").addEventListener("click",()=>openDrawer("drawerFilters"));
+  $("favFilterBtn").addEventListener("click",()=>{
+    if(!settings.favRarities.length){toast("<b>Sin rarezas favoritas</b><br>Elígelas en ALERTAS primero.");return;}
+    favOnly=!favOnly;$("favFilterBtn").classList.toggle("on",favOnly);
+    $("favFilterBtn").textContent=favOnly?"★ Mostrando solo favoritas":"★ Solo mis favoritas";
+    renderEggs();
+  });
   buildFilterChips();renderHiddenList();
   $("showAll").addEventListener("click",()=>{
     filters={zones:[],rars:[],hidden:[]};saveFilters();buildFilterChips();renderHiddenList();renderEggs();
     toast("<b>Filtros limpiados</b><br>Se ven todos los huevos otra vez.");
   });
-  syncAlertDrawer();renderEvents();renderComms();
+  $("modalEgg").addEventListener("click",e=>{if(e.target.id==="modalEgg")closeModal("modalEgg");});
+  $("modalJoin").addEventListener("click",e=>{if(e.target.id==="modalJoin")closeModal("modalJoin");});
+  syncAlertsView();renderEvents();renderComms();renderMutations();
+  $("alertsOn").addEventListener("change",e=>{settings.alertsOn=e.target.checked;saveSettings();});
   $("soundToggle2").addEventListener("change",e=>{settings.sound=e.target.checked;saveSettings();if(settings.sound)beep();});
   $("soundKind").addEventListener("change",e=>{settings.soundKind=e.target.value;saveSettings();});
   $("volumeRange").addEventListener("input",e=>{settings.volume=parseInt(e.target.value,10)/100;saveSettings();});
-  $("alertNew").addEventListener("change",e=>{settings.alertNew=e.target.checked;saveSettings();});
-  $("minRarity").addEventListener("change",e=>{settings.minRarity=e.target.value;saveSettings();});
+  $("resetPre60").addEventListener("change",e=>{settings.resetPre60=e.target.checked;saveSettings();});
+  $("resetPre10").addEventListener("change",e=>{settings.resetPre10=e.target.checked;saveSettings();});
+  $("spaceAlert").addEventListener("change",e=>{settings.spaceAlert=e.target.checked;saveSettings();});
   $("testSound").addEventListener("click",()=>{beep();toast("<b>Sonido de alerta</b><br>Así suena cuando aparezca algo de tus rarezas.");});
   $("notifyToggle2").addEventListener("change",()=>{
     if(!("Notification" in window)){toast("<b>Notificaciones no disponibles</b><br>Este navegador no las permite.");$("notifyToggle2").checked=false;return;}
-    if(!settings.notify){Notification.requestPermission().then(p=>{settings.notify=p==="granted";saveSettings();syncAlertDrawer();if(settings.notify)fireAlert("Notificaciones activadas","Te avisaré también fuera de la página cuando puedas.");});}
-    else{settings.notify=false;saveSettings();syncAlertDrawer();}
-  });
-  const repEgg=$("repEgg");
-  Object.keys(BIOMES).forEach(bi=>{
-    const g=document.createElement("optgroup");g.label=bi;
-    EGGS.filter(e=>e[2]===bi).forEach(e=>{const o=document.createElement("option");o.value=e[0];o.textContent=e[0]+" Egg ("+e[1]+")";g.appendChild(o);});
-    repEgg.appendChild(g);
+    if(!settings.notify){Notification.requestPermission().then(p=>{settings.notify=p==="granted";saveSettings();syncAlertsView();if(settings.notify)fireAlert("Notificaciones activadas","Te avisaré también fuera de la página cuando puedas.");});}
+    else{settings.notify=false;saveSettings();syncAlertsView();}
   });
   $("refresh").addEventListener("click",()=>{shownCount=50;loadServers(true);});
   $("search").addEventListener("input",()=>{shownCount=50;renderServers();});
   $("sort").addEventListener("change",renderServers);
   $("occ").addEventListener("change",renderServers);
   $("loadMore").addEventListener("click",()=>{shownCount+=50;renderServers();});
-  $("reportForm").addEventListener("submit",submitReport);
-  renderEggs();renderReports();
+  renderEggs();updateStats();
   loadServers(false);
   setInterval(()=>loadServers(false),REFRESH_MS);
   setInterval(tick,1000);tick();
   setInterval(updateUpdatedLabel,30000);
-  setInterval(renderReports,30000);
   setInterval(renderEvents,60000);
 })();
 </script>
