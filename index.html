@@ -4,56 +4,362 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#090b10">
-<title>DELTA X RADAR</title>
+<meta name="description" content="DELTA X RADAR — Servidores públicos de Steal An Egg en vivo, catálogo de huevos y alertas de la comunidad.">
+<title>DELTA X RADAR · Steal An Egg</title>
 <style>
-:root{--bg:#080a0f;--panel:#11151e;--panel2:#171d29;--line:#252d3b;--red:#ff3b42;--orange:#ff8a24;--muted:#929bad;--text:#f4f6fb;--green:#55e6a5}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#3a111b 0,transparent 45%),var(--bg);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif}
-header{position:sticky;top:0;z-index:5;background:#090b10eF;border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
-.nav{max-width:1180px;margin:auto;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.brand{font-weight:950;letter-spacing:1.5px;font-size:19px}.brand span{color:var(--red)}.status{font-size:11px;color:var(--green);border:1px solid #285b48;padding:6px 9px;border-radius:30px}
+:root{--bg:#080a0f;--panel:#11151e;--panel2:#171d29;--line:#252d3b;--red:#ff3b42;--orange:#ff8a24;--muted:#929bad;--text:#f4f6fb;--green:#55e6a5;--yellow:#ffd166}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at 50% -20%,#3a111b 0,transparent 45%),var(--bg);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif}
+a{color:#ffb38a}
+header{position:sticky;top:0;z-index:20;background:#090b10ef;border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+.nav{max-width:1180px;margin:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.brand{font-weight:950;letter-spacing:1.5px;font-size:19px}
+.brand span{color:var(--red)}
+.nav-right{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.status{font-size:11px;color:var(--green);border:1px solid #285b48;padding:6px 9px;border-radius:30px;white-space:nowrap}
+.status.off{color:#ff8f94;border-color:#5b282c}
+.status .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:currentColor;margin-right:5px;animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.updated{font-size:11px;color:var(--muted);white-space:nowrap}
 main{max-width:1180px;margin:auto;padding:34px 20px 60px}
-.hero{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:25px}.eyebrow{color:var(--orange);font-weight:800;font-size:11px;letter-spacing:2px}.hero h1{font-size:clamp(30px,6vw,54px);margin:7px 0 8px;line-height:1}.hero p{color:var(--muted);margin:0;max-width:600px;line-height:1.5}.refresh{background:linear-gradient(120deg,var(--red),#ff742b);border:0;border-radius:12px;padding:12px 16px;color:white;font-weight:850;cursor:pointer}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}.stat,.panel{background:linear-gradient(145deg,#151a24,#0e121a);border:1px solid var(--line);border-radius:16px}.stat{padding:16px}.stat small{color:var(--muted)}.stat strong{display:block;font-size:25px;margin-top:5px}
-.layout{display:grid;grid-template-columns:1fr 300px;gap:16px}.panel{padding:18px}.panel h2{font-size:16px;margin:0 0 14px}.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:15px}.filters input,.filters select{background:#0a0e15;border:1px solid var(--line);color:var(--text);border-radius:9px;padding:10px;min-width:130px;flex:1}
-.server{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px;background:#0c1018;border:1px solid #202938;border-radius:12px;margin:9px 0}.server b{display:block;font-size:14px}.server small{color:var(--muted)}.server-right{text-align:right;white-space:nowrap}.players{color:var(--green);font-size:12px}.join{display:inline-block;margin-top:7px;background:#252d3b;color:white;text-decoration:none;padding:7px 12px;border-radius:8px;font-weight:800;font-size:12px}
-.empty{color:var(--muted);text-align:center;padding:28px 8px;border:1px dashed var(--line);border-radius:12px}.notice{font-size:12px;color:#c0c7d3;line-height:1.6;background:#1b1720;border:1px solid #49303a;border-radius:12px;padding:13px}.sidebox{margin-bottom:14px}.sidebox p{font-size:13px;color:var(--muted);line-height:1.5;margin:0}.tag{display:inline-block;font-size:10px;color:#ffbd84;background:#3b2418;padding:5px 8px;border-radius:20px;margin-bottom:10px}
-footer{max-width:1180px;margin:auto;padding:0 20px 30px;color:#687386;font-size:11px}
-@media(max-width:760px){.hero{align-items:start;flex-direction:column}.layout{grid-template-columns:1fr}.stats{gap:8px}.stat{padding:12px}.stat strong{font-size:21px}.server{align-items:flex-start}.server-right{font-size:12px}}
+.hero{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:22px}
+.eyebrow{color:var(--orange);font-weight:800;font-size:11px;letter-spacing:2px}
+.hero h1{font-size:clamp(30px,6vw,54px);margin:7px 0 8px;line-height:1}
+.hero p{color:var(--muted);margin:0;max-width:640px;line-height:1.5}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap}
+.refresh{background:linear-gradient(120deg,var(--red),#ff742b);border:0;border-radius:12px;padding:12px 16px;color:#fff;font-weight:850;cursor:pointer;font-size:14px;white-space:nowrap}
+.refresh:disabled{opacity:.55;cursor:wait}
+.btn-ghost{background:#171d29;border:1px solid var(--line);border-radius:12px;padding:12px 16px;color:var(--text);font-weight:800;cursor:pointer;font-size:14px;white-space:nowrap}
+.btn-ghost.on{border-color:var(--green);color:var(--green)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0}
+.stat,.panel{background:linear-gradient(145deg,#151a24,#0e121a);border:1px solid var(--line);border-radius:16px}
+.stat{padding:16px}
+.stat small{color:var(--muted);font-size:11px;letter-spacing:.5px}
+.stat strong{display:block;font-size:25px;margin-top:5px}
+.stat .sub{font-size:11px;color:var(--muted);margin-top:3px}
+.resetbar{border:1px solid #49303a;background:linear-gradient(120deg,#1b1720,#171019);border-radius:16px;padding:16px 18px;margin:0 0 16px}
+.resetbar .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.resetbar b{font-size:15px}
+.resetbar .timer{font-size:26px;font-weight:950;color:var(--orange);font-variant-numeric:tabular-nums}
+.resetbar p{color:var(--muted);font-size:12px;line-height:1.55;margin:8px 0 10px}
+.progress{height:8px;background:#0a0e15;border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--red),var(--orange));border-radius:20px;transition:width 1s linear}
+.layout{display:grid;grid-template-columns:1fr 320px;gap:16px;align-items:start}
+.panel{padding:18px}
+.panel h2{font-size:16px;margin:0 0 6px}
+.panel .hint{font-size:12px;color:var(--muted);line-height:1.55;margin:0 0 14px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:15px}
+.filters input,.filters select{background:#0a0e15;border:1px solid var(--line);color:var(--text);border-radius:9px;padding:10px;min-width:120px;flex:1;font-size:13px}
+.filters label{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);cursor:pointer;padding:8px 4px}
+.server{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px;background:#0c1018;border:1px solid #202938;border-radius:12px;margin:9px 0;animation:fadeUp .35s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.server b{display:block;font-size:14px}
+.server small{color:var(--muted);display:block;margin-top:3px;line-height:1.5}
+.server-right{text-align:right;white-space:nowrap}
+.players{color:var(--green);font-size:12px;font-weight:700}
+.ping{color:var(--muted);font-size:11px;margin-top:2px}
+.join{display:inline-block;margin-top:7px;background:linear-gradient(120deg,var(--red),#ff742b);color:#fff;text-decoration:none;padding:8px 13px;border-radius:8px;font-weight:800;font-size:12px}
+.copy{background:#252d3b;color:#fff;border:0;padding:8px 10px;border-radius:8px;font-weight:800;font-size:12px;cursor:pointer;margin-top:7px;margin-left:6px}
+.empty{color:var(--muted);text-align:center;padding:28px 8px;border:1px dashed var(--line);border-radius:12px;line-height:1.6}
+.notice{font-size:12px;color:#c0c7d3;line-height:1.6;background:#1b1720;border:1px solid #49303a;border-radius:12px;padding:13px}
+.sidebox{margin-bottom:14px}
+.sidebox p{font-size:13px;color:var(--muted);line-height:1.5;margin:0 0 10px}
+.tag{display:inline-block;font-size:10px;color:#ffbd84;background:#3b2418;padding:5px 8px;border-radius:20px;margin-bottom:10px}
+.tag.green{color:#9df0cd;background:#173325}
+.tag.red{color:#ffb3b6;background:#3a1719}
+.rarities{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.rarities label{font-size:12px;border:1px solid var(--line);border-radius:20px;padding:6px 10px;cursor:pointer;color:var(--muted)}
+.rarities label:has(input:checked){border-color:var(--orange);color:#fff;background:#2a1a12}
+.rarities input{display:none}
+.report{border:1px solid #202938;background:#0c1018;border-radius:12px;padding:12px;margin:9px 0;font-size:13px;line-height:1.5}
+.report b{font-size:13px}
+.report .meta{color:var(--muted);font-size:11px;margin-top:4px}
+.badge-unverified{display:inline-block;font-size:10px;font-weight:800;color:#ffd166;background:#3a2f10;padding:3px 7px;border-radius:20px;margin-left:6px}
+.report-form select,.report-form input{width:100%;background:#0a0e15;border:1px solid var(--line);color:var(--text);border-radius:9px;padding:10px;margin-bottom:8px;font-size:13px}
+.report-form button{width:100%;background:linear-gradient(120deg,var(--red),#ff742b);border:0;border-radius:10px;padding:11px;color:#fff;font-weight:850;cursor:pointer;font-size:14px}
+.linkout{display:block;border:1px solid #202938;background:#0c1018;border-radius:12px;padding:12px;margin:9px 0;text-decoration:none;color:var(--text)}
+.linkout b{display:block;font-size:14px}
+.linkout span{font-size:12px;color:var(--muted);line-height:1.5;display:block;margin-top:3px}
+.catalog{margin-top:16px}
+.egg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.egg-card{background:#0c1018;border:1px solid #202938;border-radius:14px;padding:12px;text-align:center;animation:fadeUp .3s ease}
+.egg-card img{width:64px;height:64px;object-fit:contain;display:block;margin:0 auto 8px;filter:drop-shadow(0 4px 8px rgba(0,0,0,.5))}
+.egg-ph{width:64px;height:64px;margin:0 auto 8px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:linear-gradient(160deg,#2a3242,#141a26);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:22px}
+.egg-card b{display:block;font-size:13px;line-height:1.3}
+.egg-card .biome{font-size:11px;color:var(--muted);margin-top:3px}
+.egg-card .wiki{font-size:11px;margin-top:6px;display:inline-block}
+.rarity{display:inline-block;font-size:10px;font-weight:800;padding:4px 8px;border-radius:20px;margin-top:7px;letter-spacing:.4px}
+.r-common{background:#232a36;color:#c3ccd9}.r-uncommon{background:#123324;color:#7fe7b6}.r-rare{background:#12294a;color:#8db8ff}.r-epic{background:#2c1845;color:#cfa2ff}.r-legendary{background:#3d2c07;color:#ffcf6e}.r-mythic{background:#3d1224;color:#ff8fb0}.r-cosmic{background:#0a3340;color:#7deeff}.r-secret{background:#3d0f12;color:#ff9a9e}.r-eternal{background:#3d3207;color:#ffe27a}.r-divine{background:#fff;color:#111;border:1px solid #ffd166;box-shadow:0 0 12px rgba(255,209,102,.45)}.r-brainrot{background:#3a2410;color:#ffb37a}.r-monster{background:#241a3d;color:#b9a5ff}.r-event{background:#3d1226;color:#ff9ecf}
+.honesty{margin-top:16px}
+.honesty ul{margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:13px;line-height:1.75}
+.honesty ul b{color:var(--text)}
+footer{max-width:1180px;margin:auto;padding:0 20px 30px;color:#687386;font-size:11px;line-height:1.6}
+#toasts{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;z-index:50;display:flex;flex-direction:column;gap:8px;width:min(480px,calc(100vw - 32px))}
+.toast{background:#171d29;border:1px solid var(--orange);border-left:4px solid var(--orange);border-radius:12px;padding:13px 15px;font-size:13px;line-height:1.5;box-shadow:0 10px 30px rgba(0,0,0,.55);animation:toastIn .3s ease}
+.toast b{color:#ffb38a}
+@keyframes toastIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.loadmore{width:100%;background:#171d29;border:1px solid var(--line);border-radius:10px;padding:11px;color:var(--text);font-weight:800;cursor:pointer;font-size:13px;margin-top:6px}
+@media(max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.hero{align-items:start;flex-direction:column}.layout{grid-template-columns:1fr}.stats{gap:8px}.stat{padding:12px}.stat strong{font-size:21px}.server{align-items:flex-start}.server-right{font-size:12px}.egg-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}}
 </style>
 </head>
 <body>
-<header><div class="nav"><div class="brand">DELTA <span>X</span> RADAR</div><div class="status">● PANEL EN LÍNEA</div></div></header>
+<header><div class="nav"><div class="brand">DELTA <span>X</span> RADAR</div><div class="nav-right"><span class="updated" id="updated">Conectando…</span><span class="status" id="statusPill"><span class="dot"></span>CONECTANDO</span></div></div></header>
 <main>
-<section class="hero"><div><div class="eyebrow">STEAL AN EGG · LIVE RADAR</div><h1>ENCUENTRA TU<br><span style="color:var(--red)">PRÓXIMO SERVER.</span></h1><p>Explora servidores públicos de Steal An Egg y entra directamente al servidor que elijas.</p></div><button class="refresh" id="refresh">↻ ACTUALIZAR</button></section>
-<section class="stats"><div class="stat"><small>SERVIDORES CARGADOS</small><strong id="serverCount">—</strong></div><div class="stat"><small>JUGADORES EN LISTA</small><strong id="playerCount">—</strong></div><div class="stat"><small>ESTADO DEL RADAR</small><strong style="color:var(--green);font-size:18px">CONECTADO</strong></div></section>
-<div class="layout"><section class="panel"><h2>◈ SERVIDORES PÚBLICOS</h2><div class="filters"><input id="search" placeholder="Buscar servidor..."><select id="sort"><option value="players">Más jugadores</option><option value="empty">Menos jugadores</option></select></div><div id="servers"><div class="empty">Pulsa actualizar para cargar servidores públicos.</div></div></section>
-<aside><section class="panel sidebox"><span class="tag">MÓDULO 01</span><h2>Radar de servidores</h2><p>Esta primera versión muestra servidores públicos disponibles y permite intentar unirse al servidor exacto.</p></section><section class="panel sidebox"><span class="tag">MÓDULO 02 · EN PREPARACIÓN</span><h2>Detector de huevos</h2><p>Los huevos, rarezas, zonas y multiplicadores todavía no se muestran porque el juego debe proporcionar esos datos mediante una fuente autorizada. No se inventarán spawns.</p></section><div class="notice">⚠️ El listado puede tardar o fallar si Roblox limita las solicitudes desde el navegador. La detección real de huevos necesita una fuente de datos adicional.</div></aside></div>
-</main><footer>DELTA X RADAR · Proyecto comunitario no afiliado a Roblox ni a los creadores de Steal An Egg.</footer>
+<section class="hero"><div><div class="eyebrow">STEAL AN EGG · LIVE RADAR</div><h1>ENCUENTRA TU<br><span style="color:var(--red)">PRÓXIMO SERVER.</span></h1><p>Servidores públicos reales de Steal An Egg, catálogo de huevos y alertas de la comunidad. Sin datos inventados: lo que es en vivo dice en vivo, y lo que es referencia dice referencia.</p></div><div class="hero-actions"><button class="refresh" id="refresh">↻ ACTUALIZAR</button><button class="btn-ghost" id="soundToggle">🔔 SONIDO: ON</button></div></section>
+<section class="stats">
+<div class="stat"><small>SERVIDORES CARGADOS</small><strong id="serverCount">—</strong><div class="sub" id="serverSource">—</div></div>
+<div class="stat"><small>JUGADORES EN LISTA</small><strong id="playerCount">—</strong><div class="sub">de 7 por servidor</div></div>
+<div class="stat"><small>PRÓXIMO RESET DE HUEVOS</small><strong id="resetClock" style="color:var(--orange)">--:--</strong><div class="sub">temporizador de ciclo · cada 5 min</div></div>
+<div class="stat"><small>HUEVOS EN CATÁLOGO</small><strong id="eggCount">—</strong><div class="sub">referencia · wiki 20 nov 2026</div></div>
+</section>
+<section class="resetbar"><div class="row"><b>⏱ RESET DE HUEVOS</b><span class="timer" id="resetTimer">--:--</span></div><p>Los huevos se reinician cada 5 minutos en cada servidor. Esto es un temporizador del ciclo, <b style="color:var(--text)">no una predicción</b>: no dice qué huevo va a salir, porque eso es aleatorio en cada reset. Cuando falten 10 segundos, suena la alerta si la tienes activada.</p><div class="progress"><i id="resetProgress" style="width:0%"></i></div></section>
+<div class="layout">
+<section class="panel"><h2>◈ SERVIDORES PÚBLICOS · EN VIVO</h2><p class="hint">Datos reales de la API pública de Roblox: jugadores, capacidad, fps y ping. La API <b style="color:var(--text)">no dice qué huevos hay dentro de cada servidor</b>, así que ningún servidor de esta lista promete un huevo.</p>
+<div class="filters"><input id="search" placeholder="Buscar por ID de servidor…"><select id="sort"><option value="players">Más jugadores</option><option value="empty">Menos jugadores</option><option value="ping">Menor ping</option><option value="fps">Mayor FPS</option></select><select id="occ"><option value="all">Todos</option><option value="space">Con espacio</option><option value="almost">Casi llenos (5–6)</option><option value="low">Casi vacíos (0–2)</option></select></div>
+<div id="servers"><div class="empty">Cargando servidores públicos…</div></div>
+<button class="loadmore" id="loadMore" style="display:none">VER MÁS SERVIDORES</button>
+</section>
+<aside>
+<section class="panel sidebox"><span class="tag red">MÓDULO 01 · EN VIVO</span><h2>Alertas</h2><p>Sonido y avisos para el reset y para los reportes de la comunidad que coincidan con tus rarezas. Tus ajustes se guardan en este dispositivo.</p>
+<div class="rarities" id="rarityPick"></div>
+<button class="btn-ghost" id="testSound" style="width:100%">▶ PROBAR SONIDO</button>
+<button class="btn-ghost" id="notifyToggle" style="width:100%;margin-top:8px">🔕 NOTIFICACIONES DEL SISTEMA: OFF</button>
+<p style="font-size:11px;margin-top:10px">Las alertas suenan para el reset (10 s antes) y cuando alguien reporta un huevo de tus rarezas. El sonido necesita que hayas tocado la página al menos una vez.</p></section>
+<section class="panel sidebox"><span class="tag">MÓDULO 02 · COMUNIDAD</span><h2>Reportar un huevo</h2><p>¿Viste un huevo raro en un servidor? Repórtalo. Queda marcado como <b style="color:var(--text)">SIN VERIFICAR</b> y expira en 5 minutos, cuando pasa el reset.</p>
+<form class="report-form" id="reportForm"><select id="repEgg" required></select><select id="repServer"><option value="">Servidor: no estoy seguro</option></select><input id="repNote" placeholder="Nota (opcional): ej. cerca del lago" maxlength="80"><button type="submit">REPORTAR HUEVO</button></form></section>
+<section class="panel sidebox"><span class="tag green">REPORTES RECIENTES</span><h2>Sin verificar</h2><p>Reportes de jugadores de este dispositivo. Un reporte no confirma que el huevo siga ahí: entra rápido y compruébalo.</p><div id="reports"><div class="empty">Aún no hay reportes.</div></div></section>
+<section class="panel sidebox"><span class="tag">TRACKERS EXTERNOS</span><h2>Spawns raros globales</h2><p>Estos sitios reportan huevos raros en todo el juego, no por servidor. Ábrelos para ver los últimos reportes.</p>
+<a class="linkout" href="https://eggping.com/" target="_blank" rel="noopener"><b>eggPing ↗</b><span>Últimos huevos Secret, Eternal y Divine reportados en el juego. Puede tardar 20–40 s y puede ser de otro servidor.</span></a>
+<a class="linkout" href="https://www.stealegg.com/en/live/" target="_blank" rel="noopener"><b>STEAL EGG Live ↗</b><span>Reportes de huevos raros revisados cada 60 s. Advierte que no es stock garantizado en tu servidor.</span></a>
+<div class="notice">⚠️ Ningún tracker externo dice en qué servidor está el huevo. Si una página te promete el servidor exacto de un huevo raro, está inventando.</div></section>
+</aside>
+</div>
+<section class="panel catalog"><h2>◈ CATÁLOGO DE HUEVOS · REFERENCIA</h2><p class="hint">Catálogo real de la wiki de Steal An Egg (20 nov 2026). Es referencia para saber qué huevo buscar en cada bioma, <b style="color:var(--text)">no es una lista en vivo</b>: no dice qué huevos hay ahora mismo en ningún servidor. El valor de un huevo depende de su tamaño y su mutación, por eso no hay un multiplicador fijo publicado por huevo. Los biomas más nuevos (Alien, Stormlands, Enchanted Forest) aún no están en este catálogo.</p>
+<div class="filters"><input id="eggSearch" placeholder="Buscar huevo…"><select id="eggBiome"><option value="">Todos los biomas</option></select><select id="eggRarity"><option value="">Todas las rarezas</option></select></div>
+<div class="egg-grid" id="eggGrid"></div>
+<p class="hint" style="margin-top:12px" id="eggTotal"></p></section>
+<section class="panel honesty"><h2>◈ QUÉ ES REAL Y QUÉ NO</h2><ul>
+<li><b>Real y en vivo:</b> la lista de servidores (jugadores, capacidad, fps, ping) y el botón JOIN. Viene de la API pública de Roblox, actualizada cada 5 minutos por un robot de GitHub.</li>
+<li><b>Real, pero referencia:</b> el catálogo de huevos por bioma y rareza, de la wiki. No cambia en vivo.</li>
+<li><b>Temporizador, no predicción:</b> el contador del reset marca el ciclo de 5 minutos. No sabe qué huevo va a salir.</li>
+<li><b>Sin verificar:</b> los reportes de la comunidad. Los pone un jugador, expiran en 5 minutos y solo se ven en este dispositivo.</li>
+<li><b>No existe:</b> ninguna fuente pública que diga qué huevos hay dentro de un servidor concreto. Por eso esta página no lo promete.</li>
+</ul></section>
+</main>
+<footer>DELTA X RADAR · Proyecto comunitario no afiliado a Roblox ni a los creadores de Steal An Egg. Datos de servidores: API pública de Roblox. Catálogo: Steal An Egg Wiki (Fandom), 20 nov 2026. Reportes de la comunidad sin verificar.</footer>
+<div id="toasts"></div>
 <script>
 const PLACE_ID="107778070777162";
-let allServers=[];
+const DATA_URL="data/servers.json";
+const ROBLOX_API="https://games.roblox.com/v1/games/"+PLACE_ID+"/servers/Public?sortOrder=Desc&limit=100";
+const PROXY_API="https://api.allorigins.win/raw?url="+encodeURIComponent(ROBLOX_API);
+const REFRESH_MS=60000, RESET_MS=300000, REPORT_TTL=300000;
+const REPORT_WEBHOOK=""; // Opcional: pega aquí la URL de un webhook de Discord para compartir reportes. Vacío = reportes solo en este dispositivo.
 const $=id=>document.getElementById(id);
-async function loadServers(){
-  $("servers").innerHTML='<div class="empty">Consultando servidores públicos…</div>';
+const BIOMES={"Forest":"—","Lake":"900","Desert":"10K","Jungle":"40K","Snow":"170K","Volcano":"700K","Abyss Ocean":"2.5M","Prehistoric":"18M","Cosmic":"700M","Cherry Blossom":"2.5B","Titan Temple":"7B","Angels & Demons":"20B","Brainrot":"Especial","Monster":"Especial","Rift":"Especial","Event":"Especial"};
+const RARITIES=["Common","Uncommon","Rare","Epic","Legendary","Mythic","Cosmic","Secret","Eternal","Divine","Brainrot","Monster","Event"];
+/* Catálogo real — Steal An Egg Wiki (Fandom), 20 nov 2026. [nombre, rareza, bioma, imagen?] */
+const EGGS=[
+["Chicken","Common","Forest"],["Dog","Common","Forest"],["Bird","Uncommon","Forest"],["Burrowing Owl","Rare","Forest"],["Raccoon","Rare","Forest"],["Fox","Epic","Forest"],["Bear","Epic","Forest"],["Brr Brr Patapim","Legendary","Forest"],
+["Frog","Common","Lake"],["Duckling","Common","Lake"],["Catfish","Uncommon","Lake"],["Turtle","Rare","Lake"],["Trulimero Trulicina","Epic","Lake"],["Swan","Epic","Lake"],["Axolotl","Legendary","Lake"],["Leviathan","Cosmic","Lake"],
+["Jerboa","Common","Desert"],["Fennec","Uncommon","Desert"],["Camel","Rare","Desert"],["Tob Tobi Tob Tob","Epic","Desert"],["Snake","Legendary","Desert"],["Sand Spider","Mythic","Desert"],["Scorpion","Mythic","Desert"],["Royal Sphinx","Cosmic","Desert"],
+["Chimpanzee","Rare","Jungle"],["Toucan","Rare","Jungle"],["Crocodile","Epic","Jungle"],["Gorilla","Legendary","Jungle"],["Orangutini Ananassini","Legendary","Jungle"],["Spider","Mythic","Jungle"],["Tiger","Mythic","Jungle"],["King Snake","Secret","Jungle"],
+["Penguin","Rare","Snow"],["Walrus","Epic","Snow"],["Polar Bear","Legendary","Snow"],["Sabertooth Tiger","Mythic","Snow"],["Mammoth","Mythic","Snow"],["King Mammoth","Cosmic","Snow"],["Yeti","Secret","Snow"],["Ice Dragon","Eternal","Snow"],
+["Lava Gecko","Rare","Volcano"],["Lava Frog","Epic","Volcano"],["Flaming Bull","Legendary","Volcano"],["Lava Iguana","Legendary","Volcano"],["Chillin Chilli","Mythic","Volcano"],["Cerberus","Secret","Volcano"],["Phoenix","Eternal","Volcano"],["Lava Dragon","Eternal","Volcano"],
+["Parrotfish","Rare","Abyss Ocean"],["Swordfish","Epic","Abyss Ocean"],["Shark","Legendary","Abyss Ocean"],["Orca","Mythic","Abyss Ocean"],["Whale Shark","Cosmic","Abyss Ocean"],["Beluga Whale","Cosmic","Abyss Ocean"],["Kraken","Secret","Abyss Ocean"],["El Maja","Eternal","Abyss Ocean"],
+["Dodo","Rare","Prehistoric"],["Pterodactyl","Legendary","Prehistoric"],["Ankylosaurus","Mythic","Prehistoric"],["Triceratops","Cosmic","Prehistoric"],["Bronto","Cosmic","Prehistoric"],["T-Rex","Secret","Prehistoric"],["Tralaledon","Secret","Prehistoric"],["Mosasaurus","Eternal","Prehistoric"],
+["Centapede","Epic","Cosmic"],["Cosmic Gecko","Legendary","Cosmic"],["Cosmic Gorilla","Mythic","Cosmic"],["La Vacca Saturno Saturnita","Cosmic","Cosmic"],["Cosmic Skeleton Boss","Secret","Cosmic"],["Cosmic Dragon","Secret","Cosmic"],["Eternal Lunar Dragon","Eternal","Cosmic"],["Unicorn","Divine","Cosmic"],
+["Crane","Epic","Cherry Blossom"],["Salamander","Legendary","Cherry Blossom"],["Red Panda","Mythic","Cherry Blossom"],["Snowy Owl","Cosmic","Cherry Blossom"],["Koi","Cosmic","Cherry Blossom"],["Stag","Secret","Cherry Blossom"],["Oni Tiger","Eternal","Cherry Blossom"],["Kitsune","Divine","Cherry Blossom"],
+["Spideron","Legendary","Titan Temple"],["Crustacia","Legendary","Titan Temple"],["Bladehide","Mythic","Titan Temple"],["Mantaris","Cosmic","Titan Temple"],["Rhinotaur","Cosmic","Titan Temple"],["Mutant Shark","Secret","Titan Temple"],["Gorilla King","Eternal","Titan Temple"],["Nightflame","Divine","Titan Temple"],
+["Flame Sprite","Legendary","Angels & Demons"],["Light Dove","Legendary","Angels & Demons"],["Toro","Mythic","Angels & Demons"],["Winged Lamb","Mythic","Angels & Demons"],["Imp","Cosmic","Angels & Demons"],["Sacred Moth","Cosmic","Angels & Demons"],["Demon Hound","Cosmic","Angels & Demons"],["Holy Peacock","Cosmic","Angels & Demons"],["Pure Jellyfish","Secret","Angels & Demons"],["Gargoyle","Secret","Angels & Demons"],["Centaur","Secret","Angels & Demons"],["RazorFang","Secret","Angels & Demons"],["Pegasus","Eternal","Angels & Demons"],["Skeleton Horse","Eternal","Angels & Demons"],["Equinox","Eternal","Angels & Demons"],["World Burner","Divine","Angels & Demons"],["ArchAngel","Divine","Angels & Demons"],["Aetheron","Divine","Angels & Demons"],
+["Tung Tung Sahur","Brainrot","Brainrot","Brainrot Egg"],["Bananita Dolphinita","Brainrot","Brainrot","Brainrot Egg"],["Belula Beluga","Brainrot","Brainrot","Brainrot Egg"],["Mangolini Parrochini","Brainrot","Brainrot","Brainrot Egg"],["Bomboclat Crocolat","Brainrot","Brainrot","Brainrot Egg"],["Strawberry Elephant","Brainrot","Brainrot","Brainrot Egg"],
+["Scorpio","Monster","Monster","Monster Egg"],["Froggo","Monster","Monster","Monster Egg"],["Crawler","Monster","Monster","Monster Egg"],["Crocodon","Monster","Monster","Monster Egg"],["Mecha Scorpio","Monster","Monster","Mecha Egg"],["Mecha Froggo","Monster","Monster","Mecha Egg"],["Mecha Crawler","Monster","Monster","Mecha Egg"],["Krakenoid","Monster","Monster","Monster Egg"],["Mecha Crocodon","Monster","Monster","Mecha Egg"],["Mecha Krakenoid","Monster","Monster","Mecha Egg"],["Dreadscale","Monster","Monster","Monster Egg"],["Mecha Dreadscale","Monster","Monster","Mecha Egg"],
+["Rift Eye","Legendary","Rift","Riftborn Egg"],["Void Angler","Legendary","Rift","Riftbeasts Egg"],["Voidmaw","Mythic","Rift","Riftborn Egg"],["Riftwing","Mythic","Rift","Riftbeasts Egg"],["Shardling","Mythic","Rift","Shattered Rift Egg"],["Ventinal","Cosmic","Rift","Riftborn Egg"],["Abyss Overlord","Secret","Rift","Riftborn Egg"],["Dreadclaw","Cosmic","Rift","Riftbeasts Egg"],["Shattered Ram","Cosmic","Rift","Shattered Rift Egg"],["Wendigo","Secret","Rift","Riftborn Egg"],["Mawbreaker","Secret","Rift","Riftbeasts Egg"],["Shardwing","Secret","Rift","Shattered Rift Egg"],["World Eater","Eternal","Rift","Riftborn Egg"],["Shattered Drake","Eternal","Rift","Shattered Rift Egg"],["Void Serpent","Eternal","Rift","Riftbeasts Egg"],["Shattered Colossus","Divine","Rift","Shattered Rift Egg"],
+["Baby Aurora Dragon","Event","Event","Dragon Egg"],["Shadow Dragon","Event","Event","Dragon Egg"],["Scorched Dragon","Event","Event","Scorched Dragon Egg"],["Drilla","Event","Event","Drilla Egg"],["Void Dragon","Event","Event","Dragon Egg"],["Ember Dragon","Event","Event","Dragon Egg"]
+];
+const eggImg=e=>"https://stealanegg.fandom.com/wiki/Special:FilePath/"+encodeURIComponent((e[3]||e[0]+" Egg")+".png");
+const eggWiki=e=>"https://stealanegg.fandom.com/wiki/"+encodeURIComponent(e[0].replace(/ /g,"_"));
+const rarClass=r=>"r-"+r.toLowerCase();
+/* Ajustes persistentes */
+const DEF_SET={sound:true,notify:false,rarities:{Secret:true,Eternal:true,Divine:true}};
+let settings=DEF_SET;
+try{const s=JSON.parse(localStorage.getItem("dxr_settings_v1")||"null");if(s)settings={...DEF_SET,...s,rarities:{...DEF_SET.rarities,...(s.rarities||{})}};}catch(e){}
+function saveSettings(){try{localStorage.setItem("dxr_settings_v1",JSON.stringify(settings));}catch(e){}}
+let reports=[];
+try{reports=JSON.parse(localStorage.getItem("dxr_reports_v1")||"[]");}catch(e){reports=[];}
+function saveReports(){try{localStorage.setItem("dxr_reports_v1",JSON.stringify(reports));}catch(e){}}
+let allServers=[],shownCount=50,lastSource="",lastGeneratedAt=null,audioCtx=null,lastResetCycle=-1;
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const timeAgo=ts=>{const s=Math.max(0,Math.floor((Date.now()-ts)/1000));if(s<60)return"Hace "+s+" s";const m=Math.floor(s/60);return"Hace "+m+" min";};
+/* ---- Servidores ---- */
+function setStatus(ok,txt){const p=$("statusPill");p.classList.toggle("off",!ok);p.innerHTML='<span class="dot"></span>'+esc(txt);}
+function setUpdated(txt){$("updated").textContent=txt;}
+async function fetchJSON(url){const r=await fetch(url,{cache:"no-store"});if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}
+async function loadServers(manual){
+  if(manual){$("refresh").disabled=true;$("refresh").textContent="CARGANDO…";}
+  let data=null,source="";
+  try{data=await fetchJSON(DATA_URL);if(data&&data.servers&&data.servers.length){source="github";}else throw new Error("sin datos");}
+  catch(e1){try{data=await fetchJSON(ROBLOX_API);source="live";}catch(e2){try{data=await fetchJSON(PROXY_API);source="proxy";}catch(e3){data=null;}}}
+  $("refresh").disabled=false;$("refresh").textContent="↻ ACTUALIZAR";
+  if(!data||!data.servers){allServers=[];renderServers();setStatus(false,"SIN CONEXIÓN");setUpdated("No se pudo cargar la lista");$("serverSource").textContent="Reintenta en unos segundos";return;}
+  allServers=data.servers;lastSource=source;lastGeneratedAt=data.generated_at||null;
+  renderServers();fillServerSelect();
+  const total=allServers.reduce((n,s)=>n+(s.playing||0),0);
+  $("serverCount").textContent=allServers.length;$("playerCount").textContent=total;
+  if(source==="github"){setStatus(true,"EN VIVO · ROBOT");$("serverSource").textContent="Robot GitHub · se actualiza cada 5 min";}
+  else if(source==="live"){setStatus(true,"EN VIVO");$("serverSource").textContent="Directo desde Roblox";}
+  else{setStatus(true,"EN VIVO · PROXY");$("serverSource").textContent="Vía proxy público";}
+  updateUpdatedLabel();
+}
+function updateUpdatedLabel(){
+  if(lastSource==="github"&&lastGeneratedAt){const age=Math.max(0,Math.round((Date.now()-new Date(lastGeneratedAt).getTime())/60000));setUpdated(age<1?"Actualizado hace menos de 1 min":"Actualizado hace "+age+" min");}
+  else if(lastSource){setUpdated("Actualizado ahora mismo");}
+}
+function renderServers(){
+  const term=$("search").value.toLowerCase(),sort=$("sort").value,occ=$("occ").value;
+  let rows=allServers.filter(s=>{
+    const haystack=(s.id||"").toLowerCase();
+    if(term&&!haystack.includes(term))return false;
+    if(occ==="space"&&!((s.playing||0)<(s.maxPlayers||7)))return false;
+    if(occ==="almost"&&!((s.playing||0)>=5&&(s.playing||0)<(s.maxPlayers||7)))return false;
+    if(occ==="low"&&!((s.playing||0)<=2))return false;
+    return true;
+  });
+  rows.sort((a,b)=>sort==="players"?(b.playing||0)-(a.playing||0):sort==="empty"?(a.playing||0)-(b.playing||0):sort==="ping"?(a.ping==null?1e9:a.ping)-(b.ping==null?1e9:b.ping):(b.fps||-1)-(a.fps||-1));
+  $("serverCount").textContent=allServers.length;
+  $("playerCount").textContent=allServers.reduce((n,s)=>n+(s.playing||0),0);
+  const box=$("servers");
+  if(!rows.length){box.innerHTML='<div class="empty">No hay servidores que coincidan con ese filtro.</div>';$("loadMore").style.display="none";return;}
+  const view=rows.slice(0,shownCount);
+  box.innerHTML=view.map((s,i)=>{
+    const ping=s.ping==null?"":("Ping "+Math.round(s.ping)+" ms"),fps=s.fps==null?"":(Math.round(s.fps)+" FPS");
+    const meta=[ping,fps].filter(Boolean).join(" · ");
+    return '<article class="server"><div><b>Servidor #'+(i+1)+'</b><small>ID: '+esc((s.id||"").slice(0,8))+'… · '+(s.maxPlayers||7)+' espacios</small></div><div class="server-right"><div class="players">'+(s.playing||0)+'/'+(s.maxPlayers||7)+' jugadores</div>'+(meta?'<div class="ping">'+esc(meta)+'</div>':"")+'<a class="join" href="https://www.roblox.com/games/start?placeId='+PLACE_ID+'&gameInstanceId='+encodeURIComponent(s.id)+'" target="_blank" rel="noopener">JOIN ↗</a><button class="copy" data-id="'+esc(s.id)+'">COPIAR ID</button></div></article>';
+  }).join("");
+  $("loadMore").style.display=rows.length>shownCount?"block":"none";
+  box.querySelectorAll(".copy").forEach(b=>b.addEventListener("click",()=>{
+    const id=b.getAttribute("data-id");
+    const done=()=>{b.textContent="COPIADO ✓";setTimeout(()=>b.textContent="COPIAR ID",1500);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(id).then(done).catch(()=>{prompt("ID del servidor:",id);});}
+    else prompt("ID del servidor:",id);
+  }));
+}
+function fillServerSelect(){
+  const sel=$("repServer");const cur=sel.value;
+  sel.innerHTML='<option value="">Servidor: no estoy seguro</option>'+allServers.slice(0,100).map((s,i)=>'<option value="'+esc(s.id)+'">Servidor #'+(i+1)+' · '+(s.playing||0)+'/'+(s.maxPlayers||7)+'</option>').join("");
+  sel.value=cur;
+}
+/* ---- Reset de 5 minutos ---- */
+function tick(){
+  const now=Date.now(),elapsed=now%RESET_MS,left=RESET_MS-elapsed;
+  const m=Math.floor(left/60000),s=Math.floor((left%60000)/1000);
+  const txt=String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+  $("resetTimer").textContent=txt;$("resetClock").textContent=txt;
+  $("resetProgress").style.width=(elapsed/RESET_MS*100).toFixed(1)+"%";
+  const cycle=Math.floor(now/RESET_MS);
+  if(left<=10000&&cycle!==lastResetCycle){lastResetCycle=cycle;fireAlert("Reset de huevos en 10 segundos","Los huevos se reinician en todas partes. Prepárate para entrar.");}
+}
+/* ---- Alertas ---- */
+function beep(){
   try{
-    let url=`https://games.roblox.com/v1/games/${PLACE_ID}/servers/Public?sortOrder=Desc&limit=100`;
-    let data=await fetch(url).then(r=>{if(!r.ok)throw new Error("Roblox no permitió la consulta");return r.json()});
-    allServers=data.data||[];
-    render();
-  }catch(e){
-    $("servers").innerHTML='<div class="empty">No se pudo consultar Roblox desde este navegador. Para producción hace falta conectar un pequeño backend que consulte la API pública.</div>';
-    $("serverCount").textContent="—";$("playerCount").textContent="—";
-  }
+    if(!audioCtx)audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+    if(audioCtx.state==="suspended")audioCtx.resume();
+    [880,1318].forEach((f,i)=>{
+      const o=audioCtx.createOscillator(),g=audioCtx.createGain();
+      o.type="sine";o.frequency.value=f;g.gain.setValueAtTime(0.0001,audioCtx.currentTime+i*0.18);
+      g.gain.exponentialRampToValueAtTime(0.25,audioCtx.currentTime+i*0.18+0.03);
+      g.gain.exponentialRampToValueAtTime(0.0001,audioCtx.currentTime+i*0.18+0.22);
+      o.connect(g);g.connect(audioCtx.destination);o.start(audioCtx.currentTime+i*0.18);o.stop(audioCtx.currentTime+i*0.18+0.25);
+    });
+  }catch(e){}
 }
-function render(){
- const term=$("search").value.toLowerCase();
- let rows=allServers.filter(s=>(s.id||"").toLowerCase().includes(term));
- rows.sort((a,b)=>$("sort").value==="players"?b.playing-a.playing:a.playing-b.playing);
- $("serverCount").textContent=allServers.length;
- $("playerCount").textContent=allServers.reduce((n,s)=>n+(s.playing||0),0);
- $("servers").innerHTML=rows.length?rows.map((s,i)=>`<article class="server"><div><b>Servidor #${i+1}</b><small>ID: ${(s.id||"").slice(0,8)}… · ${s.maxPlayers||"? "} espacios</small></div><div class="server-right"><div class="players">${s.playing||0}/${s.maxPlayers||"?"} jugadores</div><a class="join" href="https://www.roblox.com/games/start?placeId=${PLACE_ID}&gameInstanceId=${encodeURIComponent(s.id)}" target="_blank" rel="noopener">JOIN ↗</a></div></article>`).join(""):'<div class="empty">No hay servidores que coincidan.</div>';
+function toast(html){
+  const d=document.createElement("div");d.className="toast";d.innerHTML=html;
+  $("toasts").appendChild(d);setTimeout(()=>d.remove(),7000);
 }
-$("refresh").addEventListener("click",loadServers);$("search").addEventListener("input",render);$("sort").addEventListener("change",render);
-loadServers();
+function fireAlert(title,body){
+  toast("<b>"+esc(title)+"</b><br>"+esc(body));
+  if(settings.sound)beep();
+  if(settings.notify&&"Notification"in window&&Notification.permission==="granted"){try{new Notification("DELTA X RADAR — "+title,{body});}catch(e){}}
+}
+function buildRarityPick(){
+  $("rarityPick").innerHTML=RARITIES.filter(r=>["Secret","Eternal","Divine","Cosmic","Mythic","Legendary"].includes(r)).map(r=>
+    '<label><input type="checkbox" data-r="'+r+'"'+(settings.rarities[r]?" checked":"")+'> '+r+'</label>').join("");
+  $("rarityPick").querySelectorAll("input").forEach(c=>c.addEventListener("change",()=>{settings.rarities[c.getAttribute("data-r")]=c.checked;saveSettings();}));
+}
+function syncSoundBtn(){$("soundToggle").textContent=settings.sound?"🔔 SONIDO: ON":"🔕 SONIDO: OFF";$("soundToggle").classList.toggle("on",settings.sound);}
+function syncNotifyBtn(){$("notifyToggle").textContent=settings.notify?"🔔 NOTIFICACIONES DEL SISTEMA: ON":"🔕 NOTIFICACIONES DEL SISTEMA: OFF";}
+/* ---- Reportes ---- */
+function pruneReports(){const before=reports.length;reports=reports.filter(r=>Date.now()-r.ts<REPORT_TTL);if(reports.length!==before)saveReports();}
+function renderReports(){
+  pruneReports();
+  const box=$("reports");
+  if(!reports.length){box.innerHTML='<div class="empty">Aún no hay reportes.</div>';return;}
+  box.innerHTML=reports.slice().sort((a,b)=>b.ts-a.ts).map(r=>
+    '<div class="report"><b>'+esc(r.egg)+'</b><span class="rarity '+rarClass(r.rarity)+'">'+esc(r.rarity)+'</span><span class="badge-unverified">SIN VERIFICAR</span><div class="meta">'+esc(r.biome)+' · '+esc(r.serverLabel||"Servidor no especificado")+' · '+timeAgo(r.ts)+(r.note?" · "+esc(r.note):"")+'</div></div>').join("");
+}
+function submitReport(ev){
+  ev.preventDefault();
+  const eggName=$("repEgg").value;if(!eggName)return;
+  const egg=EGGS.find(e=>e[0]===eggName);if(!egg)return;
+  const sid=$("repServer").value;
+  const sidx=allServers.findIndex(s=>s.id===sid);
+  const rep={egg:egg[0],rarity:egg[1],biome:egg[2],serverId:sid||"",serverLabel:sid?("Servidor #"+(sidx+1)+" · "+(allServers[sidx].playing||0)+"/"+(allServers[sidx].maxPlayers||7)):"",note:$("repNote").value.trim(),ts:Date.now()};
+  reports.push(rep);saveReports();renderReports();
+  $("repNote").value="";
+  if(settings.rarities[egg[1]])fireAlert("Reporte: "+egg[0]+" ("+egg[1]+")","Alguien reportó este huevo en "+(rep.serverLabel||"un servidor")+". Sin verificar — expira en 5 min.");
+  else toast("<b>Reporte guardado</b><br>"+esc(egg[0])+" · sin verificar · expira en 5 min.");
+  if(REPORT_WEBHOOK){fetch(REPORT_WEBHOOK,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({username:"DELTA X RADAR",content:"🥚 Reporte: **"+egg[0]+"** ("+egg[1]+", "+egg[2]+") — "+(rep.serverLabel||"servidor no especificado")+(rep.note?" — "+rep.note:"")})}).catch(()=>{});}
+}
+/* ---- Catálogo ---- */
+function buildCatalogFilters(){
+  const b=$("eggBiome");Object.keys(BIOMES).forEach(k=>{const o=document.createElement("option");o.value=k;o.textContent=k+(BIOMES[k]!=="—"&&BIOMES[k]!=="Especial"?" · "+BIOMES[k]+" Speed":"");b.appendChild(o);});
+  const r=$("eggRarity");RARITIES.forEach(k=>{const o=document.createElement("option");o.value=k;o.textContent=k;r.appendChild(o);});
+  const saved=JSON.parse(localStorage.getItem("dxr_cat_v1")||"{}");
+  if(saved.q)$("eggSearch").value=saved.q;if(saved.b)$("eggBiome").value=saved.b;if(saved.r)$("eggRarity").value=saved.r;
+}
+function renderEggs(){
+  const q=$("eggSearch").value.toLowerCase(),b=$("eggBiome").value,r=$("eggRarity").value;
+  try{localStorage.setItem("dxr_cat_v1",JSON.stringify({q:$("eggSearch").value,b,r}));}catch(e){}
+  const rows=EGGS.filter(e=>(!q||e[0].toLowerCase().includes(q))&&(!b||e[2]===b)&&(!r||e[1]===r));
+  $("eggCount").textContent=EGGS.length;
+  $("eggTotal").textContent=rows.length+" huevos · Catálogo de referencia · Steal An Egg Wiki, 20 nov 2026 · Las imágenes son de la wiki.";
+  $("eggGrid").innerHTML=rows.length?rows.map(e=>
+    '<div class="egg-card"><div class="egg-ph" style="display:none">◆</div><img src="'+eggImg(e)+'" alt="'+esc(e[0])+' Egg" loading="lazy" onerror="this.style.display=\'none\';this.previousElementSibling.style.display=\'flex\'"><b>'+esc(e[0])+' Egg</b><div class="biome">'+esc(e[2])+(BIOMES[e[2]]&&BIOMES[e[2]]!=="—"&&BIOMES[e[2]]!=="Especial"?" · "+BIOMES[e[2]]+" Speed":"")+'</div><span class="rarity '+rarClass(e[1])+'">'+esc(e[1])+'</span><br><a class="wiki" href="'+eggWiki(e)+'" target="_blank" rel="noopener">Ver en wiki ↗</a></div>').join(""):'<div class="empty">Ningún huevo coincide con ese filtro.</div>';
+}
+/* ---- Inicio ---- */
+(function init(){
+  buildRarityPick();syncSoundBtn();syncNotifyBtn();buildCatalogFilters();renderEggs();renderReports();
+  const repEgg=$("repEgg");
+  Object.keys(BIOMES).forEach(bi=>{
+    const g=document.createElement("optgroup");g.label=bi;
+    EGGS.filter(e=>e[2]===bi).forEach(e=>{const o=document.createElement("option");o.value=e[0];o.textContent=e[0]+" Egg ("+e[1]+")";g.appendChild(o);});
+    repEgg.appendChild(g);
+  });
+  $("refresh").addEventListener("click",()=>{shownCount=50;loadServers(true);});
+  $("search").addEventListener("input",()=>{shownCount=50;renderServers();});
+  $("sort").addEventListener("change",renderServers);
+  $("occ").addEventListener("change",renderServers);
+  $("loadMore").addEventListener("click",()=>{shownCount+=50;renderServers();});
+  $("eggSearch").addEventListener("input",renderEggs);
+  $("eggBiome").addEventListener("change",renderEggs);
+  $("eggRarity").addEventListener("change",renderEggs);
+  $("soundToggle").addEventListener("click",()=>{settings.sound=!settings.sound;saveSettings();syncSoundBtn();if(settings.sound)beep();});
+  $("testSound").addEventListener("click",()=>{beep();toast("<b>Sonido de alerta</b><br>Así suena cuando aparezca algo de tus rarezas.");});
+  $("notifyToggle").addEventListener("click",()=>{
+    if(!("Notification" in window)){toast("<b>Notificaciones no disponibles</b><br>Este navegador no las permite.");return;}
+    if(!settings.notify){Notification.requestPermission().then(p=>{settings.notify=p==="granted";saveSettings();syncNotifyBtn();if(settings.notify)fireAlert("Notificaciones activadas","Te avisaré también fuera de la página cuando puedas.");});}
+    else{settings.notify=false;saveSettings();syncNotifyBtn();}
+  });
+  $("reportForm").addEventListener("submit",submitReport);
+  loadServers(false);
+  setInterval(()=>loadServers(false),REFRESH_MS);
+  setInterval(tick,1000);tick();
+  setInterval(updateUpdatedLabel,30000);
+  setInterval(renderReports,30000);
+})();
 </script>
-</body></html>
+</body>
+</html>
