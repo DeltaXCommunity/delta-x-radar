@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090b10">
+<title>DELTA X RADAR</title>
+<style>
+:root{--bg:#080a0f;--panel:#11151e;--panel2:#171d29;--line:#252d3b;--red:#ff3b42;--orange:#ff8a24;--muted:#929bad;--text:#f4f6fb;--green:#55e6a5}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#3a111b 0,transparent 45%),var(--bg);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif}
+header{position:sticky;top:0;z-index:5;background:#090b10eF;border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+.nav{max-width:1180px;margin:auto;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-weight:950;letter-spacing:1.5px;font-size:19px}.brand span{color:var(--red)}.status{font-size:11px;color:var(--green);border:1px solid #285b48;padding:6px 9px;border-radius:30px}
+main{max-width:1180px;margin:auto;padding:34px 20px 60px}
+.hero{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:25px}.eyebrow{color:var(--orange);font-weight:800;font-size:11px;letter-spacing:2px}.hero h1{font-size:clamp(30px,6vw,54px);margin:7px 0 8px;line-height:1}.hero p{color:var(--muted);margin:0;max-width:600px;line-height:1.5}.refresh{background:linear-gradient(120deg,var(--red),#ff742b);border:0;border-radius:12px;padding:12px 16px;color:white;font-weight:850;cursor:pointer}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}.stat,.panel{background:linear-gradient(145deg,#151a24,#0e121a);border:1px solid var(--line);border-radius:16px}.stat{padding:16px}.stat small{color:var(--muted)}.stat strong{display:block;font-size:25px;margin-top:5px}
+.layout{display:grid;grid-template-columns:1fr 300px;gap:16px}.panel{padding:18px}.panel h2{font-size:16px;margin:0 0 14px}.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:15px}.filters input,.filters select{background:#0a0e15;border:1px solid var(--line);color:var(--text);border-radius:9px;padding:10px;min-width:130px;flex:1}
+.server{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px;background:#0c1018;border:1px solid #202938;border-radius:12px;margin:9px 0}.server b{display:block;font-size:14px}.server small{color:var(--muted)}.server-right{text-align:right;white-space:nowrap}.players{color:var(--green);font-size:12px}.join{display:inline-block;margin-top:7px;background:#252d3b;color:white;text-decoration:none;padding:7px 12px;border-radius:8px;font-weight:800;font-size:12px}
+.empty{color:var(--muted);text-align:center;padding:28px 8px;border:1px dashed var(--line);border-radius:12px}.notice{font-size:12px;color:#c0c7d3;line-height:1.6;background:#1b1720;border:1px solid #49303a;border-radius:12px;padding:13px}.sidebox{margin-bottom:14px}.sidebox p{font-size:13px;color:var(--muted);line-height:1.5;margin:0}.tag{display:inline-block;font-size:10px;color:#ffbd84;background:#3b2418;padding:5px 8px;border-radius:20px;margin-bottom:10px}
+footer{max-width:1180px;margin:auto;padding:0 20px 30px;color:#687386;font-size:11px}
+@media(max-width:760px){.hero{align-items:start;flex-direction:column}.layout{grid-template-columns:1fr}.stats{gap:8px}.stat{padding:12px}.stat strong{font-size:21px}.server{align-items:flex-start}.server-right{font-size:12px}}
+</style>
+</head>
+<body>
+<header><div class="nav"><div class="brand">DELTA <span>X</span> RADAR</div><div class="status">● PANEL EN LÍNEA</div></div></header>
+<main>
+<section class="hero"><div><div class="eyebrow">STEAL AN EGG · LIVE RADAR</div><h1>ENCUENTRA TU<br><span style="color:var(--red)">PRÓXIMO SERVER.</span></h1><p>Explora servidores públicos de Steal An Egg y entra directamente al servidor que elijas.</p></div><button class="refresh" id="refresh">↻ ACTUALIZAR</button></section>
+<section class="stats"><div class="stat"><small>SERVIDORES CARGADOS</small><strong id="serverCount">—</strong></div><div class="stat"><small>JUGADORES EN LISTA</small><strong id="playerCount">—</strong></div><div class="stat"><small>ESTADO DEL RADAR</small><strong style="color:var(--green);font-size:18px">CONECTADO</strong></div></section>
+<div class="layout"><section class="panel"><h2>◈ SERVIDORES PÚBLICOS</h2><div class="filters"><input id="search" placeholder="Buscar servidor..."><select id="sort"><option value="players">Más jugadores</option><option value="empty">Menos jugadores</option></select></div><div id="servers"><div class="empty">Pulsa actualizar para cargar servidores públicos.</div></div></section>
+<aside><section class="panel sidebox"><span class="tag">MÓDULO 01</span><h2>Radar de servidores</h2><p>Esta primera versión muestra servidores públicos disponibles y permite intentar unirse al servidor exacto.</p></section><section class="panel sidebox"><span class="tag">MÓDULO 02 · EN PREPARACIÓN</span><h2>Detector de huevos</h2><p>Los huevos, rarezas, zonas y multiplicadores todavía no se muestran porque el juego debe proporcionar esos datos mediante una fuente autorizada. No se inventarán spawns.</p></section><div class="notice">⚠️ El listado puede tardar o fallar si Roblox limita las solicitudes desde el navegador. La detección real de huevos necesita una fuente de datos adicional.</div></aside></div>
+</main><footer>DELTA X RADAR · Proyecto comunitario no afiliado a Roblox ni a los creadores de Steal An Egg.</footer>
+<script>
+const PLACE_ID="107778070777162";
+let allServers=[];
+const $=id=>document.getElementById(id);
+async function loadServers(){
+  $("servers").innerHTML='<div class="empty">Consultando servidores públicos…</div>';
+  try{
+    let url=`https://games.roblox.com/v1/games/${PLACE_ID}/servers/Public?sortOrder=Desc&limit=100`;
+    let data=await fetch(url).then(r=>{if(!r.ok)throw new Error("Roblox no permitió la consulta");return r.json()});
+    allServers=data.data||[];
+    render();
+  }catch(e){
+    $("servers").innerHTML='<div class="empty">No se pudo consultar Roblox desde este navegador. Para producción hace falta conectar un pequeño backend que consulte la API pública.</div>';
+    $("serverCount").textContent="—";$("playerCount").textContent="—";
+  }
+}
+function render(){
+ const term=$("search").value.toLowerCase();
+ let rows=allServers.filter(s=>(s.id||"").toLowerCase().includes(term));
+ rows.sort((a,b)=>$("sort").value==="players"?b.playing-a.playing:a.playing-b.playing);
+ $("serverCount").textContent=allServers.length;
+ $("playerCount").textContent=allServers.reduce((n,s)=>n+(s.playing||0),0);
+ $("servers").innerHTML=rows.length?rows.map((s,i)=>`<article class="server"><div><b>Servidor #${i+1}</b><small>ID: ${(s.id||"").slice(0,8)}… · ${s.maxPlayers||"? "} espacios</small></div><div class="server-right"><div class="players">${s.playing||0}/${s.maxPlayers||"?"} jugadores</div><a class="join" href="https://www.roblox.com/games/start?placeId=${PLACE_ID}&gameInstanceId=${encodeURIComponent(s.id)}" target="_blank" rel="noopener">JOIN ↗</a></div></article>`).join(""):'<div class="empty">No hay servidores que coincidan.</div>';
+}
+$("refresh").addEventListener("click",loadServers);$("search").addEventListener("input",render);$("sort").addEventListener("change",render);
+loadServers();
+</script>
+</body></html>
