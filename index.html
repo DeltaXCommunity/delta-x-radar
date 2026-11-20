@@ -321,7 +321,7 @@ function buildCatalogFilters(){
   const saved=JSON.parse(localStorage.getItem("dxr_cat_v1")||"{}");
   if(saved.q)$("eggSearch").value=saved.q;if(saved.b)$("eggBiome").value=saved.b;if(saved.r)$("eggRarity").value=saved.r;
 }
-function eggCardImg(e){const u=eggImg(e);if(!u)return '<div class="egg-ph">◆</div>';return '<div class="egg-ph" style="display:none">◆</div><img src="'+u+'" alt="'+esc(e[0])+' Egg" loading="lazy" onerror="this.style.display=\'none\';this.previousElementSibling.style.display=\'flex\'">';}
+function eggCardImg(e){const u=eggImg(e);if(!u)return '<div class="egg-ph">◆</div>';return '<div class="egg-ph" style="display:none">◆</div><img src="'+u+'" alt="'+esc(e[0])+' Egg" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display=\'none\';this.previousElementSibling.style.display=\'flex\'">';}
 function renderEggs(){
   const q=$("eggSearch").value.toLowerCase(),b=$("eggBiome").value,r=$("eggRarity").value;
   try{localStorage.setItem("dxr_cat_v1",JSON.stringify({q:$("eggSearch").value,b,r}));}catch(e){}
